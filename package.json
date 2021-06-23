@@ -21,7 +21,8 @@
       "scope": "source.pgn",
       "file-types": [
         "pgn"
-      ]
+      ],
+      "first-line-regex": "^\\[Event "
     }
   ]
 }
