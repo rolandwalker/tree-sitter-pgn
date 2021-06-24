@@ -12,12 +12,12 @@
 (tagpair tagpair_value_delimiter: (double_quote) @string)
 (tagpair_value_contents) @string
 
-(movetext (move_number) @constant)
-(movetext (san_move) @constant)
+(movetext (move_number) @function)
+(movetext (san_move) @function)
 
 (variation_delimiter_open) @operator
 (variation_delimiter_close) @operator
 (variation_movetext variation_san_move: (san_move) @operator)
 (variation_movetext variation_move_number: (move_number) @operator)
 
-(result_code) @function
+(result_code) @property
