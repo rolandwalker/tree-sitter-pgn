@@ -164,7 +164,9 @@ module.exports = grammar({
     inline_comment_delimiter_close: $ => '}',
 
     // Todo: Consider enforcing <move_number> <white_move> <black_move> so
-    // that <move_number> can appear only in one position
+    // that <move_number> can appear only in one position.  Note: this would
+    // be incompatible with handling crazyhouse and bughouse variants in the
+    // same grammar.
     _movetext_element: $ => choice(
       field('move_number', $.move_number),
       field('san_move', $.san_move),
@@ -201,7 +203,8 @@ module.exports = grammar({
     // curly brackets within commentary to parentheses on save.
     inline_comment_text: $ => token.immediate(/[^\}]*/),
 
-    move_number: $ => /\d+\s*\.[\s\.]*/,
+    // [AaBb] is for bughouse
+    move_number: $ => /\d+[AaBb]?\s*\.[\s\.]*/,
 
     san_move: $ => seq(
       $._san_move_piece,
@@ -210,7 +213,9 @@ module.exports = grammar({
 
     _san_move_piece: $ => choice(
       $._san_move_pawn,
+      $._san_drop_pawn,
       $._san_move_major_or_minor_piece,
+      $._san_drop_major_or_minor_piece,
       $._san_move_castle,
       $._san_null_move,
     ),
@@ -264,12 +269,28 @@ module.exports = grammar({
       optional($._san_promotion),
     ),
 
+    // Limitation: Pawn drops are illegal in the player's respective
+    // promotion ranks, but accepted here
+    _san_drop_pawn: $ => seq(
+      optional('P'),
+      '@',
+      $._san_destination,
+    ),
+
     _san_move_major_or_minor_piece: $ => prec.right(-1,
       seq(
         $._san_major_or_minor_piece,
         optional($._san_file),
         optional($._san_rank),
         optional($._san_capture_symbol),
+        $._san_destination,
+      )),
+
+    // Limitation: King drops are illegal, but accepted here
+    _san_drop_major_or_minor_piece: $ => prec.right(-1,
+      seq(
+        $._san_major_or_minor_piece,
+        '@',
         $._san_destination,
       )),
 
