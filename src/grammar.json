@@ -143,8 +143,17 @@
       "content": {
         "type": "REPEAT1",
         "content": {
-          "type": "SYMBOL",
-          "name": "rest_of_line_comment"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "rest_of_line_comment"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "old_style_twic_section_comment"
+            }
+          ]
         }
       }
     },
@@ -203,6 +212,10 @@
         "type": "PATTERN",
         "value": "[^\\r\\n]*"
       }
+    },
+    "old_style_twic_section_comment": {
+      "type": "PATTERN",
+      "value": "[^\\r\\n]+\\r?\\n-{4,120}\\r?\\n"
     },
     "header": {
       "type": "REPEAT1",

@@ -8,6 +8,10 @@
       "required": true,
       "types": [
         {
+          "type": "old_style_twic_section_comment",
+          "named": true
+        },
+        {
           "type": "rest_of_line_comment",
           "named": true
         }
@@ -488,6 +492,10 @@
   {
     "type": "o",
     "named": false
+  },
+  {
+    "type": "old_style_twic_section_comment",
+    "named": true
   },
   {
     "type": "rest_of_line_comment_delimiter_open",

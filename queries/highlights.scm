@@ -4,6 +4,7 @@
  (annotation)
  (inline_comment)
  (rest_of_line_comment)
+ (old_style_twic_section_comment)
 ] @comment
 
 (tagpair_delimiter_open) @punctuation.bracket

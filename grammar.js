@@ -74,8 +74,10 @@ module.exports = grammar({
 
     freestanding_comment: $ => prec(1,
       repeat1(
-        $.rest_of_line_comment,
-      )),
+        choice(
+          $.rest_of_line_comment,
+          $.old_style_twic_section_comment,
+        ))),
 
     // Bug: The PGN spec requires that "%" only introduces a comment when placed
     // at the first column of a line.  However,
@@ -93,6 +95,12 @@ module.exports = grammar({
     ),
 
     rest_of_line_comment_text: $ => token.immediate(/[^\r\n]*/),
+
+    // Definitely not in the spec, but occurs thousands of times in the most
+    // important published collection of master chess games.  The Week in
+    // Chess (TWIC) stopped using this markdown-like construct in 2009.
+    // Surprisingly, this rule doesn't slow down the parser.
+    old_style_twic_section_comment: $ => /[^\r\n]+\r?\n-{4,120}\r?\n/,
 
     ///
     /// header
