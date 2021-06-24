@@ -296,7 +296,7 @@ module.exports = grammar({
         '+', '++', '#',
       )),
 
-    // Limitation: whitespace is required around "N" annotations to disambiguote cases
+    // Limitation: whitespace is required around "N" annotations to disambiguate cases
     // such as "2. d4 N g6".  For syntax highlighting it should not matter that the
     // annotation span includes whitespace.  In other situations the span may need to
     // be trimmed.
