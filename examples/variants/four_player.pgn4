@@ -1,0 +1,25 @@
+[Event "?"]
+[Variant "FFA"]
+
+1. h2-h3 .. b7-c7 .. g13-g12 .. m8-l8
+2. Qg1-j4 .. b6-c6 .. Qh14-e11 .. Qn8-m8
+3. d2-d4 .. Qa7-b7 .. Bf14-g13 .. Nn10-l9
+4. Ne1-f3 .. Qb7-d9 .. d13-d11 .. Nl9-k7
+5. Bi1-h2 .. Na5-b7 .. Ne14-f12 .. m9-l9
+6. Nj1-i3 .. Na10-c11 .. Rd14-d12 .. m4-k4
+7. Ni3xk4 .. Qd9-f9 .. Nf12-e10 .. Rn4xNk4
+8. Qj4-i5 .. Nc11-d9 .. Qe11-g11 .. Qm8-j5
+9. Qi5xQj5 .. Qf9-f6 .. Qg11-k11 .. Bn9xQj5
+10. i2-i4 .. Qf6xQk11 .. j13-j12 .. Bj5-n9
+11. j2-j3 .. Qk11-f6 .. Rd12-f12 .. Rk4-k6
+12. h3-h4 .. Qf6-i9 .. Nj14-i12 .. Nn5-l4
+13. g2-g3 .. Qi9-i8 .. e13-e12 .. Nl4xk2
+14. Bf1-g2 .. Qi8-j7 .. k13-k11 .. Nk2-i3+
+15. Kh1-i2 .. Qj7-g4+ .. Rf12-f11 .. Ni3xBg2
+16. Ki2-j2 .. Qg4-i2+ .. Bg13xl8 .. Ng2xh4#
+17. Qi2-h3 .. Bl8-h12 .. Nh4-j5
+18. Qh3-h9 .. Bi14-k12 .. Rn11-n10
+19. Qh9xRf11 .. e12xQf11 .. m11-l11
+20. b10-d10 .. Bk12-j13 .. m5-l5
+21. Ba9-b10 .. O-O-O .. Bn6-m5
+*

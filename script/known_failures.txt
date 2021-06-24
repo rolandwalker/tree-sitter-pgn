@@ -1,0 +1,3 @@
+examples/variants/bughouse.pgn
+examples/variants/crazyhouse.pgn
+examples/variants/four_player.pgn4
