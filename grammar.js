@@ -32,7 +32,7 @@ module.exports = grammar({
   rules: {
 
     ///
-    /// file
+    /// file or stream
     ///
 
     series_of_games: $ => seq(
@@ -305,7 +305,7 @@ module.exports = grammar({
     //
     // Limitation: Only hex entities are included
     //
-    // Todo: Consider differentiating the subste of annotations which can occur without
+    // Todo: Consider differentiating the subset of annotations which can occur without
     // intervening whitespace, such as "!"
     annotation: $ => token(
       choice(
