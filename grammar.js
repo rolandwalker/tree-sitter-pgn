@@ -296,13 +296,17 @@ module.exports = grammar({
         '+', '++', '#',
       )),
 
-    // Bug: Fails to parse "N" annotations correctly in practice.
-    //      With both free move numbers and free whitespace, then a sequence such
-    //      as "2. d4 N g6" truly is ambiguous.
+    // Limitation: whitespace is required around "N" annotations to disambiguote cases
+    // such as "2. d4 N g6".  For syntax highlighting it should not matter that the
+    // annotation span includes whitespace.  In other situations the span may need to
+    // be trimmed.
+    //
     // Limitation: Only lower-case entities are recognized
+    //
     // Limitation: Only hex entities are included
-    // Todo: Consider differentiating annotations which can occur without intervening
-    // whitespace, such as "!"
+    //
+    // Todo: Consider differentiating the subste of annotations which can occur without
+    // intervening whitespace, such as "!"
     annotation: $ => token(
       choice(
         /\$\d+/,
@@ -314,7 +318,7 @@ module.exports = grammar({
         '=', '==', '<=', '≤', '!!', '??', '!?', '?!', '!', '?', '‼', '⁇', '⁉', '⁈',
         '□', '∞', '⩲', '⩱', '±', '∓', '⨀', '○', '⟳', '↑', '→', '⇆', '⨁', '∆',
         '∇', '⌓', '⬒', '⬓', '⇔', '⇗', '⊞', '⟫', '⟪', '✕', '⊥', '♂', '└', '◺', '┘',
-        '◿', 'N', 'TN', 'RR',
+        '◿', /\sN\s/, 'TN', 'RR',
 
         '&quest;&quest;', '&excl;&excl;', '&excl;&quest;', '&quest;&excl;',
         '&quest;', '&excl;', '&equals;&equals;', '&equals;', '&nvlt;&equals;',

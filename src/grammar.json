@@ -1886,8 +1886,8 @@
             "value": "◿"
           },
           {
-            "type": "STRING",
-            "value": "N"
+            "type": "PATTERN",
+            "value": "\\sN\\s"
           },
           {
             "type": "STRING",
