@@ -1,2 +1,0 @@
-examples/novelty/novelty_annotation_error.pgn
-examples/novelty/novelty_annotation_ambiguity.pgn
