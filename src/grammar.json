@@ -564,7 +564,7 @@
     },
     "move_number": {
       "type": "PATTERN",
-      "value": "\\d+\\s*\\.[\\s\\.]*"
+      "value": "\\d+[AaBb]?\\s*\\.[\\s\\.]*"
     },
     "san_move": {
       "type": "SEQ",
@@ -596,7 +596,15 @@
         },
         {
           "type": "SYMBOL",
+          "name": "_san_drop_pawn"
+        },
+        {
+          "type": "SYMBOL",
           "name": "_san_move_major_or_minor_piece"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_san_drop_major_or_minor_piece"
         },
         {
           "type": "SYMBOL",
@@ -843,6 +851,31 @@
         }
       ]
     },
+    "_san_drop_pawn": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "P"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "@"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_san_destination"
+        }
+      ]
+    },
     "_san_move_major_or_minor_piece": {
       "type": "PREC_RIGHT",
       "value": -1,
@@ -888,6 +921,27 @@
                 "type": "BLANK"
               }
             ]
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_san_destination"
+          }
+        ]
+      }
+    },
+    "_san_drop_major_or_minor_piece": {
+      "type": "PREC_RIGHT",
+      "value": -1,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "_san_major_or_minor_piece"
+          },
+          {
+            "type": "STRING",
+            "value": "@"
           },
           {
             "type": "SYMBOL",
