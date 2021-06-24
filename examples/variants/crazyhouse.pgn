@@ -1,0 +1,7 @@
+[Event "?"]
+[Variant "Crazyhouse"]
+[SetUp "1"]
+[FEN "4R~3/8/6k1/1P6/8/4Q~3/2P3PK/n2Q2NR/NNBBBRRQpbr b - - 0 30"]
+
+30... @a2 31. Q@b1 axb1=N 32. Qxb1 R@b8 33. @a7 Rxe8 34. N@h7 @a2
+*

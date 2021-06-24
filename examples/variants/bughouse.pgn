@@ -1,0 +1,7 @@
+[Event "?"]
+[Variant "Bughouse"]
+[SetUp "1"]
+[FEN "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR/ w KQkq - 0 1 | rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR/ w KQkq - 0 1"]
+
+1A. e4 1a. d5 2A. exd5 1B. e4 1b. @d5 2a. Qxd5
+*
