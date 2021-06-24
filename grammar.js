@@ -269,7 +269,7 @@ module.exports = grammar({
       optional($._san_promotion),
     ),
 
-    // Limitation: Pawn drops are illegal in the player's respective
+    // Limitation: Pawn drops are illegal in the players' respective
     // promotion ranks, but accepted here
     _san_drop_pawn: $ => seq(
       optional('P'),
