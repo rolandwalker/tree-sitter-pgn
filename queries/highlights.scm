@@ -21,4 +21,6 @@
 (variation_movetext variation_san_move: (san_move) @operator)
 (variation_movetext variation_move_number: (move_number) @operator)
 
-(result_code) @property
+(result_code) @variable
+
+(ERROR) @property
