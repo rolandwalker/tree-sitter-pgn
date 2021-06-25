@@ -1425,12 +1425,84 @@
         "type": "CHOICE",
         "members": [
           {
-            "type": "STRING",
-            "value": "+"
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "+"
+              },
+              {
+                "type": "STRING",
+                "value": "➕"
+              },
+              {
+                "type": "STRING",
+                "value": "&plus;"
+              },
+              {
+                "type": "STRING",
+                "value": "&#x2b;"
+              },
+              {
+                "type": "STRING",
+                "value": "&#x2795;"
+              }
+            ]
           },
           {
-            "type": "STRING",
-            "value": "++"
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": "+"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "➕"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "&plus;"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "&#x2b;"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "&#x2795;"
+                  }
+                ]
+              },
+              {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": "+"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "➕"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "&plus;"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "&#x2b;"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "&#x2795;"
+                  }
+                ]
+              }
+            ]
           },
           {
             "type": "STRING",

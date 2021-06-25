@@ -326,7 +326,9 @@ module.exports = grammar({
 
     check_or_mate_condition: $ => token.immediate(
       choice(
-        '+', '++', '#',
+        confusables.plus,
+        seq(confusables.plus, confusables.plus),
+        '#',
       )),
 
     // Limitation: whitespace is required around "N" annotations to disambiguate cases
