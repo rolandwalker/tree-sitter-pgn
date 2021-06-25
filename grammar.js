@@ -7,6 +7,10 @@
 //
 //   https://www.enpassant.dk/chess/palview/enhancedpgn.htm
 //
+// commonly-used annotation glyphs:
+//
+//   https://en.wikipedia.org/wiki/Numeric_Annotation_Glyphs
+//
 // Throughout, this grammar is more liberal than the specification.
 //
 
@@ -17,6 +21,7 @@
 // Canonical character first
 // Limitation: Only lower-case entities are recognized
 // Limitation: Only hex entities are included
+// Todo: More complete list
 const confusables = {
   o: choice('O', '0', 'o'),
   dash: choice('-', '−', '‐', '–', '—', '&#x2d;', '&minus;', '&#x2010;', '&ndash;', '&mdash;'),
