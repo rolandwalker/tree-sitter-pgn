@@ -716,6 +716,38 @@
           {
             "type": "STRING",
             "value": "Q"
+          },
+          {
+            "type": "STRING",
+            "value": "♖"
+          },
+          {
+            "type": "STRING",
+            "value": "♘"
+          },
+          {
+            "type": "STRING",
+            "value": "♗"
+          },
+          {
+            "type": "STRING",
+            "value": "♕"
+          },
+          {
+            "type": "STRING",
+            "value": "♜"
+          },
+          {
+            "type": "STRING",
+            "value": "♞"
+          },
+          {
+            "type": "STRING",
+            "value": "♝"
+          },
+          {
+            "type": "STRING",
+            "value": "♛"
           }
         ]
       }
@@ -744,6 +776,46 @@
           {
             "type": "STRING",
             "value": "K"
+          },
+          {
+            "type": "STRING",
+            "value": "♖"
+          },
+          {
+            "type": "STRING",
+            "value": "♘"
+          },
+          {
+            "type": "STRING",
+            "value": "♗"
+          },
+          {
+            "type": "STRING",
+            "value": "♕"
+          },
+          {
+            "type": "STRING",
+            "value": "♔"
+          },
+          {
+            "type": "STRING",
+            "value": "♜"
+          },
+          {
+            "type": "STRING",
+            "value": "♞"
+          },
+          {
+            "type": "STRING",
+            "value": "♝"
+          },
+          {
+            "type": "STRING",
+            "value": "♛"
+          },
+          {
+            "type": "STRING",
+            "value": "♚"
           }
         ]
       }
@@ -858,8 +930,21 @@
           "type": "CHOICE",
           "members": [
             {
-              "type": "STRING",
-              "value": "P"
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "P"
+                },
+                {
+                  "type": "STRING",
+                  "value": "♙"
+                },
+                {
+                  "type": "STRING",
+                  "value": "♟︎"
+                }
+              ]
             },
             {
               "type": "BLANK"
