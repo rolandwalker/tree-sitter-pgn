@@ -837,3 +837,48 @@ Mixed sequence
       (san_move)
       (san_move))
     (result_code)))
+
+================================================================================
+Mixed sequence with Unicode piece glyphs
+================================================================================
+
+[Event "?"]
+
+1. d4 ♘f6 2. c4 e6 3. ♞f3 d5 4. ♞c3 ♗b4 5. ♝g5 dxc4 6. e4 c5 7. ♝xc4 cxd4
+*
+
+--------------------------------------------------------------------------------
+
+(series_of_games
+  (game
+    (header
+      (tagpair
+        (tagpair_delimiter_open)
+        (tagpair_key)
+        (double_quote)
+        (tagpair_value_contents)
+        (double_quote)
+        (tagpair_delimiter_close)))
+    (movetext
+      (move_number)
+      (san_move)
+      (san_move)
+      (move_number)
+      (san_move)
+      (san_move)
+      (move_number)
+      (san_move)
+      (san_move)
+      (move_number)
+      (san_move)
+      (san_move)
+      (move_number)
+      (san_move)
+      (san_move)
+      (move_number)
+      (san_move)
+      (san_move)
+      (move_number)
+      (san_move)
+      (san_move))
+    (result_code)))

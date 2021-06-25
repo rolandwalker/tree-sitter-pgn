@@ -233,11 +233,15 @@ module.exports = grammar({
     _san_promotable_piece: $ => token.immediate(
       choice(
         'R', 'N', 'B', 'Q',
+        '♖', '♘', '♗', '♕',
+        '♜', '♞', '♝', '♛',
       )),
 
     _san_major_or_minor_piece: $ => token(
       choice(
         'R', 'N', 'B', 'Q', 'K',
+        '♖', '♘', '♗', '♕', '♔',
+        '♜', '♞', '♝', '♛', '♚',
       )),
 
     // Todo: Consider supporting colon as a postfix capture notation (very obscure).
@@ -272,7 +276,7 @@ module.exports = grammar({
     // Limitation: Pawn drops are illegal in the players' respective
     // promotion ranks, but accepted here
     _san_drop_pawn: $ => seq(
-      optional('P'),
+      optional(choice('P','♙','♟︎')),
       '@',
       $._san_destination,
     ),
