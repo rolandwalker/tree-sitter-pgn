@@ -88,6 +88,8 @@ module.exports = grammar({
     // at the first column of a line.  However,
     //  1) the "%" construct is rarely seen in the wild
     //  2) we are arguably merely "liberal in what we accept"
+    // External scanners do have access to an experimental get_column function
+    // which could be used to constrain the position of "%".
     rest_of_line_comment_delimiter_open: $ => token(
       choice(
         ';', '%',
