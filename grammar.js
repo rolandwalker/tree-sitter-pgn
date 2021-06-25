@@ -176,7 +176,7 @@ module.exports = grammar({
       $.variation,
     ),
 
-    // Repeated to give variation moves their own field name
+    // Repeated code to give variation moves a distinct field name
     _variation_movetext_element: $ => choice(
       field('variation_move_number', $.move_number),
       field('variation_san_move', $.san_move),
@@ -203,7 +203,7 @@ module.exports = grammar({
     // curly brackets within commentary to parentheses on save.
     inline_comment_text: $ => token.immediate(/[^\}]*/),
 
-    // [AaBb] is for bughouse
+    // [AaBb] is for the bughouse variant
     move_number: $ => /\d+[AaBb]?\s*\.[\s\.]*/,
 
     san_move: $ => seq(
