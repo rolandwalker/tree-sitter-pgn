@@ -1,1 +1,2 @@
 examples/variants/four_player.pgn4
+examples/notation/implicit_capture_notation.pgn
