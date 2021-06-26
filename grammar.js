@@ -23,30 +23,36 @@
 // We take the effort to rescue numerous HTML entities because the semicolon
 // which closes the entity would otherwise introduce a rest-of-line PGN comment,
 // throwing off the parse.
-//
-// Todo: More complete list
 const confusables = {
   o: choice('O', '0', 'o'),
   dash: choice(
     '-', html_entity('-'),
     '−', html_entity('−', 'minus'),
     '‐', html_entity('‐', ['hyphen', 'dash']),
+    '‑', html_entity('‑'),
+    '‒', html_entity('‒'),
     '–', html_entity('–', 'ndash'),
     '—', html_entity('—', 'mdash'),
+    '➖', html_entity('➖'),
   ),
   slash: choice(
     '/', html_entity('/', 'sol'),
     '∕', html_entity('∕'),
+    '⁄', html_entity('⁄'),
+    '⟋', html_entity('⟋'),
+    '⧸', html_entity('⧸'),
   ),
   asterisk: choice(
     '*', html_entity('*', ['ast', 'midast']),
     '∗', html_entity('∗', 'lowast'),
     '✱', html_entity('✱'),
     '⁎', html_entity('⁎'),
+    '٭', html_entity('٭'),
   ),
   plus: choice(
     '+', html_entity('+', 'plus'),
     '➕', html_entity('➕'),
+    '᛭', html_entity('᛭'),
   ),
   half: choice(
     '½', html_entity('½', ['frac12', 'half']),
@@ -389,6 +395,7 @@ module.exports = grammar({
         '??', new RegExp('(' + html_entity('?', 'quest', true) + ')' + '(' + html_entity('?', 'quest', true) + ')'),
         '!?', new RegExp('(' + html_entity('!', 'excl',  true) + ')' + '(' + html_entity('?', 'quest', true) + ')'),
         '?!', new RegExp('(' + html_entity('?', 'quest', true) + ')' + '(' + html_entity('!', 'excl',  true) + ')'),
+        '‽', html_entity('‽'),
         '!', html_entity('!', 'excl'),
         '?', html_entity('?', 'quest'),
         '‼', html_entity('‼'),
