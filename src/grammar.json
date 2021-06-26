@@ -629,7 +629,7 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "_lan_move_piece"
+          "name": "_lan_move_by_coordinates"
         },
         {
           "type": "CHOICE",
@@ -642,15 +642,6 @@
               "type": "BLANK"
             }
           ]
-        }
-      ]
-    },
-    "_lan_move_piece": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "_lan_move_by_coordinates"
         }
       ]
     },
