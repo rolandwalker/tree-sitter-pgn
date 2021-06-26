@@ -257,12 +257,8 @@ module.exports = grammar({
     ),
 
     lan_move: $ => seq(
-      $._lan_move_piece,
-      optional($.check_or_mate_condition),
-    ),
-
-    _lan_move_piece: $ => choice(
       $._lan_move_by_coordinates,
+      optional($.check_or_mate_condition),
     ),
 
     _san_file: $ => token(
