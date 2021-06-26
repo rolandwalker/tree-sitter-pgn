@@ -15,6 +15,7 @@
 
 (movetext (move_number) @function)
 (movetext (san_move) @function)
+(movetext (lan_move) @function)
 
 (variation_delimiter_open) @operator
 (variation_delimiter_close) @operator
