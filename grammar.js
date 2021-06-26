@@ -205,6 +205,7 @@ module.exports = grammar({
     _movetext_element: $ => choice(
       field('move_number', $.move_number),
       field('san_move', $.san_move),
+      field('lan_move', $.lan_move),
       field('annotation', $.annotation),
       field('comment', $.inline_comment),
       field('comment', $.rest_of_line_comment),
@@ -255,6 +256,15 @@ module.exports = grammar({
       $._san_null_move,
     ),
 
+    lan_move: $ => seq(
+      $._lan_move_piece,
+      optional($.check_or_mate_condition),
+    ),
+
+    _lan_move_piece: $ => choice(
+      $._lan_move_by_coordinates,
+    ),
+
     _san_file: $ => token(
       choice(
         'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
@@ -288,7 +298,7 @@ module.exports = grammar({
 
     _san_promotion_symbol: $ => token.immediate('='),
 
-    _san_destination: $ => seq(
+    _san_square: $ => seq(
       $._san_file,
       $._san_rank,
     ),
@@ -304,7 +314,7 @@ module.exports = grammar({
           $._san_file,
           $._san_capture_symbol,
         )),
-      $._san_destination,
+      $._san_square,
       optional($._san_promotion),
     ),
 
@@ -313,7 +323,7 @@ module.exports = grammar({
     _san_drop_pawn: $ => seq(
       optional(choice('P','♙','♟︎')),
       '@',
-      $._san_destination,
+      $._san_square,
     ),
 
     _san_move_major_or_minor_piece: $ => prec.right(-1,
@@ -322,7 +332,7 @@ module.exports = grammar({
         optional($._san_file),
         optional($._san_rank),
         optional($._san_capture_symbol),
-        $._san_destination,
+        $._san_square,
       )),
 
     // Limitation: King drops are illegal, but accepted here
@@ -330,8 +340,19 @@ module.exports = grammar({
       seq(
         $._san_major_or_minor_piece,
         '@',
-        $._san_destination,
+        $._san_square,
       )),
+
+    _lan_move_by_coordinates: $ => seq(
+      $._san_square,
+      // Note: UCI LAN format elides the next character, but we don't expect it in PGNs
+      choice(
+        token.immediate(confusables.dash),
+        $._san_capture_symbol,
+      ),
+      $._san_square,
+      optional($._san_promotion),
+    ),
 
     _san_move_castle: $ => token(
       seq(
