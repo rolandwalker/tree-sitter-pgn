@@ -407,6 +407,8 @@ module.exports = grammar({
         /\sN\s/,
         'TN',
         'RR',
+        'e.p.',
+        'ep',
 
         '==', new RegExp('(' + html_entity('=', 'equals', true) + ')' + '(' + html_entity('=', 'equals', true) + ')'),
         '=', html_entity('=', 'equals'),
