@@ -19,16 +19,38 @@
 ///
 
 // Canonical character first
-// Limitation: Only lower-case entities are recognized
-// Limitation: Only hex entities are included
+//
+// We take the effort to rescue numerous HTML entities because the semicolon
+// which closes the entity would otherwise introduce a rest-of-line PGN comment,
+// throwing off the parse.
+//
 // Todo: More complete list
 const confusables = {
   o: choice('O', '0', 'o'),
-  dash: choice('-', '−', '‐', '–', '—', '&#x2d;', '&minus;', '&#x2010;', '&ndash;', '&mdash;'),
-  slash: choice( '/', '∕', '&sol;', '&#x2f;', '&#x2215;'),
-  asterisk: choice( '*', '∗', '✱', '&midast;', '&#x2a;', '&lowast;', '&#x2731;'),
-  plus: choice('+', '➕', '&plus;', '&#x2b;', '&#x2795;'),
-  half: choice('½', '&half;', '&#xbd;'),
+  dash: choice(
+    '-', html_entity('-'),
+    '−', html_entity('−', 'minus'),
+    '‐', html_entity('‐', ['hyphen', 'dash']),
+    '–', html_entity('–', 'ndash'),
+    '—', html_entity('—', 'mdash'),
+  ),
+  slash: choice(
+    '/', html_entity('/', 'sol'),
+    '∕', html_entity('∕'),
+  ),
+  asterisk: choice(
+    '*', html_entity('*', ['ast', 'midast']),
+    '∗', html_entity('∗', 'lowast'),
+    '✱', html_entity('✱'),
+    '⁎', html_entity('⁎'),
+  ),
+  plus: choice(
+    '+', html_entity('+', 'plus'),
+    '➕', html_entity('➕'),
+  ),
+  half: choice(
+    '½', html_entity('½', ['frac12', 'half']),
+  ),
 };
 
 module.exports = grammar({
@@ -343,39 +365,66 @@ module.exports = grammar({
     // annotation span includes whitespace.  In other situations the span may need to
     // be trimmed.
     //
-    // Limitation: Only lower-case entities are recognized
-    //
-    // Limitation: Only hex entities are included
-    //
     // Todo: Consider differentiating the subset of annotations which can occur without
     // intervening whitespace, such as "!"
     annotation: $ => token(
       choice(
         /\$\d+/,
+
         confusables.dash,
         seq(confusables.plus, token.immediate(confusables.dash)),
         seq(confusables.plus, token.immediate(confusables.slash), token.immediate(confusables.dash)),
         seq(confusables.dash, token.immediate(confusables.plus)),
         seq(confusables.dash, token.immediate(confusables.slash), token.immediate(confusables.plus)),
-        '=', '==', '<=', '≤', '!!', '??', '!?', '?!', '!', '?', '‼', '⁇', '⁉', '⁈',
-        '□', '∞', '⩲', '⩱', '±', '∓', '⨀', '○', '⟳', '↑', '→', '⇆', '⨁', '∆',
-        '∇', '⌓', '⬒', '⬓', '⇔', '⇗', '⊞', '⟫', '⟪', '✕', '⊥', '♂', '└', '◺', '┘',
-        '◿', /\sN\s/, 'TN', 'RR',
 
-        '&quest;&quest;', '&excl;&excl;', '&excl;&quest;', '&quest;&excl;',
-        '&quest;', '&excl;', '&equals;&equals;', '&equals;', '&nvlt;&equals;',
-        '&#3f;&#3f;', '&#21;&#21;', '&#21;&#3f;', '&#3f;&#21;',
-        '&#3f;', '&#21;', '&#3d;&#3d;', '&#3d;', '&#3c;&#3d;',
+        /\sN\s/,
+        'TN',
+        'RR',
 
-        '&boxplus;', '&cir;', '&eplus;', '&harr;', '&infin;', '&lang;',
-        '&le;', '&lrarr;', '&mnplus;', '&nabla;', '&nearr;', '&perp;',
-        '&pluse;', '&plusmn;', '&pm;', '&profsurf;', '&rang;', '&rarr;',
-        '&square;', '&uarr;', '&xodot;', '&xoplus;', '&#x203c;', '&#x2047;',
-        '&#x2048;', '&#x2049;', '&#x21c6;', '&#x21d7;', '&#x2206;',
-        '&#x2213;', '&#x229e;', '&#x2313;', '&#x2514;', '&#x2518;',
-        '&#x25a1;', '&#x25cb;', '&#x25fa;', '&#x25ff;', '&#x2642;',
-        '&#x2715;', '&#x27ea;', '&#x27eb;', '&#x27f3;', '&#x2a00;',
-        '&#x2a01;', '&#x2a71;', '&#x2a72;', '&#x2b12;', '&#x2b13;',
+        '==', new RegExp('(' + html_entity('=', 'equals', true) + ')' + '(' + html_entity('=', 'equals', true) + ')'),
+        '=', html_entity('=', 'equals'),
+        '<=', new RegExp('(' + html_entity('<', 'nvlt',   true) + ')' + '(' + html_entity('=', 'equals', true) + ')'),
+        '≤', html_entity('≤', ['le', 'leq']),
+        '!!', new RegExp('(' + html_entity('!', 'excl',  true) + ')' + '(' + html_entity('!', 'excl',  true) + ')'),
+        '??', new RegExp('(' + html_entity('?', 'quest', true) + ')' + '(' + html_entity('?', 'quest', true) + ')'),
+        '!?', new RegExp('(' + html_entity('!', 'excl',  true) + ')' + '(' + html_entity('?', 'quest', true) + ')'),
+        '?!', new RegExp('(' + html_entity('?', 'quest', true) + ')' + '(' + html_entity('!', 'excl',  true) + ')'),
+        '!', html_entity('!', 'excl'),
+        '?', html_entity('?', 'quest'),
+        '‼', html_entity('‼'),
+        '⁇', html_entity('⁇'),
+        '⁉', html_entity('⁉'),
+        '⁈', html_entity('⁈'),
+        '□', html_entity('□', ['squ', 'square', 'Square']),
+        '∞', html_entity('∞', 'infin'),
+        '⩲', html_entity('⩲', 'pluse'),
+        '⩱', html_entity('⩱', 'eplus'),
+        '±', html_entity('±', ['plusmn', 'pm', 'PlusMinus']),
+        '∓', html_entity('∓', ['mnplus', 'mp', 'MinusPlus']),
+        '⨀', html_entity('⨀', ['xodot', 'bigodot']),
+        '○', html_entity('○', 'cir'),
+        '⟳', html_entity('⟳'),
+        '↑', html_entity('↑', ['uarr', 'uparrow', 'UpArrow', 'ShortUparrow']),
+        '→', html_entity('→', ['rarr', 'rightarrow', 'RightArrow', 'srarr', 'ShortRightArrow']),
+        '⇆', html_entity('⇆', ['lrarr', 'leftarrow', 'LeftArrow', 'slarr', 'ShortLeftArrow']),
+        '⨁', html_entity('⨁', ['xoplus', 'bigoplus']),
+        '∆', html_entity('∆'),
+        '∇', html_entity('∇', ['nabla', 'Del']),
+        '⌓', html_entity('⌓', 'profsurf'),
+        '⬒', html_entity('⬒'),
+        '⬓', html_entity('⬓'),
+        '⇔', html_entity('⇔', ['harr', 'leftrightarrow', 'LeftRightArrow']),
+        '⇗', html_entity('⇗', ['nearr', 'UpperRightArrow', 'nearrow']),
+        '⊞', html_entity('⊞', ['plusb', 'boxplus']),
+        '⟪', html_entity('⟪', 'Lang'),
+        '⟫', html_entity('⟫', 'Rang'),
+        '✕', html_entity('✕'),
+        '⊥', html_entity('⊥', ['bottom', 'bot', 'perp', 'UpTee']),
+        '♂', html_entity('♂', 'male'),
+        '└', html_entity('└', 'boxur'),
+        '◺', html_entity('◺', 'lltri'),
+        '┘', html_entity('┘', 'boxul'),
+        '◿', html_entity('◿'),
       )),
 
     ///
@@ -391,3 +440,54 @@ module.exports = grammar({
     ),
   }
 });
+
+///
+/// utility functions
+///
+
+function case_insensitive_regex(string, as_fragment=false) {
+  let expression = '';
+
+  for (const ch of string) {
+    if (['\\', '(', ')', '[', ']', '{', '}', '.', '*', '+', '?'].includes(ch)) {
+      expression = expression + '\\' + ch;
+    } else if (ch.toLowerCase() === ch.toUpperCase()) {
+      expression = expression + ch;
+    } else {
+      expression = expression + '[' + ch.toUpperCase() + ch.toLowerCase() + ']';
+    }
+  }
+
+  if (as_fragment) {
+    return expression;
+  } else {
+    return new RegExp(expression);
+  }
+}
+
+function html_entity(literal, name=null, as_fragment=false) {
+  let alternation = [];
+
+  decimal_codepoint = literal.codePointAt(0);
+
+  if (typeof name === 'string') {
+    name = [ name ];
+  }
+
+  if (Array.isArray(name)) {
+    for (const nm of name) {
+      alternation.push(`&${nm};`);
+    }
+  }
+
+  alternation.push(`&#${decimal_codepoint};`);
+
+  let hex_codepoint = case_insensitive_regex(decimal_codepoint.toString(16), true);
+  alternation.push(`&#[Xx]${hex_codepoint};`);
+
+  if (as_fragment) {
+    return alternation.join('|');
+  } else {
+    return new RegExp(alternation.join('|'));
+  }
+}

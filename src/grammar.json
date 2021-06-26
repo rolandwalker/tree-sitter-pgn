@@ -1067,40 +1067,40 @@
                   "value": "-"
                 },
                 {
+                  "type": "PATTERN",
+                  "value": "&#45;|&#[Xx]2[Dd];"
+                },
+                {
                   "type": "STRING",
                   "value": "−"
+                },
+                {
+                  "type": "PATTERN",
+                  "value": "&minus;|&#8722;|&#[Xx]2212;"
                 },
                 {
                   "type": "STRING",
                   "value": "‐"
                 },
                 {
+                  "type": "PATTERN",
+                  "value": "&hyphen;|&dash;|&#8208;|&#[Xx]2010;"
+                },
+                {
                   "type": "STRING",
                   "value": "–"
+                },
+                {
+                  "type": "PATTERN",
+                  "value": "&ndash;|&#8211;|&#[Xx]2013;"
                 },
                 {
                   "type": "STRING",
                   "value": "—"
                 },
                 {
-                  "type": "STRING",
-                  "value": "&#x2d;"
-                },
-                {
-                  "type": "STRING",
-                  "value": "&minus;"
-                },
-                {
-                  "type": "STRING",
-                  "value": "&#x2010;"
-                },
-                {
-                  "type": "STRING",
-                  "value": "&ndash;"
-                },
-                {
-                  "type": "STRING",
-                  "value": "&mdash;"
+                  "type": "PATTERN",
+                  "value": "&mdash;|&#8212;|&#[Xx]2014;"
                 }
               ]
             }
@@ -1141,40 +1141,40 @@
                           "value": "-"
                         },
                         {
+                          "type": "PATTERN",
+                          "value": "&#45;|&#[Xx]2[Dd];"
+                        },
+                        {
                           "type": "STRING",
                           "value": "−"
+                        },
+                        {
+                          "type": "PATTERN",
+                          "value": "&minus;|&#8722;|&#[Xx]2212;"
                         },
                         {
                           "type": "STRING",
                           "value": "‐"
                         },
                         {
+                          "type": "PATTERN",
+                          "value": "&hyphen;|&dash;|&#8208;|&#[Xx]2010;"
+                        },
+                        {
                           "type": "STRING",
                           "value": "–"
+                        },
+                        {
+                          "type": "PATTERN",
+                          "value": "&ndash;|&#8211;|&#[Xx]2013;"
                         },
                         {
                           "type": "STRING",
                           "value": "—"
                         },
                         {
-                          "type": "STRING",
-                          "value": "&#x2d;"
-                        },
-                        {
-                          "type": "STRING",
-                          "value": "&minus;"
-                        },
-                        {
-                          "type": "STRING",
-                          "value": "&#x2010;"
-                        },
-                        {
-                          "type": "STRING",
-                          "value": "&ndash;"
-                        },
-                        {
-                          "type": "STRING",
-                          "value": "&mdash;"
+                          "type": "PATTERN",
+                          "value": "&mdash;|&#8212;|&#[Xx]2014;"
                         }
                       ]
                     }
@@ -1263,40 +1263,40 @@
                     "value": "-"
                   },
                   {
+                    "type": "PATTERN",
+                    "value": "&#45;|&#[Xx]2[Dd];"
+                  },
+                  {
                     "type": "STRING",
                     "value": "−"
+                  },
+                  {
+                    "type": "PATTERN",
+                    "value": "&minus;|&#8722;|&#[Xx]2212;"
                   },
                   {
                     "type": "STRING",
                     "value": "‐"
                   },
                   {
+                    "type": "PATTERN",
+                    "value": "&hyphen;|&dash;|&#8208;|&#[Xx]2010;"
+                  },
+                  {
                     "type": "STRING",
                     "value": "–"
+                  },
+                  {
+                    "type": "PATTERN",
+                    "value": "&ndash;|&#8211;|&#[Xx]2013;"
                   },
                   {
                     "type": "STRING",
                     "value": "—"
                   },
                   {
-                    "type": "STRING",
-                    "value": "&#x2d;"
-                  },
-                  {
-                    "type": "STRING",
-                    "value": "&minus;"
-                  },
-                  {
-                    "type": "STRING",
-                    "value": "&#x2010;"
-                  },
-                  {
-                    "type": "STRING",
-                    "value": "&ndash;"
-                  },
-                  {
-                    "type": "STRING",
-                    "value": "&mdash;"
+                    "type": "PATTERN",
+                    "value": "&mdash;|&#8212;|&#[Xx]2014;"
                   }
                 ]
               },
@@ -1310,40 +1310,40 @@
                       "value": "-"
                     },
                     {
+                      "type": "PATTERN",
+                      "value": "&#45;|&#[Xx]2[Dd];"
+                    },
+                    {
                       "type": "STRING",
                       "value": "−"
+                    },
+                    {
+                      "type": "PATTERN",
+                      "value": "&minus;|&#8722;|&#[Xx]2212;"
                     },
                     {
                       "type": "STRING",
                       "value": "‐"
                     },
                     {
+                      "type": "PATTERN",
+                      "value": "&hyphen;|&dash;|&#8208;|&#[Xx]2010;"
+                    },
+                    {
                       "type": "STRING",
                       "value": "–"
+                    },
+                    {
+                      "type": "PATTERN",
+                      "value": "&ndash;|&#8211;|&#[Xx]2013;"
                     },
                     {
                       "type": "STRING",
                       "value": "—"
                     },
                     {
-                      "type": "STRING",
-                      "value": "&#x2d;"
-                    },
-                    {
-                      "type": "STRING",
-                      "value": "&minus;"
-                    },
-                    {
-                      "type": "STRING",
-                      "value": "&#x2010;"
-                    },
-                    {
-                      "type": "STRING",
-                      "value": "&ndash;"
-                    },
-                    {
-                      "type": "STRING",
-                      "value": "&mdash;"
+                      "type": "PATTERN",
+                      "value": "&mdash;|&#8212;|&#[Xx]2014;"
                     }
                   ]
                 }
@@ -1432,20 +1432,16 @@
                 "value": "+"
               },
               {
+                "type": "PATTERN",
+                "value": "&plus;|&#43;|&#[Xx]2[Bb];"
+              },
+              {
                 "type": "STRING",
                 "value": "➕"
               },
               {
-                "type": "STRING",
-                "value": "&plus;"
-              },
-              {
-                "type": "STRING",
-                "value": "&#x2b;"
-              },
-              {
-                "type": "STRING",
-                "value": "&#x2795;"
+                "type": "PATTERN",
+                "value": "&#10133;|&#[Xx]2795;"
               }
             ]
           },
@@ -1460,20 +1456,16 @@
                     "value": "+"
                   },
                   {
+                    "type": "PATTERN",
+                    "value": "&plus;|&#43;|&#[Xx]2[Bb];"
+                  },
+                  {
                     "type": "STRING",
                     "value": "➕"
                   },
                   {
-                    "type": "STRING",
-                    "value": "&plus;"
-                  },
-                  {
-                    "type": "STRING",
-                    "value": "&#x2b;"
-                  },
-                  {
-                    "type": "STRING",
-                    "value": "&#x2795;"
+                    "type": "PATTERN",
+                    "value": "&#10133;|&#[Xx]2795;"
                   }
                 ]
               },
@@ -1485,20 +1477,16 @@
                     "value": "+"
                   },
                   {
+                    "type": "PATTERN",
+                    "value": "&plus;|&#43;|&#[Xx]2[Bb];"
+                  },
+                  {
                     "type": "STRING",
                     "value": "➕"
                   },
                   {
-                    "type": "STRING",
-                    "value": "&plus;"
-                  },
-                  {
-                    "type": "STRING",
-                    "value": "&#x2b;"
-                  },
-                  {
-                    "type": "STRING",
-                    "value": "&#x2795;"
+                    "type": "PATTERN",
+                    "value": "&#10133;|&#[Xx]2795;"
                   }
                 ]
               }
@@ -1528,40 +1516,40 @@
                 "value": "-"
               },
               {
+                "type": "PATTERN",
+                "value": "&#45;|&#[Xx]2[Dd];"
+              },
+              {
                 "type": "STRING",
                 "value": "−"
+              },
+              {
+                "type": "PATTERN",
+                "value": "&minus;|&#8722;|&#[Xx]2212;"
               },
               {
                 "type": "STRING",
                 "value": "‐"
               },
               {
+                "type": "PATTERN",
+                "value": "&hyphen;|&dash;|&#8208;|&#[Xx]2010;"
+              },
+              {
                 "type": "STRING",
                 "value": "–"
+              },
+              {
+                "type": "PATTERN",
+                "value": "&ndash;|&#8211;|&#[Xx]2013;"
               },
               {
                 "type": "STRING",
                 "value": "—"
               },
               {
-                "type": "STRING",
-                "value": "&#x2d;"
-              },
-              {
-                "type": "STRING",
-                "value": "&minus;"
-              },
-              {
-                "type": "STRING",
-                "value": "&#x2010;"
-              },
-              {
-                "type": "STRING",
-                "value": "&ndash;"
-              },
-              {
-                "type": "STRING",
-                "value": "&mdash;"
+                "type": "PATTERN",
+                "value": "&mdash;|&#8212;|&#[Xx]2014;"
               }
             ]
           },
@@ -1576,20 +1564,16 @@
                     "value": "+"
                   },
                   {
+                    "type": "PATTERN",
+                    "value": "&plus;|&#43;|&#[Xx]2[Bb];"
+                  },
+                  {
                     "type": "STRING",
                     "value": "➕"
                   },
                   {
-                    "type": "STRING",
-                    "value": "&plus;"
-                  },
-                  {
-                    "type": "STRING",
-                    "value": "&#x2b;"
-                  },
-                  {
-                    "type": "STRING",
-                    "value": "&#x2795;"
+                    "type": "PATTERN",
+                    "value": "&#10133;|&#[Xx]2795;"
                   }
                 ]
               },
@@ -1603,40 +1587,40 @@
                       "value": "-"
                     },
                     {
+                      "type": "PATTERN",
+                      "value": "&#45;|&#[Xx]2[Dd];"
+                    },
+                    {
                       "type": "STRING",
                       "value": "−"
+                    },
+                    {
+                      "type": "PATTERN",
+                      "value": "&minus;|&#8722;|&#[Xx]2212;"
                     },
                     {
                       "type": "STRING",
                       "value": "‐"
                     },
                     {
+                      "type": "PATTERN",
+                      "value": "&hyphen;|&dash;|&#8208;|&#[Xx]2010;"
+                    },
+                    {
                       "type": "STRING",
                       "value": "–"
+                    },
+                    {
+                      "type": "PATTERN",
+                      "value": "&ndash;|&#8211;|&#[Xx]2013;"
                     },
                     {
                       "type": "STRING",
                       "value": "—"
                     },
                     {
-                      "type": "STRING",
-                      "value": "&#x2d;"
-                    },
-                    {
-                      "type": "STRING",
-                      "value": "&minus;"
-                    },
-                    {
-                      "type": "STRING",
-                      "value": "&#x2010;"
-                    },
-                    {
-                      "type": "STRING",
-                      "value": "&ndash;"
-                    },
-                    {
-                      "type": "STRING",
-                      "value": "&mdash;"
+                      "type": "PATTERN",
+                      "value": "&mdash;|&#8212;|&#[Xx]2014;"
                     }
                   ]
                 }
@@ -1654,20 +1638,16 @@
                     "value": "+"
                   },
                   {
+                    "type": "PATTERN",
+                    "value": "&plus;|&#43;|&#[Xx]2[Bb];"
+                  },
+                  {
                     "type": "STRING",
                     "value": "➕"
                   },
                   {
-                    "type": "STRING",
-                    "value": "&plus;"
-                  },
-                  {
-                    "type": "STRING",
-                    "value": "&#x2b;"
-                  },
-                  {
-                    "type": "STRING",
-                    "value": "&#x2795;"
+                    "type": "PATTERN",
+                    "value": "&#10133;|&#[Xx]2795;"
                   }
                 ]
               },
@@ -1681,20 +1661,16 @@
                       "value": "/"
                     },
                     {
+                      "type": "PATTERN",
+                      "value": "&sol;|&#47;|&#[Xx]2[Ff];"
+                    },
+                    {
                       "type": "STRING",
                       "value": "∕"
                     },
                     {
-                      "type": "STRING",
-                      "value": "&sol;"
-                    },
-                    {
-                      "type": "STRING",
-                      "value": "&#x2f;"
-                    },
-                    {
-                      "type": "STRING",
-                      "value": "&#x2215;"
+                      "type": "PATTERN",
+                      "value": "&#8725;|&#[Xx]2215;"
                     }
                   ]
                 }
@@ -1709,40 +1685,40 @@
                       "value": "-"
                     },
                     {
+                      "type": "PATTERN",
+                      "value": "&#45;|&#[Xx]2[Dd];"
+                    },
+                    {
                       "type": "STRING",
                       "value": "−"
+                    },
+                    {
+                      "type": "PATTERN",
+                      "value": "&minus;|&#8722;|&#[Xx]2212;"
                     },
                     {
                       "type": "STRING",
                       "value": "‐"
                     },
                     {
+                      "type": "PATTERN",
+                      "value": "&hyphen;|&dash;|&#8208;|&#[Xx]2010;"
+                    },
+                    {
                       "type": "STRING",
                       "value": "–"
+                    },
+                    {
+                      "type": "PATTERN",
+                      "value": "&ndash;|&#8211;|&#[Xx]2013;"
                     },
                     {
                       "type": "STRING",
                       "value": "—"
                     },
                     {
-                      "type": "STRING",
-                      "value": "&#x2d;"
-                    },
-                    {
-                      "type": "STRING",
-                      "value": "&minus;"
-                    },
-                    {
-                      "type": "STRING",
-                      "value": "&#x2010;"
-                    },
-                    {
-                      "type": "STRING",
-                      "value": "&ndash;"
-                    },
-                    {
-                      "type": "STRING",
-                      "value": "&mdash;"
+                      "type": "PATTERN",
+                      "value": "&mdash;|&#8212;|&#[Xx]2014;"
                     }
                   ]
                 }
@@ -1760,40 +1736,40 @@
                     "value": "-"
                   },
                   {
+                    "type": "PATTERN",
+                    "value": "&#45;|&#[Xx]2[Dd];"
+                  },
+                  {
                     "type": "STRING",
                     "value": "−"
+                  },
+                  {
+                    "type": "PATTERN",
+                    "value": "&minus;|&#8722;|&#[Xx]2212;"
                   },
                   {
                     "type": "STRING",
                     "value": "‐"
                   },
                   {
+                    "type": "PATTERN",
+                    "value": "&hyphen;|&dash;|&#8208;|&#[Xx]2010;"
+                  },
+                  {
                     "type": "STRING",
                     "value": "–"
+                  },
+                  {
+                    "type": "PATTERN",
+                    "value": "&ndash;|&#8211;|&#[Xx]2013;"
                   },
                   {
                     "type": "STRING",
                     "value": "—"
                   },
                   {
-                    "type": "STRING",
-                    "value": "&#x2d;"
-                  },
-                  {
-                    "type": "STRING",
-                    "value": "&minus;"
-                  },
-                  {
-                    "type": "STRING",
-                    "value": "&#x2010;"
-                  },
-                  {
-                    "type": "STRING",
-                    "value": "&ndash;"
-                  },
-                  {
-                    "type": "STRING",
-                    "value": "&mdash;"
+                    "type": "PATTERN",
+                    "value": "&mdash;|&#8212;|&#[Xx]2014;"
                   }
                 ]
               },
@@ -1807,20 +1783,16 @@
                       "value": "+"
                     },
                     {
+                      "type": "PATTERN",
+                      "value": "&plus;|&#43;|&#[Xx]2[Bb];"
+                    },
+                    {
                       "type": "STRING",
                       "value": "➕"
                     },
                     {
-                      "type": "STRING",
-                      "value": "&plus;"
-                    },
-                    {
-                      "type": "STRING",
-                      "value": "&#x2b;"
-                    },
-                    {
-                      "type": "STRING",
-                      "value": "&#x2795;"
+                      "type": "PATTERN",
+                      "value": "&#10133;|&#[Xx]2795;"
                     }
                   ]
                 }
@@ -1838,40 +1810,40 @@
                     "value": "-"
                   },
                   {
+                    "type": "PATTERN",
+                    "value": "&#45;|&#[Xx]2[Dd];"
+                  },
+                  {
                     "type": "STRING",
                     "value": "−"
+                  },
+                  {
+                    "type": "PATTERN",
+                    "value": "&minus;|&#8722;|&#[Xx]2212;"
                   },
                   {
                     "type": "STRING",
                     "value": "‐"
                   },
                   {
+                    "type": "PATTERN",
+                    "value": "&hyphen;|&dash;|&#8208;|&#[Xx]2010;"
+                  },
+                  {
                     "type": "STRING",
                     "value": "–"
+                  },
+                  {
+                    "type": "PATTERN",
+                    "value": "&ndash;|&#8211;|&#[Xx]2013;"
                   },
                   {
                     "type": "STRING",
                     "value": "—"
                   },
                   {
-                    "type": "STRING",
-                    "value": "&#x2d;"
-                  },
-                  {
-                    "type": "STRING",
-                    "value": "&minus;"
-                  },
-                  {
-                    "type": "STRING",
-                    "value": "&#x2010;"
-                  },
-                  {
-                    "type": "STRING",
-                    "value": "&ndash;"
-                  },
-                  {
-                    "type": "STRING",
-                    "value": "&mdash;"
+                    "type": "PATTERN",
+                    "value": "&mdash;|&#8212;|&#[Xx]2014;"
                   }
                 ]
               },
@@ -1885,20 +1857,16 @@
                       "value": "/"
                     },
                     {
+                      "type": "PATTERN",
+                      "value": "&sol;|&#47;|&#[Xx]2[Ff];"
+                    },
+                    {
                       "type": "STRING",
                       "value": "∕"
                     },
                     {
-                      "type": "STRING",
-                      "value": "&sol;"
-                    },
-                    {
-                      "type": "STRING",
-                      "value": "&#x2f;"
-                    },
-                    {
-                      "type": "STRING",
-                      "value": "&#x2215;"
+                      "type": "PATTERN",
+                      "value": "&#8725;|&#[Xx]2215;"
                     }
                   ]
                 }
@@ -1913,201 +1881,21 @@
                       "value": "+"
                     },
                     {
+                      "type": "PATTERN",
+                      "value": "&plus;|&#43;|&#[Xx]2[Bb];"
+                    },
+                    {
                       "type": "STRING",
                       "value": "➕"
                     },
                     {
-                      "type": "STRING",
-                      "value": "&plus;"
-                    },
-                    {
-                      "type": "STRING",
-                      "value": "&#x2b;"
-                    },
-                    {
-                      "type": "STRING",
-                      "value": "&#x2795;"
+                      "type": "PATTERN",
+                      "value": "&#10133;|&#[Xx]2795;"
                     }
                   ]
                 }
               }
             ]
-          },
-          {
-            "type": "STRING",
-            "value": "="
-          },
-          {
-            "type": "STRING",
-            "value": "=="
-          },
-          {
-            "type": "STRING",
-            "value": "<="
-          },
-          {
-            "type": "STRING",
-            "value": "≤"
-          },
-          {
-            "type": "STRING",
-            "value": "!!"
-          },
-          {
-            "type": "STRING",
-            "value": "??"
-          },
-          {
-            "type": "STRING",
-            "value": "!?"
-          },
-          {
-            "type": "STRING",
-            "value": "?!"
-          },
-          {
-            "type": "STRING",
-            "value": "!"
-          },
-          {
-            "type": "STRING",
-            "value": "?"
-          },
-          {
-            "type": "STRING",
-            "value": "‼"
-          },
-          {
-            "type": "STRING",
-            "value": "⁇"
-          },
-          {
-            "type": "STRING",
-            "value": "⁉"
-          },
-          {
-            "type": "STRING",
-            "value": "⁈"
-          },
-          {
-            "type": "STRING",
-            "value": "□"
-          },
-          {
-            "type": "STRING",
-            "value": "∞"
-          },
-          {
-            "type": "STRING",
-            "value": "⩲"
-          },
-          {
-            "type": "STRING",
-            "value": "⩱"
-          },
-          {
-            "type": "STRING",
-            "value": "±"
-          },
-          {
-            "type": "STRING",
-            "value": "∓"
-          },
-          {
-            "type": "STRING",
-            "value": "⨀"
-          },
-          {
-            "type": "STRING",
-            "value": "○"
-          },
-          {
-            "type": "STRING",
-            "value": "⟳"
-          },
-          {
-            "type": "STRING",
-            "value": "↑"
-          },
-          {
-            "type": "STRING",
-            "value": "→"
-          },
-          {
-            "type": "STRING",
-            "value": "⇆"
-          },
-          {
-            "type": "STRING",
-            "value": "⨁"
-          },
-          {
-            "type": "STRING",
-            "value": "∆"
-          },
-          {
-            "type": "STRING",
-            "value": "∇"
-          },
-          {
-            "type": "STRING",
-            "value": "⌓"
-          },
-          {
-            "type": "STRING",
-            "value": "⬒"
-          },
-          {
-            "type": "STRING",
-            "value": "⬓"
-          },
-          {
-            "type": "STRING",
-            "value": "⇔"
-          },
-          {
-            "type": "STRING",
-            "value": "⇗"
-          },
-          {
-            "type": "STRING",
-            "value": "⊞"
-          },
-          {
-            "type": "STRING",
-            "value": "⟫"
-          },
-          {
-            "type": "STRING",
-            "value": "⟪"
-          },
-          {
-            "type": "STRING",
-            "value": "✕"
-          },
-          {
-            "type": "STRING",
-            "value": "⊥"
-          },
-          {
-            "type": "STRING",
-            "value": "♂"
-          },
-          {
-            "type": "STRING",
-            "value": "└"
-          },
-          {
-            "type": "STRING",
-            "value": "◺"
-          },
-          {
-            "type": "STRING",
-            "value": "┘"
-          },
-          {
-            "type": "STRING",
-            "value": "◿"
           },
           {
             "type": "PATTERN",
@@ -2123,271 +1911,355 @@
           },
           {
             "type": "STRING",
-            "value": "&quest;&quest;"
+            "value": "=="
           },
           {
-            "type": "STRING",
-            "value": "&excl;&excl;"
+            "type": "PATTERN",
+            "value": "(&equals;|&#61;|&#[Xx]3[Dd];)(&equals;|&#61;|&#[Xx]3[Dd];)"
           },
           {
             "type": "STRING",
-            "value": "&excl;&quest;"
+            "value": "="
           },
           {
-            "type": "STRING",
-            "value": "&quest;&excl;"
+            "type": "PATTERN",
+            "value": "&equals;|&#61;|&#[Xx]3[Dd];"
           },
           {
             "type": "STRING",
-            "value": "&quest;"
+            "value": "<="
           },
           {
-            "type": "STRING",
-            "value": "&excl;"
+            "type": "PATTERN",
+            "value": "(&nvlt;|&#60;|&#[Xx]3[Cc];)(&equals;|&#61;|&#[Xx]3[Dd];)"
           },
           {
             "type": "STRING",
-            "value": "&equals;&equals;"
+            "value": "≤"
           },
           {
-            "type": "STRING",
-            "value": "&equals;"
+            "type": "PATTERN",
+            "value": "&le;|&leq;|&#8804;|&#[Xx]2264;"
           },
           {
             "type": "STRING",
-            "value": "&nvlt;&equals;"
+            "value": "!!"
           },
           {
-            "type": "STRING",
-            "value": "&#3f;&#3f;"
+            "type": "PATTERN",
+            "value": "(&excl;|&#33;|&#[Xx]21;)(&excl;|&#33;|&#[Xx]21;)"
           },
           {
             "type": "STRING",
-            "value": "&#21;&#21;"
+            "value": "??"
           },
           {
-            "type": "STRING",
-            "value": "&#21;&#3f;"
+            "type": "PATTERN",
+            "value": "(&quest;|&#63;|&#[Xx]3[Ff];)(&quest;|&#63;|&#[Xx]3[Ff];)"
           },
           {
             "type": "STRING",
-            "value": "&#3f;&#21;"
+            "value": "!?"
           },
           {
-            "type": "STRING",
-            "value": "&#3f;"
+            "type": "PATTERN",
+            "value": "(&excl;|&#33;|&#[Xx]21;)(&quest;|&#63;|&#[Xx]3[Ff];)"
           },
           {
             "type": "STRING",
-            "value": "&#21;"
+            "value": "?!"
           },
           {
-            "type": "STRING",
-            "value": "&#3d;&#3d;"
+            "type": "PATTERN",
+            "value": "(&quest;|&#63;|&#[Xx]3[Ff];)(&excl;|&#33;|&#[Xx]21;)"
           },
           {
             "type": "STRING",
-            "value": "&#3d;"
+            "value": "!"
           },
           {
-            "type": "STRING",
-            "value": "&#3c;&#3d;"
+            "type": "PATTERN",
+            "value": "&excl;|&#33;|&#[Xx]21;"
           },
           {
             "type": "STRING",
-            "value": "&boxplus;"
+            "value": "?"
           },
           {
-            "type": "STRING",
-            "value": "&cir;"
+            "type": "PATTERN",
+            "value": "&quest;|&#63;|&#[Xx]3[Ff];"
           },
           {
             "type": "STRING",
-            "value": "&eplus;"
+            "value": "‼"
           },
           {
-            "type": "STRING",
-            "value": "&harr;"
+            "type": "PATTERN",
+            "value": "&#8252;|&#[Xx]203[Cc];"
           },
           {
             "type": "STRING",
-            "value": "&infin;"
+            "value": "⁇"
           },
           {
-            "type": "STRING",
-            "value": "&lang;"
+            "type": "PATTERN",
+            "value": "&#8263;|&#[Xx]2047;"
           },
           {
             "type": "STRING",
-            "value": "&le;"
+            "value": "⁉"
           },
           {
-            "type": "STRING",
-            "value": "&lrarr;"
+            "type": "PATTERN",
+            "value": "&#8265;|&#[Xx]2049;"
           },
           {
             "type": "STRING",
-            "value": "&mnplus;"
+            "value": "⁈"
           },
           {
-            "type": "STRING",
-            "value": "&nabla;"
+            "type": "PATTERN",
+            "value": "&#8264;|&#[Xx]2048;"
           },
           {
             "type": "STRING",
-            "value": "&nearr;"
+            "value": "□"
           },
           {
-            "type": "STRING",
-            "value": "&perp;"
+            "type": "PATTERN",
+            "value": "&squ;|&square;|&Square;|&#9633;|&#[Xx]25[Aa]1;"
           },
           {
             "type": "STRING",
-            "value": "&pluse;"
+            "value": "∞"
           },
           {
-            "type": "STRING",
-            "value": "&plusmn;"
+            "type": "PATTERN",
+            "value": "&infin;|&#8734;|&#[Xx]221[Ee];"
           },
           {
             "type": "STRING",
-            "value": "&pm;"
+            "value": "⩲"
           },
           {
-            "type": "STRING",
-            "value": "&profsurf;"
+            "type": "PATTERN",
+            "value": "&pluse;|&#10866;|&#[Xx]2[Aa]72;"
           },
           {
             "type": "STRING",
-            "value": "&rang;"
+            "value": "⩱"
           },
           {
-            "type": "STRING",
-            "value": "&rarr;"
+            "type": "PATTERN",
+            "value": "&eplus;|&#10865;|&#[Xx]2[Aa]71;"
           },
           {
             "type": "STRING",
-            "value": "&square;"
+            "value": "±"
           },
           {
-            "type": "STRING",
-            "value": "&uarr;"
+            "type": "PATTERN",
+            "value": "&plusmn;|&pm;|&PlusMinus;|&#177;|&#[Xx][Bb]1;"
           },
           {
             "type": "STRING",
-            "value": "&xodot;"
+            "value": "∓"
           },
           {
-            "type": "STRING",
-            "value": "&xoplus;"
+            "type": "PATTERN",
+            "value": "&mnplus;|&mp;|&MinusPlus;|&#8723;|&#[Xx]2213;"
           },
           {
             "type": "STRING",
-            "value": "&#x203c;"
+            "value": "⨀"
           },
           {
-            "type": "STRING",
-            "value": "&#x2047;"
+            "type": "PATTERN",
+            "value": "&xodot;|&bigodot;|&#10752;|&#[Xx]2[Aa]00;"
           },
           {
             "type": "STRING",
-            "value": "&#x2048;"
+            "value": "○"
           },
           {
-            "type": "STRING",
-            "value": "&#x2049;"
+            "type": "PATTERN",
+            "value": "&cir;|&#9675;|&#[Xx]25[Cc][Bb];"
           },
           {
             "type": "STRING",
-            "value": "&#x21c6;"
+            "value": "⟳"
           },
           {
-            "type": "STRING",
-            "value": "&#x21d7;"
+            "type": "PATTERN",
+            "value": "&#10227;|&#[Xx]27[Ff]3;"
           },
           {
             "type": "STRING",
-            "value": "&#x2206;"
+            "value": "↑"
+          },
+          {
+            "type": "PATTERN",
+            "value": "&uarr;|&uparrow;|&UpArrow;|&ShortUparrow;|&#8593;|&#[Xx]2191;"
           },
           {
             "type": "STRING",
-            "value": "&#x2213;"
+            "value": "→"
+          },
+          {
+            "type": "PATTERN",
+            "value": "&rarr;|&rightarrow;|&RightArrow;|&srarr;|&ShortRightArrow;|&#8594;|&#[Xx]2192;"
           },
           {
             "type": "STRING",
-            "value": "&#x229e;"
+            "value": "⇆"
+          },
+          {
+            "type": "PATTERN",
+            "value": "&lrarr;|&leftarrow;|&LeftArrow;|&slarr;|&ShortLeftArrow;|&#8646;|&#[Xx]21[Cc]6;"
           },
           {
             "type": "STRING",
-            "value": "&#x2313;"
+            "value": "⨁"
+          },
+          {
+            "type": "PATTERN",
+            "value": "&xoplus;|&bigoplus;|&#10753;|&#[Xx]2[Aa]01;"
           },
           {
             "type": "STRING",
-            "value": "&#x2514;"
+            "value": "∆"
+          },
+          {
+            "type": "PATTERN",
+            "value": "&#8710;|&#[Xx]2206;"
           },
           {
             "type": "STRING",
-            "value": "&#x2518;"
+            "value": "∇"
+          },
+          {
+            "type": "PATTERN",
+            "value": "&nabla;|&Del;|&#8711;|&#[Xx]2207;"
           },
           {
             "type": "STRING",
-            "value": "&#x25a1;"
+            "value": "⌓"
+          },
+          {
+            "type": "PATTERN",
+            "value": "&profsurf;|&#8979;|&#[Xx]2313;"
           },
           {
             "type": "STRING",
-            "value": "&#x25cb;"
+            "value": "⬒"
+          },
+          {
+            "type": "PATTERN",
+            "value": "&#11026;|&#[Xx]2[Bb]12;"
           },
           {
             "type": "STRING",
-            "value": "&#x25fa;"
+            "value": "⬓"
+          },
+          {
+            "type": "PATTERN",
+            "value": "&#11027;|&#[Xx]2[Bb]13;"
           },
           {
             "type": "STRING",
-            "value": "&#x25ff;"
+            "value": "⇔"
+          },
+          {
+            "type": "PATTERN",
+            "value": "&harr;|&leftrightarrow;|&LeftRightArrow;|&#8660;|&#[Xx]21[Dd]4;"
           },
           {
             "type": "STRING",
-            "value": "&#x2642;"
+            "value": "⇗"
+          },
+          {
+            "type": "PATTERN",
+            "value": "&nearr;|&UpperRightArrow;|&nearrow;|&#8663;|&#[Xx]21[Dd]7;"
           },
           {
             "type": "STRING",
-            "value": "&#x2715;"
+            "value": "⊞"
+          },
+          {
+            "type": "PATTERN",
+            "value": "&plusb;|&boxplus;|&#8862;|&#[Xx]229[Ee];"
           },
           {
             "type": "STRING",
-            "value": "&#x27ea;"
+            "value": "⟪"
+          },
+          {
+            "type": "PATTERN",
+            "value": "&Lang;|&#10218;|&#[Xx]27[Ee][Aa];"
           },
           {
             "type": "STRING",
-            "value": "&#x27eb;"
+            "value": "⟫"
+          },
+          {
+            "type": "PATTERN",
+            "value": "&Rang;|&#10219;|&#[Xx]27[Ee][Bb];"
           },
           {
             "type": "STRING",
-            "value": "&#x27f3;"
+            "value": "✕"
+          },
+          {
+            "type": "PATTERN",
+            "value": "&#10005;|&#[Xx]2715;"
           },
           {
             "type": "STRING",
-            "value": "&#x2a00;"
+            "value": "⊥"
+          },
+          {
+            "type": "PATTERN",
+            "value": "&bottom;|&bot;|&perp;|&UpTee;|&#8869;|&#[Xx]22[Aa]5;"
           },
           {
             "type": "STRING",
-            "value": "&#x2a01;"
+            "value": "♂"
+          },
+          {
+            "type": "PATTERN",
+            "value": "&male;|&#9794;|&#[Xx]2642;"
           },
           {
             "type": "STRING",
-            "value": "&#x2a71;"
+            "value": "└"
+          },
+          {
+            "type": "PATTERN",
+            "value": "&boxur;|&#9492;|&#[Xx]2514;"
           },
           {
             "type": "STRING",
-            "value": "&#x2a72;"
+            "value": "◺"
+          },
+          {
+            "type": "PATTERN",
+            "value": "&lltri;|&#9722;|&#[Xx]25[Ff][Aa];"
           },
           {
             "type": "STRING",
-            "value": "&#x2b12;"
+            "value": "┘"
+          },
+          {
+            "type": "PATTERN",
+            "value": "&boxul;|&#9496;|&#[Xx]2518;"
           },
           {
             "type": "STRING",
-            "value": "&#x2b13;"
+            "value": "◿"
+          },
+          {
+            "type": "PATTERN",
+            "value": "&#9727;|&#[Xx]25[Ff][Ff];"
           }
         ]
       }
@@ -2410,40 +2282,40 @@
                   "value": "-"
                 },
                 {
+                  "type": "PATTERN",
+                  "value": "&#45;|&#[Xx]2[Dd];"
+                },
+                {
                   "type": "STRING",
                   "value": "−"
+                },
+                {
+                  "type": "PATTERN",
+                  "value": "&minus;|&#8722;|&#[Xx]2212;"
                 },
                 {
                   "type": "STRING",
                   "value": "‐"
                 },
                 {
+                  "type": "PATTERN",
+                  "value": "&hyphen;|&dash;|&#8208;|&#[Xx]2010;"
+                },
+                {
                   "type": "STRING",
                   "value": "–"
+                },
+                {
+                  "type": "PATTERN",
+                  "value": "&ndash;|&#8211;|&#[Xx]2013;"
                 },
                 {
                   "type": "STRING",
                   "value": "—"
                 },
                 {
-                  "type": "STRING",
-                  "value": "&#x2d;"
-                },
-                {
-                  "type": "STRING",
-                  "value": "&minus;"
-                },
-                {
-                  "type": "STRING",
-                  "value": "&#x2010;"
-                },
-                {
-                  "type": "STRING",
-                  "value": "&ndash;"
-                },
-                {
-                  "type": "STRING",
-                  "value": "&mdash;"
+                  "type": "PATTERN",
+                  "value": "&mdash;|&#8212;|&#[Xx]2014;"
                 }
               ]
             },
@@ -2494,40 +2366,40 @@
                   "value": "-"
                 },
                 {
+                  "type": "PATTERN",
+                  "value": "&#45;|&#[Xx]2[Dd];"
+                },
+                {
                   "type": "STRING",
                   "value": "−"
+                },
+                {
+                  "type": "PATTERN",
+                  "value": "&minus;|&#8722;|&#[Xx]2212;"
                 },
                 {
                   "type": "STRING",
                   "value": "‐"
                 },
                 {
+                  "type": "PATTERN",
+                  "value": "&hyphen;|&dash;|&#8208;|&#[Xx]2010;"
+                },
+                {
                   "type": "STRING",
                   "value": "–"
+                },
+                {
+                  "type": "PATTERN",
+                  "value": "&ndash;|&#8211;|&#[Xx]2013;"
                 },
                 {
                   "type": "STRING",
                   "value": "—"
                 },
                 {
-                  "type": "STRING",
-                  "value": "&#x2d;"
-                },
-                {
-                  "type": "STRING",
-                  "value": "&minus;"
-                },
-                {
-                  "type": "STRING",
-                  "value": "&#x2010;"
-                },
-                {
-                  "type": "STRING",
-                  "value": "&ndash;"
-                },
-                {
-                  "type": "STRING",
-                  "value": "&mdash;"
+                  "type": "PATTERN",
+                  "value": "&mdash;|&#8212;|&#[Xx]2014;"
                 }
               ]
             },
@@ -2552,20 +2424,16 @@
                   "value": "/"
                 },
                 {
+                  "type": "PATTERN",
+                  "value": "&sol;|&#47;|&#[Xx]2[Ff];"
+                },
+                {
                   "type": "STRING",
                   "value": "∕"
                 },
                 {
-                  "type": "STRING",
-                  "value": "&sol;"
-                },
-                {
-                  "type": "STRING",
-                  "value": "&#x2f;"
-                },
-                {
-                  "type": "STRING",
-                  "value": "&#x2215;"
+                  "type": "PATTERN",
+                  "value": "&#8725;|&#[Xx]2215;"
                 }
               ]
             },
@@ -2581,40 +2449,40 @@
                   "value": "-"
                 },
                 {
+                  "type": "PATTERN",
+                  "value": "&#45;|&#[Xx]2[Dd];"
+                },
+                {
                   "type": "STRING",
                   "value": "−"
+                },
+                {
+                  "type": "PATTERN",
+                  "value": "&minus;|&#8722;|&#[Xx]2212;"
                 },
                 {
                   "type": "STRING",
                   "value": "‐"
                 },
                 {
+                  "type": "PATTERN",
+                  "value": "&hyphen;|&dash;|&#8208;|&#[Xx]2010;"
+                },
+                {
                   "type": "STRING",
                   "value": "–"
+                },
+                {
+                  "type": "PATTERN",
+                  "value": "&ndash;|&#8211;|&#[Xx]2013;"
                 },
                 {
                   "type": "STRING",
                   "value": "—"
                 },
                 {
-                  "type": "STRING",
-                  "value": "&#x2d;"
-                },
-                {
-                  "type": "STRING",
-                  "value": "&minus;"
-                },
-                {
-                  "type": "STRING",
-                  "value": "&#x2010;"
-                },
-                {
-                  "type": "STRING",
-                  "value": "&ndash;"
-                },
-                {
-                  "type": "STRING",
-                  "value": "&mdash;"
+                  "type": "PATTERN",
+                  "value": "&mdash;|&#8212;|&#[Xx]2014;"
                 }
               ]
             },
@@ -2630,20 +2498,16 @@
                   "value": "/"
                 },
                 {
+                  "type": "PATTERN",
+                  "value": "&sol;|&#47;|&#[Xx]2[Ff];"
+                },
+                {
                   "type": "STRING",
                   "value": "∕"
                 },
                 {
-                  "type": "STRING",
-                  "value": "&sol;"
-                },
-                {
-                  "type": "STRING",
-                  "value": "&#x2f;"
-                },
-                {
-                  "type": "STRING",
-                  "value": "&#x2215;"
+                  "type": "PATTERN",
+                  "value": "&#8725;|&#[Xx]2215;"
                 }
               ]
             },
@@ -2664,12 +2528,8 @@
                   "value": "½"
                 },
                 {
-                  "type": "STRING",
-                  "value": "&half;"
-                },
-                {
-                  "type": "STRING",
-                  "value": "&#xbd;"
+                  "type": "PATTERN",
+                  "value": "&frac12;|&half;|&#189;|&#[Xx][Bb][Dd];"
                 }
               ]
             },
@@ -2681,40 +2541,40 @@
                   "value": "-"
                 },
                 {
+                  "type": "PATTERN",
+                  "value": "&#45;|&#[Xx]2[Dd];"
+                },
+                {
                   "type": "STRING",
                   "value": "−"
+                },
+                {
+                  "type": "PATTERN",
+                  "value": "&minus;|&#8722;|&#[Xx]2212;"
                 },
                 {
                   "type": "STRING",
                   "value": "‐"
                 },
                 {
+                  "type": "PATTERN",
+                  "value": "&hyphen;|&dash;|&#8208;|&#[Xx]2010;"
+                },
+                {
                   "type": "STRING",
                   "value": "–"
+                },
+                {
+                  "type": "PATTERN",
+                  "value": "&ndash;|&#8211;|&#[Xx]2013;"
                 },
                 {
                   "type": "STRING",
                   "value": "—"
                 },
                 {
-                  "type": "STRING",
-                  "value": "&#x2d;"
-                },
-                {
-                  "type": "STRING",
-                  "value": "&minus;"
-                },
-                {
-                  "type": "STRING",
-                  "value": "&#x2010;"
-                },
-                {
-                  "type": "STRING",
-                  "value": "&ndash;"
-                },
-                {
-                  "type": "STRING",
-                  "value": "&mdash;"
+                  "type": "PATTERN",
+                  "value": "&mdash;|&#8212;|&#[Xx]2014;"
                 }
               ]
             },
@@ -2726,12 +2586,8 @@
                   "value": "½"
                 },
                 {
-                  "type": "STRING",
-                  "value": "&half;"
-                },
-                {
-                  "type": "STRING",
-                  "value": "&#xbd;"
+                  "type": "PATTERN",
+                  "value": "&frac12;|&half;|&#189;|&#[Xx][Bb][Dd];"
                 }
               ]
             }
@@ -2745,28 +2601,32 @@
               "value": "*"
             },
             {
+              "type": "PATTERN",
+              "value": "&ast;|&midast;|&#42;|&#[Xx]2[Aa];"
+            },
+            {
               "type": "STRING",
               "value": "∗"
+            },
+            {
+              "type": "PATTERN",
+              "value": "&lowast;|&#8727;|&#[Xx]2217;"
             },
             {
               "type": "STRING",
               "value": "✱"
             },
             {
-              "type": "STRING",
-              "value": "&midast;"
+              "type": "PATTERN",
+              "value": "&#10033;|&#[Xx]2731;"
             },
             {
               "type": "STRING",
-              "value": "&#x2a;"
+              "value": "⁎"
             },
             {
-              "type": "STRING",
-              "value": "&lowast;"
-            },
-            {
-              "type": "STRING",
-              "value": "&#x2731;"
+              "type": "PATTERN",
+              "value": "&#8270;|&#[Xx]204[Ee];"
             }
           ]
         }
