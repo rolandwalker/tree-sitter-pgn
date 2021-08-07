@@ -120,7 +120,7 @@ Recursive variation 1
           (move_number)
           (san_move)
           (san_move)
-          (variation
+          (recursive_variation
             (variation_delimiter_open)
             (variation_movetext
               (move_number)
@@ -192,13 +192,13 @@ Recursive variation 2
           (move_number)
           (san_move)
           (san_move)
-          (variation
+          (recursive_variation
             (variation_delimiter_open)
             (variation_movetext
               (move_number)
               (san_move)
               (san_move)
-              (variation
+              (recursive_variation
                 (variation_delimiter_open)
                 (variation_movetext
                   (move_number)

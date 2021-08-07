@@ -219,13 +219,19 @@ module.exports = grammar({
       field('variation_annotation', $.annotation),
       field('variation_comment', $.inline_comment),
       field('variation_comment', $.rest_of_line_comment),
-      $.variation,
+      $.recursive_variation,
     ),
 
     variation: $ => seq(
       field('variation_delimiter', $.variation_delimiter_open),
       field('variation_content', optional($.variation_movetext)),
       field('variation_delimiter', $.variation_delimiter_close),
+    ),
+
+    recursive_variation: $ => seq(
+      field('recursive_variation_delimiter', $.variation_delimiter_open),
+      field('recursive_variation_content', optional($.variation_movetext)),
+      field('recursive_variation_delimiter', $.variation_delimiter_close),
     ),
 
     inline_comment: $ => seq(

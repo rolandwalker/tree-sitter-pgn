@@ -186,6 +186,36 @@
     }
   },
   {
+    "type": "recursive_variation",
+    "named": true,
+    "fields": {
+      "recursive_variation_content": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "variation_movetext",
+            "named": true
+          }
+        ]
+      },
+      "recursive_variation_delimiter": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "variation_delimiter_close",
+            "named": true
+          },
+          {
+            "type": "variation_delimiter_open",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "rest_of_line_comment",
     "named": true,
     "fields": {
@@ -396,7 +426,7 @@
       "required": false,
       "types": [
         {
-          "type": "variation",
+          "type": "recursive_variation",
           "named": true
         }
       ]
