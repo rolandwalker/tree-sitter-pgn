@@ -493,7 +493,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "variation"
+          "name": "recursive_variation"
         }
       ]
     },
@@ -527,6 +527,43 @@
         {
           "type": "FIELD",
           "name": "variation_delimiter",
+          "content": {
+            "type": "SYMBOL",
+            "name": "variation_delimiter_close"
+          }
+        }
+      ]
+    },
+    "recursive_variation": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "FIELD",
+          "name": "recursive_variation_delimiter",
+          "content": {
+            "type": "SYMBOL",
+            "name": "variation_delimiter_open"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "recursive_variation_content",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "variation_movetext"
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "recursive_variation_delimiter",
           "content": {
             "type": "SYMBOL",
             "name": "variation_delimiter_close"
