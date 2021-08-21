@@ -400,6 +400,16 @@
           }
         ]
       },
+      "variation_lan_move": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "lan_move",
+            "named": true
+          }
+        ]
+      },
       "variation_move_number": {
         "multiple": true,
         "required": false,
