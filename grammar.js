@@ -501,7 +501,7 @@ function case_insensitive_regex(string, as_fragment=false) {
 function html_entity(literal, name=null, as_fragment=false) {
   let alternation = [];
 
-  decimal_codepoint = literal.codePointAt(0);
+  let decimal_codepoint = literal.codePointAt(0);
 
   if (typeof name === 'string') {
     name = [ name ];
