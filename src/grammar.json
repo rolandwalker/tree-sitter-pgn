@@ -469,6 +469,14 @@
         },
         {
           "type": "FIELD",
+          "name": "variation_lan_move",
+          "content": {
+            "type": "SYMBOL",
+            "name": "lan_move"
+          }
+        },
+        {
+          "type": "FIELD",
           "name": "variation_annotation",
           "content": {
             "type": "SYMBOL",

@@ -216,6 +216,7 @@ module.exports = grammar({
     _variation_movetext_element: $ => choice(
       field('variation_move_number', $.move_number),
       field('variation_san_move', $.san_move),
+      field('variation_lan_move', $.lan_move),
       field('variation_annotation', $.annotation),
       field('variation_comment', $.inline_comment),
       field('variation_comment', $.rest_of_line_comment),
