@@ -59,13 +59,17 @@ const confusables = {
   ),
 };
 
+///
+/// grammar
+///
+
 module.exports = grammar({
   name: 'pgn',
 
   rules: {
 
     ///
-    /// file or stream
+    /// grammar: file or stream
     ///
 
     series_of_games: $ => seq(
@@ -78,7 +82,7 @@ module.exports = grammar({
     ),
 
     ///
-    /// game
+    /// grammar: game
     ///
 
     game: $ => seq(
@@ -102,7 +106,7 @@ module.exports = grammar({
     _empty_line: $ => /\r?\n\r?\n/,
 
     ///
-    /// free-standing comment
+    /// grammar: free-standing comment
     ///
 
     freestanding_comment: $ => prec(1,
@@ -138,7 +142,7 @@ module.exports = grammar({
     old_style_twic_section_comment: $ => /[^\r\n]+\r?\n-{4,120}\r?\n/,
 
     ///
-    /// header
+    /// grammar: header
     ///
 
     header: $ => repeat1(
@@ -178,7 +182,7 @@ module.exports = grammar({
       )),
 
     ///
-    /// movetext
+    /// grammar: movetext
     ///
 
     movetext: $ => prec.right(-1,
@@ -348,7 +352,7 @@ module.exports = grammar({
 
     _lan_move_by_coordinates: $ => seq(
       $._san_square,
-      // Note: UCI LAN format elides the next character, but we don't expect it in PGNs
+      // Note: UCI LAN format elides the next character, but we don't expect UCI LAN in PGNs
       choice(
         token.immediate(confusables.dash),
         $._san_capture_symbol,
@@ -396,7 +400,7 @@ module.exports = grammar({
     // be trimmed.
     //
     // Todo: Consider differentiating the subset of annotations which can occur without
-    // intervening whitespace, such as "!"
+    // intervening whitespace, such as "!".
     annotation: $ => token(
       choice(
         /\$\d+/,
@@ -461,7 +465,7 @@ module.exports = grammar({
       )),
 
     ///
-    /// result code
+    /// grammar: result code
     ///
 
     result_code: $ => choice(
