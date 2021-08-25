@@ -4,6 +4,10 @@
 
 Chess Portable Game Notation (PGN) grammar for [tree-sitter](https://github.com/tree-sitter/tree-sitter).
 
+## Used in
+
+ * [Emacs pygn-mode](https://github.com/dwcoates/pygn-mode)
+
 ## Example
 
 <a href="/doc/images/pgn_syntax_highlight.png">
