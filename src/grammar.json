@@ -218,14 +218,44 @@
       "value": "[^\\r\\n]+\\r?\\n-{4,120}\\r?\\n"
     },
     "header": {
-      "type": "REPEAT1",
+      "type": "PREC_RIGHT",
+      "value": -1,
       "content": {
-        "type": "FIELD",
-        "name": "tagpair",
-        "content": {
-          "type": "SYMBOL",
-          "name": "tagpair"
-        }
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "FIELD",
+            "name": "tagpair",
+            "content": {
+              "type": "SYMBOL",
+              "name": "tagpair"
+            }
+          },
+          {
+            "type": "REPEAT",
+            "content": {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "FIELD",
+                  "name": "tagpair",
+                  "content": {
+                    "type": "SYMBOL",
+                    "name": "tagpair"
+                  }
+                },
+                {
+                  "type": "FIELD",
+                  "name": "comment",
+                  "content": {
+                    "type": "SYMBOL",
+                    "name": "rest_of_line_comment"
+                  }
+                }
+              ]
+            }
+          }
+        ]
       }
     },
     "tagpair_delimiter_open": {

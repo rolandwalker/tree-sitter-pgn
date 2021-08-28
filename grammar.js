@@ -145,9 +145,14 @@ module.exports = grammar({
     /// grammar: header
     ///
 
-    header: $ => repeat1(
-      field('tagpair', $.tagpair),
-    ),
+    header: $ => prec.right(-1,
+      seq(
+        field('tagpair', $.tagpair),
+        repeat(
+          choice(
+            field('tagpair', $.tagpair),
+            field('comment', $.rest_of_line_comment),
+          )))),
 
     tagpair_delimiter_open: $ => '[',
 
