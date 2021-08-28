@@ -58,6 +58,16 @@
     "type": "header",
     "named": true,
     "fields": {
+      "comment": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "rest_of_line_comment",
+            "named": true
+          }
+        ]
+      },
       "tagpair": {
         "multiple": true,
         "required": true,
