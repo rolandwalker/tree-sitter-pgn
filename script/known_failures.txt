@@ -1,3 +1,4 @@
 examples/variants/four_player.pgn4
 examples/notation/implicit_capture_notation.pgn
 examples/header/unescaped_tagpair_quotes.pgn
+examples/header/last_tagpair_commented_out.pgn
