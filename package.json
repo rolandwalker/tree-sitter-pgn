@@ -23,7 +23,7 @@
       "file-types": [
         "pgn"
       ],
-      "first-line-regex": "^\\[Event "
+      "first-line-regex": "^\\[(Event|Site|Date|Round|White|Black|Result) "
     }
   ]
 }
