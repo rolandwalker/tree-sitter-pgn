@@ -14,7 +14,7 @@
     "nan": "^2.14.2"
   },
   "devDependencies": {
-    "tree-sitter-cli": "^0.20.7"
+    "tree-sitter-cli": "^0.20.8"
   },
   "repository": "https://github.com/rolandwalker/tree-sitter-pgn",
   "tree-sitter": [
