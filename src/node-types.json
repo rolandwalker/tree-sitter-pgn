@@ -24,7 +24,7 @@
     "fields": {
       "header": {
         "multiple": false,
-        "required": true,
+        "required": false,
         "types": [
           {
             "type": "header",

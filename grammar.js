@@ -66,42 +66,59 @@ const confusables = {
 module.exports = grammar({
   name: 'pgn',
 
+  conflicts: $ => [
+    [$.freestanding_comment, $._movetext_element],
+  ],
+
   rules: {
 
     ///
     /// grammar: file or stream
     ///
 
-    series_of_games: $ => seq(
-      repeat(
-        seq(
-          optional(field('freestanding_comment', $.freestanding_comment)),
-          field('game', $.game),
+    series_of_games: $ => repeat(
+      choice(
+        field('freestanding_comment', $.freestanding_comment),
+        field('game', $.game),
       )),
-      optional(field('freestanding_comment', $.freestanding_comment)),
-    ),
 
     ///
     /// grammar: game
     ///
 
-    game: $ => seq(
+    // http://www.saremba.de/chessgml/standards/pgn/pgn-complete.htm#c8.1
+    // "The tag pair section is composed of a series of zero or more tag pairs."
+    // which must be supported as it occurs in the wild as well
+    //
+    // http://www.saremba.de/chessgml/standards/pgn/pgn-complete.htm#c8.2.6
+    // "Each movetext section has exactly one game termination marker"
+    // which cannot be enforced as games without termination markers are
+    // frequent in the wild.
+    //
+    // Therefore the below requires _either_ a header or a termination
+    // marker/result_code.
 
-      field('header', $.header),
-
-      optional($._empty_line),
-
-      choice(
-        seq(
-          field('movetext', $.movetext),
-          field('result_code', $.result_code),
-        ),
+    game: $ => choice(
+      seq(
+        field('header', $.header),
+        optional($._empty_line),
         field('movetext', $.movetext),
         field('result_code', $.result_code),
       ),
-
-      optional($._empty_line),
-    ),
+      seq(
+        field('header', $.header),
+        optional($._empty_line),
+        field('result_code', $.result_code),
+      ),
+      seq(
+        field('header', $.header),
+        optional($._empty_line),
+        field('movetext', $.movetext),
+      ),
+      seq(
+        field('movetext', $.movetext),
+        field('result_code', $.result_code),
+      )),
 
     _empty_line: $ => /\r?\n\r?\n/,
 
@@ -109,7 +126,7 @@ module.exports = grammar({
     /// grammar: free-standing comment
     ///
 
-    freestanding_comment: $ => prec(1,
+    freestanding_comment: $ => prec(-1,
       repeat1(
         choice(
           $.rest_of_line_comment,
