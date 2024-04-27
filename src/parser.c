@@ -1287,14 +1287,12 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
       if (lookahead == '=') ADVANCE(1516);
       if (lookahead == '@') ADVANCE(1526);
       if (lookahead == 'B' ||
+          lookahead == 'K' ||
           lookahead == 'N' ||
           lookahead == 'Q' ||
           lookahead == 'R' ||
-          (9813 <= lookahead && lookahead <= 9816) ||
-          (9819 <= lookahead && lookahead <= 9822)) ADVANCE(1504);
-      if (lookahead == 'K' ||
-          lookahead == 9812 ||
-          lookahead == 9818) ADVANCE(1508);
+          (9812 <= lookahead && lookahead <= 9816) ||
+          (9818 <= lookahead && lookahead <= 9822)) ADVANCE(1504);
       if (lookahead == 'O') ADVANCE(1581);
       if (lookahead == 'P') ADVANCE(1519);
       if (lookahead == '[') ADVANCE(1477);
@@ -7246,13 +7244,11 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
       if (lookahead == '?') ADVANCE(1558);
       if (lookahead == '@') ADVANCE(1526);
       if (lookahead == 'B' ||
+          lookahead == 'K' ||
           lookahead == 'N' ||
           lookahead == 'Q' ||
-          (9813 <= lookahead && lookahead <= 9816) ||
-          (9819 <= lookahead && lookahead <= 9822)) ADVANCE(1504);
-      if (lookahead == 'K' ||
-          lookahead == 9812 ||
-          lookahead == 9818) ADVANCE(1508);
+          (9812 <= lookahead && lookahead <= 9816) ||
+          (9818 <= lookahead && lookahead <= 9822)) ADVANCE(1504);
       if (lookahead == 'O') ADVANCE(1581);
       if (lookahead == 'P') ADVANCE(1521);
       if (lookahead == 'R') ADVANCE(1507);
@@ -7364,13 +7360,11 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
       if (lookahead == '?') ADVANCE(1558);
       if (lookahead == '@') ADVANCE(1526);
       if (lookahead == 'B' ||
+          lookahead == 'K' ||
           lookahead == 'N' ||
           lookahead == 'Q' ||
-          (9813 <= lookahead && lookahead <= 9816) ||
-          (9819 <= lookahead && lookahead <= 9822)) ADVANCE(1504);
-      if (lookahead == 'K' ||
-          lookahead == 9812 ||
-          lookahead == 9818) ADVANCE(1508);
+          (9812 <= lookahead && lookahead <= 9816) ||
+          (9818 <= lookahead && lookahead <= 9822)) ADVANCE(1504);
       if (lookahead == 'O') ADVANCE(1581);
       if (lookahead == 'P') ADVANCE(1521);
       if (lookahead == 'R') ADVANCE(1507);
@@ -10343,13 +10337,11 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
       if (lookahead == '?') ADVANCE(1550);
       if (lookahead == '@') ADVANCE(1527);
       if (lookahead == 'B' ||
+          lookahead == 'K' ||
           lookahead == 'N' ||
           lookahead == 'Q' ||
-          (9813 <= lookahead && lookahead <= 9816) ||
-          (9819 <= lookahead && lookahead <= 9822)) ADVANCE(1506);
-      if (lookahead == 'K' ||
-          lookahead == 9812 ||
-          lookahead == 9818) ADVANCE(1510);
+          (9812 <= lookahead && lookahead <= 9816) ||
+          (9818 <= lookahead && lookahead <= 9822)) ADVANCE(1506);
       if (lookahead == 'O') ADVANCE(1580);
       if (lookahead == 'P') ADVANCE(1520);
       if (lookahead == 'R') ADVANCE(1505);
@@ -10465,13 +10457,11 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
       if (lookahead == '?') ADVANCE(1550);
       if (lookahead == '@') ADVANCE(1527);
       if (lookahead == 'B' ||
+          lookahead == 'K' ||
           lookahead == 'N' ||
           lookahead == 'Q' ||
-          (9813 <= lookahead && lookahead <= 9816) ||
-          (9819 <= lookahead && lookahead <= 9822)) ADVANCE(1506);
-      if (lookahead == 'K' ||
-          lookahead == 9812 ||
-          lookahead == 9818) ADVANCE(1510);
+          (9812 <= lookahead && lookahead <= 9816) ||
+          (9818 <= lookahead && lookahead <= 9822)) ADVANCE(1506);
       if (lookahead == 'O') ADVANCE(1580);
       if (lookahead == 'P') ADVANCE(1520);
       if (lookahead == 'R') ADVANCE(1505);
