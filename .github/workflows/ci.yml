@@ -17,16 +17,21 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-      - run: npm install
-      - run: npm test
-  # based on tree-sitter-bash
+      - uses: tree-sitter/setup-action@v1
+      - name: Run test commands
+        shell: bash
+        run: |
+          npm install
+          npm test
+          ./script/parse_examples.sh
+  # tree-sitter/parser-setup-action is deprecated, but
+  # so far the new tree-sitter/setup-action does not
+  # work on Windows.
   test_windows:
     runs-on: windows-latest
     steps:
       - name: Set up repo
         uses: tree-sitter/parser-setup-action@v1.2
-        with:
-          node-version: 20
       - name: Run tests
         uses: tree-sitter/parser-test-action@v1.2
         with:
