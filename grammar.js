@@ -170,6 +170,7 @@ module.exports = grammar({
           choice(
             field('tagpair', $.tagpair),
             field('comment', $.rest_of_line_comment),
+            $._empty_line,
           )))),
 
     tagpair_delimiter_open: $ => '[',
