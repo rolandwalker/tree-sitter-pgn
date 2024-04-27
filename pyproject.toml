@@ -4,18 +4,18 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "tree-sitter-pgn"
-description = "Pgn grammar for tree-sitter"
-version = "0.0.1"
-keywords = ["incremental", "parsing", "tree-sitter", "pgn"]
+description = "PGN grammar for tree-sitter"
+version = "1.0.5"
+keywords = ["incremental", "parsing", "tree-sitter", "PGN", "chess"]
 classifiers = [
   "Intended Audience :: Developers",
-  "License :: OSI Approved :: MIT License",
+  "License :: OSI Approved :: BSD License",
   "Topic :: Software Development :: Compilers",
   "Topic :: Text Processing :: Linguistic",
   "Typing :: Typed"
 ]
 requires-python = ">=3.8"
-license.text = "MIT"
+license.text = "BSD"
 readme = "README.md"
 
 [project.urls]
