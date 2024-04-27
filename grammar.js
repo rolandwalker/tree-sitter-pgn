@@ -307,11 +307,12 @@ module.exports = grammar({
         '1', '2', '3', '4', '5', '6', '7', '8',
       )),
 
+    // Antichess allows promotion to King
     _san_promotable_piece: $ => token.immediate(
       choice(
-        'R', 'N', 'B', 'Q',
-        '♖', '♘', '♗', '♕',
-        '♜', '♞', '♝', '♛',
+        'R', 'N', 'B', 'Q', 'K',
+        '♖', '♘', '♗', '♕', '♔',
+        '♜', '♞', '♝', '♛', '♚',
       )),
 
     _san_major_or_minor_piece: $ => token(

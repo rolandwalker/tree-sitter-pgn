@@ -856,6 +856,10 @@
           },
           {
             "type": "STRING",
+            "value": "K"
+          },
+          {
+            "type": "STRING",
             "value": "♖"
           },
           {
@@ -872,6 +876,10 @@
           },
           {
             "type": "STRING",
+            "value": "♔"
+          },
+          {
+            "type": "STRING",
             "value": "♜"
           },
           {
@@ -885,6 +893,10 @@
           {
             "type": "STRING",
             "value": "♛"
+          },
+          {
+            "type": "STRING",
+            "value": "♚"
           }
         ]
       }
