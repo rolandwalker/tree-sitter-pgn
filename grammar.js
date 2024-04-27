@@ -68,6 +68,7 @@ module.exports = grammar({
 
   conflicts: $ => [
     [$.freestanding_comment, $._movetext_element],
+    [$.tagpair_value_contents],
   ],
 
   rules: {
@@ -201,6 +202,7 @@ module.exports = grammar({
       choice(
         token.immediate(/[^"\\\r\n]+/),
         token.immediate(/\\[^\r\n]/),
+        '"',
       )),
 
     ///
