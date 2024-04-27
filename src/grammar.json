@@ -276,6 +276,10 @@
                     "type": "SYMBOL",
                     "name": "rest_of_line_comment"
                   }
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_empty_line"
                 }
               ]
             }
