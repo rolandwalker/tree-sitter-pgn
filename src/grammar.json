@@ -2,28 +2,57 @@
   "name": "pgn",
   "rules": {
     "series_of_games": {
-      "type": "REPEAT",
-      "content": {
-        "type": "CHOICE",
-        "members": [
-          {
-            "type": "FIELD",
-            "name": "freestanding_comment",
-            "content": {
-              "type": "SYMBOL",
-              "name": "freestanding_comment"
-            }
-          },
-          {
-            "type": "FIELD",
-            "name": "game",
-            "content": {
-              "type": "SYMBOL",
-              "name": "game"
-            }
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "FIELD",
+                    "name": "freestanding_comment",
+                    "content": {
+                      "type": "SYMBOL",
+                      "name": "freestanding_comment"
+                    }
+                  },
+                  {
+                    "type": "BLANK"
+                  }
+                ]
+              },
+              {
+                "type": "FIELD",
+                "name": "game",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "game"
+                }
+              }
+            ]
           }
-        ]
-      }
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "FIELD",
+              "name": "freestanding_comment",
+              "content": {
+                "type": "SYMBOL",
+                "name": "freestanding_comment"
+              }
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
     },
     "game": {
       "type": "CHOICE",

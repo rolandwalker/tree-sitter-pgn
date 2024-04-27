@@ -66,6 +66,10 @@ const confusables = {
 module.exports = grammar({
   name: 'pgn',
 
+  ///
+  /// conflict rules
+  ///
+
   conflicts: $ => [
     [$.freestanding_comment, $._movetext_element],
     [$.tagpair_value_contents],
@@ -74,14 +78,20 @@ module.exports = grammar({
   rules: {
 
     ///
-    /// grammar: file or stream
+    /// grammar: series of games
     ///
 
-    series_of_games: $ => repeat(
-      choice(
-        field('freestanding_comment', $.freestanding_comment),
-        field('game', $.game),
-      )),
+    // written awkwardly to ensure that at least one game is required to parse
+    // a series_of_games, not just a freestanding comment.
+
+    series_of_games: $ => seq(
+      repeat(
+        seq(
+          optional(field('freestanding_comment', $.freestanding_comment)),
+          field('game', $.game),
+        )),
+      optional(field('freestanding_comment', $.freestanding_comment)),
+    ),
 
     ///
     /// grammar: game
