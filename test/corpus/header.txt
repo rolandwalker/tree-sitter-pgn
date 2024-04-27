@@ -331,3 +331,18 @@ Trailing comments within a header
         (double_quote)
         (tagpair_delimiter_close)))
     (result_code)))
+
+================================================================================
+Headerless game
+================================================================================
+
+1.e4
+0-1
+
+--------------------------------------------------------------------------------
+(series_of_games
+  (game
+    (movetext
+      (move_number)
+      (san_move))
+    (result_code)))
