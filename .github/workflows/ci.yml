@@ -19,13 +19,18 @@ jobs:
           node-version: 20
       - run: npm install
       - run: npm test
-  # is windows no longer supported?
-  # test_windows:
-  #   runs-on: windows-latest
-  #   steps:
-  #     - uses: actions/checkout@v4
-  #     - uses: actions/setup-node@v4
-  #       with:
-  #         node-version: 20
-  #     - run: npm install
-  #     - run: npm run-script test-windows
+  # based on tree-sitter-bash
+  test_windows:
+    runs-on: windows-latest
+    steps:
+      - name: Set up repo
+        uses: tree-sitter/parser-setup-action@v1.2
+        with:
+          node-version: 20
+      - name: Run tests
+        uses: tree-sitter/parser-test-action@v1.2
+        with:
+          lint: false
+          test-library: false
+          corpus-files: |
+            examples/succeeding/**/*.pgn
