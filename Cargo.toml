@@ -5,7 +5,7 @@ version = "1.0.4"
 keywords = ["incremental", "parsing", "PGN", "chess"]
 categories = ["parsing", "text-editors"]
 repository = "https://github.com/rolandwalker/tree-sitter-pgn"
-edition = "2018"
+edition = "2024"
 license = "BSD-2-Clause"
 
 build = "bindings/rust/build.rs"
@@ -20,7 +20,7 @@ include = [
 path = "bindings/rust/lib.rs"
 
 [dependencies]
-tree-sitter = "0.19.3"
+tree-sitter = "0.22.5"
 
 [build-dependencies]
 cc = "1.0"
