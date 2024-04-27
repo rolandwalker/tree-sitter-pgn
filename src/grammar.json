@@ -408,6 +408,10 @@
               "type": "PATTERN",
               "value": "\\\\[^\\r\\n]"
             }
+          },
+          {
+            "type": "STRING",
+            "value": "\""
           }
         ]
       }
@@ -3366,6 +3370,9 @@
     [
       "freestanding_comment",
       "_movetext_element"
+    ],
+    [
+      "tagpair_value_contents"
     ]
   ],
   "precedences": [],
