@@ -21,21 +21,21 @@ jobs:
       - name: Run test commands
         shell: bash
         run: |
-          npm install
-          npm test
+          tree-sitter generate
+          tree-sitter test
           ./script/parse_examples.sh
   # tree-sitter/parser-setup-action is deprecated, but
   # so far the new tree-sitter/setup-action does not
   # work on Windows.
-  test_windows:
-    runs-on: windows-latest
-    steps:
-      - name: Set up repo
-        uses: tree-sitter/parser-setup-action@v1.2
-      - name: Run tests
-        uses: tree-sitter/parser-test-action@v1.2
-        with:
-          lint: false
-          test-library: false
-          corpus-files: |
-            examples/succeeding/**/*.pgn
+  # test_windows:
+  #   runs-on: windows-latest
+  #   steps:
+  #     - name: Set up repo
+  #       uses: tree-sitter/parser-setup-action@v1.2
+  #     - name: Run tests
+  #       uses: tree-sitter/parser-test-action@v1.2
+  #       with:
+  #         lint: false
+  #         test-library: false
+  #         corpus-files: |
+  #           examples/succeeding/**/*.pgn
