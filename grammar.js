@@ -211,8 +211,7 @@ module.exports = grammar({
 
     tagpair_value_contents: $ => repeat1(
       choice(
-        token.immediate(/[^"\\\r\n]+/),
-        token.immediate(/\\[^\r\n]/),
+        token.immediate(/[^"\r\n]+/),
         '"',
       )),
 
