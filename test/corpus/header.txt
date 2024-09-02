@@ -454,3 +454,24 @@ Headerless game
       (move_number)
       (san_move))
     (result_code)))
+
+
+================================================================================
+Empty tagpair value
+================================================================================
+
+[Event ""]
+
+0-1
+
+--------------------------------------------------------------------------------
+(series_of_games
+  (game
+    (header
+      (tagpair
+        (tagpair_delimiter_open)
+        (tagpair_key)
+        (double_quote)
+        (double_quote)
+        (tagpair_delimiter_close)))
+    (result_code)))
