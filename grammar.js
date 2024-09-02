@@ -75,6 +75,10 @@ module.exports = grammar({
     [$.tagpair_value_contents],
   ],
 
+  externals: $ => [
+    $._full_line_comment_delimiter_bol_assertion,
+  ],
+
   rules: {
 
     ///
@@ -144,16 +148,15 @@ module.exports = grammar({
           $.old_style_twic_section_comment,
         ))),
 
-    // Bug: The PGN spec requires that "%" only introduces a comment when placed
-    // at the first column of a line.  However,
-    //  1) the "%" construct is rarely seen in the wild
-    //  2) we are arguably merely "liberal in what we accept"
-    // External scanners do have access to an experimental get_column function
-    // which could be used to constrain the position of "%".
-    rest_of_line_comment_delimiter_open: $ => token(
-      choice(
-        ';', '%',
-      )),
+    rest_of_line_comment_delimiter_open: $ => choice(
+      ';',
+      // "%" only introduces a comment when placed at the first column of a
+      // line, which is handled by this assertion via a scanner.c.  These
+      // rarely-seen comments are called "escapes" in the spec, and we could
+      // consider giving them a distinct field name.  However, the consumer
+      // could also simply consult the delimiter character.
+      seq($._full_line_comment_delimiter_bol_assertion, '%'),
+    ),
 
     rest_of_line_comment: $ => seq(
       field('comment_delimiter', $.rest_of_line_comment_delimiter_open),
