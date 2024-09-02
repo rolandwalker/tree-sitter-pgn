@@ -1,12 +1,12 @@
 Metadata-Version: 2.1
 Name: tree-sitter-pgn
-Version: 0.0.1
-Summary: Pgn grammar for tree-sitter
-License: MIT
+Version: 1.0.6
+Summary: PGN grammar for tree-sitter
+License: BSD
 Project-URL: Homepage, https://github.com/rolandwalker/tree-sitter-pgn
-Keywords: incremental,parsing,tree-sitter,pgn
+Keywords: incremental,parsing,tree-sitter,PGN,chess
 Classifier: Intended Audience :: Developers
-Classifier: License :: OSI Approved :: MIT License
+Classifier: License :: OSI Approved :: BSD License
 Classifier: Topic :: Software Development :: Compilers
 Classifier: Topic :: Text Processing :: Linguistic
 Classifier: Typing :: Typed
