@@ -85,8 +85,10 @@ module.exports = grammar({
     /// grammar: series of games
     ///
 
-    // written awkwardly to ensure that at least one game is required to parse
-    // a series_of_games, not just a freestanding comment.
+    // Written awkwardly to ensure that at least one game is required to parse
+    // a series_of_games, not just a freestanding comment.  But a repeat1() is
+    // not used, to avoid returning an ERROR on an empty file.  TODO: is there
+    // a reasonable way to use repeat1() here?
 
     series_of_games: $ => seq(
       repeat(
@@ -239,7 +241,7 @@ module.exports = grammar({
 
     inline_comment_delimiter_close: $ => '}',
 
-    // Todo: Consider enforcing <move_number> <white_move> <black_move> so
+    // TODO: Consider enforcing <move_number> <white_move> <black_move> so
     // that <move_number> can appear only in one position.  Note: this would
     // be incompatible with handling crazyhouse and bughouse variants in the
     // same grammar.
@@ -334,7 +336,7 @@ module.exports = grammar({
         '♜', '♞', '♝', '♛', '♚',
       )),
 
-    // Todo: Consider supporting colon as a postfix capture notation (very obscure).
+    // TODO: Consider supporting colon as a postfix capture notation (very obscure).
     // It would occur after the move, but before promotion.
     _san_capture_symbol: $ => token.immediate(
       choice(
@@ -390,7 +392,7 @@ module.exports = grammar({
 
     _lan_move_by_coordinates: $ => seq(
       $._san_square,
-      // Note: UCI LAN format elides the next character, but we don't expect UCI LAN in PGNs
+      // Note: UCI-LAN format elides the next character, but we don't expect UCI-LAN in PGNs
       choice(
         token.immediate(confusables.dash),
         $._san_capture_symbol,
@@ -433,11 +435,15 @@ module.exports = grammar({
       )),
 
     // Limitation: whitespace is required around "N" annotations to disambiguate cases
-    // such as "2. d4 N g6".  For syntax highlighting it should not matter that the
-    // annotation span includes whitespace.  In other situations the span may need to
-    // be trimmed.
+    // such as "2. d4 N g6", where the "N" could be a Knight on "Ng6", or "40. g8N",
+    // where the N could be Knight promotion using irregular notation.  But the form
+    // "2. d4N g6" does occur in the wild!  Maybe this could be addressed with the
+    // external scanner.c.
     //
-    // Todo: Consider differentiating the subset of annotations which can occur without
+    // For syntax highlighting, it should not matter that the annotation span includes
+    // whitespace.
+    //
+    // TODO: Consider differentiating the subset of annotations which can occur without
     // intervening whitespace, such as "!".
     annotation: $ => token(
       choice(

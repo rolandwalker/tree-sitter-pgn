@@ -24,6 +24,7 @@ bool tree_sitter_pgn_external_scanner_scan(
     const bool *valid_symbols
 ) {
     if (valid_symbols[FULL_LINE_COMMENT_DELIMITER_BOL_ASSERTION]) {
+        // it's not really clear why we have to advance over newlines, but we do
         // eof not really needed in this form
         while (!lexer->eof(lexer) && (lexer->lookahead == '\n' || lexer->lookahead == '\r')) {
             lexer->advance(lexer, true);
