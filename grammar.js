@@ -290,7 +290,7 @@ module.exports = grammar({
     inline_comment_text: $ => token.immediate(/[^\}]*/),
 
     // [AaBb] is for the bughouse variant
-    move_number: $ => /\d+[AaBb]?\s*\.[\s\.]*/,
+    move_number: $ => /\d+[AaBb]?\s*[\.𝅭․܁‎܂꘎‎٠۰ꓸ][\s\.𝅭․܁‎܂꘎‎٠۰ꓸ]*/,
 
     san_move: $ => seq(
       $._san_move_piece,
