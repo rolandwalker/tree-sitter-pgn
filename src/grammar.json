@@ -212,20 +212,26 @@
       }
     },
     "rest_of_line_comment_delimiter_open": {
-      "type": "TOKEN",
-      "content": {
-        "type": "CHOICE",
-        "members": [
-          {
-            "type": "STRING",
-            "value": ";"
-          },
-          {
-            "type": "STRING",
-            "value": "%"
-          }
-        ]
-      }
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": ";"
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_full_line_comment_delimiter_bol_assertion"
+            },
+            {
+              "type": "STRING",
+              "value": "%"
+            }
+          ]
+        }
+      ]
     },
     "rest_of_line_comment": {
       "type": "SEQ",
@@ -3414,7 +3420,12 @@
     ]
   ],
   "precedences": [],
-  "externals": [],
+  "externals": [
+    {
+      "type": "SYMBOL",
+      "name": "_full_line_comment_delimiter_bol_assertion"
+    }
+  ],
   "inline": [],
   "supertypes": []
 }
