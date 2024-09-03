@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: tree-sitter-pgn
-Version: 1.0.12
+Version: 1.0.13
 Summary: PGN grammar for tree-sitter
 License: BSD
 Project-URL: Homepage, https://github.com/rolandwalker/tree-sitter-pgn
