@@ -1,5 +1,11 @@
 name: Publish packages
 
+# copied from
+#
+#     https://raw.githubusercontent.com/tree-sitter/workflows/main/.github/workflows/package-pypi.yml
+#
+# with Windows removed, because the Windows build failed
+
 on:
   push:
     tags: ["v*"]
