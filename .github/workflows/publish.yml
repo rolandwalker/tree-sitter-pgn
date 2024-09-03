@@ -9,15 +9,86 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  # npm:
-  #   uses: tree-sitter/workflows/.github/workflows/package-npm.yml@main
-  #   secrets:
-  #     NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
-  # crates:
-  #   uses: tree-sitter/workflows/.github/workflows/package-crates.yml@main
-  #   secrets:
-  #     CARGO_REGISTRY_TOKEN: ${{secrets.CARGO_REGISTRY_TOKEN}}
-  pypi:
-    uses: ./.github/actions/package-pypi.yml@latest
-    secrets:
-      PYPI_API_TOKEN: ${{secrets.PYPI_API_TOKEN}}
+  build_sdist:
+    name: Build source dist
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: pip install --upgrade pip build setuptools wheel
+      - name: Build sources
+        run: python -mbuild -n -s
+      - name: Upload sources
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist-sources
+          path: dist/*.tar.gz
+          retention-days: 2
+
+  build_wheels:
+    name: Build wheels on ${{matrix.os}} (${{matrix.cibw_arch}})
+    runs-on: ${{matrix.os}}
+    strategy:
+      matrix:
+        include:
+          - { os: ubuntu-latest,  cibw_arch: x86_64 }
+          - { os: ubuntu-latest,  cibw_arch: aarch64, qemu_arch: arm64 }
+          - { os: macos-latest,   cibw_arch: arm64 }
+          - { os: macos-latest,   cibw_arch: x86_64 }
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - uses: tree-sitter/setup-action@v1
+        if: false
+        with:
+          install-lib: false
+      - name: Regenerate Parser
+        if: ${{ inputs.generate }}
+        run: tree-sitter generate --no-bindings
+      - name: Set up QEMU
+        if: matrix.qemu_arch != ''
+        uses: docker/setup-qemu-action@v3
+        with:
+          platforms: ${{matrix.qemu_arch}}
+      - name: Build wheels
+        uses: pypa/cibuildwheel@v2.18
+        with:
+          output-dir: dist
+        env:
+          CIBW_ARCHS: ${{matrix.cibw_arch}}
+          CIBW_TEST_SKIP: "*-*linux_aarch64 *-macosx_x86_64"
+      - name: Upload wheel artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          path: dist/*.whl
+          name: dist-wheels-${{matrix.os}}-${{matrix.cibw_arch}}
+          retention-days: 2
+
+  package:
+    name: Publish Python package
+    needs: [build_sdist, build_wheels]
+    runs-on: ubuntu-latest
+    environment:
+      name: pypi
+      url: https://pypi.org/project/${{github.event.repository.name}}/
+    # permissions:
+    #   id-token: write
+    steps:
+      - name: Download build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: dist
+          pattern: dist-*
+          merge-multiple: true
+      - name: Check build artifacts
+        run: ls -l dist
+      - name: Publish to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1.8
+        with:
+          password: ${{secrets.PYPI_API_TOKEN}}
