@@ -32,6 +32,7 @@
   "tree-sitter": [
     {
       "scope": "source.pgn",
+      "highlights": "queries/highlights.scm",
       "file-types": [
         "pgn"
       ],
