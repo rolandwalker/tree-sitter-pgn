@@ -53,6 +53,33 @@ Pawn move with capture
     (result_code)))
 
 ================================================================================
+Pawn move with implicit capture
+================================================================================
+
+[Event "?"]
+
+2.dc4 e6
+*
+
+--------------------------------------------------------------------------------
+
+(series_of_games
+  (game
+    (header
+      (tagpair
+        (tagpair_delimiter_open)
+        (tagpair_key)
+        (double_quote)
+        (tagpair_value_contents)
+        (double_quote)
+        (tagpair_delimiter_close)))
+    (movetext
+      (move_number)
+      (san_move)
+      (san_move))
+    (result_code)))
+
+================================================================================
 Rook move
 ================================================================================
 

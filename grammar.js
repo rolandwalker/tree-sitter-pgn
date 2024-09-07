@@ -359,7 +359,7 @@ module.exports = grammar({
       optional(
         seq(
           $._san_file,
-          $._san_capture_symbol,
+          optional($._san_capture_symbol),
         )),
       $._san_square,
       optional($._san_promotion),
