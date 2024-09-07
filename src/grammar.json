@@ -1072,8 +1072,16 @@
                   "name": "_san_file"
                 },
                 {
-                  "type": "SYMBOL",
-                  "name": "_san_capture_symbol"
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "_san_capture_symbol"
+                    },
+                    {
+                      "type": "BLANK"
+                    }
+                  ]
                 }
               ]
             },
