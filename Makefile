@@ -1,4 +1,4 @@
-VERSION := 1.0.15
+VERSION := 1.0.16
 
 LANGUAGE_NAME := tree-sitter-pgn
 

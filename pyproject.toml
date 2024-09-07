@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "tree-sitter-pgn"
 description = "PGN grammar for tree-sitter"
-version = "1.0.15"
+version = "1.0.16"
 keywords = ["incremental", "parsing", "tree-sitter", "PGN", "chess"]
 classifiers = [
   "Intended Audience :: Developers",
