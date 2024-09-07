@@ -290,7 +290,8 @@ module.exports = grammar({
     inline_comment_text: $ => token.immediate(/[^\}]*/),
 
     // [AaBb] is for the bughouse variant
-    move_number: $ => /\d+[AaBb]?\s*[\.𝅭․܁‎܂꘎‎٠۰ꓸ][\s\.𝅭․܁‎܂꘎‎٠۰ꓸ]*/,
+    // Move numbers with zero dots are rare but required by the spec.
+    move_number: $ => /\d+[AaBb]?(\s+|\s*[\.𝅭․܁‎܂꘎‎٠۰ꓸ][\s\.𝅭․܁‎܂꘎‎٠۰ꓸ]*)/,
 
     san_move: $ => seq(
       $._san_move_piece,
@@ -518,6 +519,11 @@ module.exports = grammar({
       seq('1', confusables.slash, '2', confusables.dash, '1', confusables.slash, '2'),
       seq(confusables.half, confusables.dash, confusables.half),
       confusables.asterisk,
+      // these would get confused with dotless move numbers unless wrapped in token()
+      token(seq('1 ', confusables.dash, ' ', confusables.o)),
+      token(seq(confusables.o, ' ', confusables.dash, ' 1')),
+      token(seq('1 ', confusables.slash, ' 2 ', confusables.dash, ' 1 ', confusables.slash, ' 2')),
+      token(seq(confusables.half, ' ', confusables.dash, ' ', confusables.half)),
     ),
   }
 });
