@@ -31,27 +31,30 @@ query = PGN_LANGUAGE.query(
 
     (movetext
       san_move: (san_move) @san_move)
+
+    (movetext
+      lan_move: (lan_move) @lan_move)
     ''')
 
 with open('input_file.pgn', 'rb') as file:
-    content = b''.join(file.readlines())
-    tree = parser.parse(content)
+    tree = parser.parse(file.read())
 
 matches = query.captures(tree.root_node)
 
 merged_nodes = [
     *matches.get('game', []),
     *matches.get('san_move', []),
+    *matches.get('lan_move', []),
 ]
 merged_nodes = sorted(merged_nodes, key=lambda elt: elt.start_byte)
 
 for game in more_itertools.split_before(merged_nodes, lambda node: node.type == 'game'):
-    san = []
+    main_line = []
     for node in game:
-        if node.type == 'san_move' and node.text is not None:
-            san.append(node.text.decode().strip())
+        if node.type in ['san_move', 'lan_move'] and node.text is not None:
+            main_line.append(node.text.decode().strip())
             continue
-    print(' '.join(san))
+    print(' '.join(main_line))
 ```
 
 ## References
