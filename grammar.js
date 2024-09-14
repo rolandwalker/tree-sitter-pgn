@@ -57,6 +57,22 @@ const confusables = {
   half: choice(
     '½', html_entity('½', ['frac12', 'half']),
   ),
+  double_quote: choice(
+    '"', html_entity('"'),
+    '＂',html_entity('＂'),
+    '“', html_entity('“'),
+    '”', html_entity('”'),
+    '‟', html_entity('‟'),
+    '″', html_entity('″'),
+    '‶', html_entity('‶'),
+    '〃',html_entity('〃'),
+    '״', html_entity('״'),
+    '˝', html_entity('˝'),
+    'ʺ', html_entity('ʺ'),
+    '˶', html_entity('˶'),
+    'ˮ', html_entity('ˮ'),
+    'ײ', html_entity('ײ'),
+  ),
 };
 
 ///
@@ -192,7 +208,7 @@ module.exports = grammar({
 
     tagpair_delimiter_close: $ => ']',
 
-    double_quote: $ => '"',
+    double_quote: $ => confusables.double_quote,
 
     tagpair: $ => seq(
       field('tagpair_delimiter', $.tagpair_delimiter_open),
@@ -216,8 +232,9 @@ module.exports = grammar({
 
     tagpair_value_contents: $ => repeat1(
       choice(
-        token.immediate(/[^"\r\n]+/),
-        '"',
+        // invert confusables.double_quote
+        token.immediate(/[^"＂“”‟″‶〃״˝ʺ˶ˮײ\r\n]+/),
+        confusables.double_quote,
       )),
 
     ///
