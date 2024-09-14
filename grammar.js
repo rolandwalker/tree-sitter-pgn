@@ -597,6 +597,8 @@ module.exports = grammar({
         '◺', html_entity('◺', 'lltri'),
         '┘', html_entity('┘', 'boxul'),
         '◿', html_entity('◿'),
+        'Ø', html_entity('Ø', 'Oslash'),
+        'ø', html_entity('ø', 'oslash'),
       )),
 
     ///
