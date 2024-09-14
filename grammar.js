@@ -224,7 +224,9 @@ module.exports = grammar({
       field('tagpair_delimiter', $.tagpair_delimiter_close),
     ),
 
-    tagpair_key: $ => token(/[^ ]+/),
+    // Not to spec, but keys with whitespace occur in the wild.
+    // This regex could also be much more restrictive.
+    tagpair_key: $ => token(/[^"＂“”‟″‶〃״˝ʺ˶ˮײ\[\]\{\};%\r\n]+/),
 
     _tagpair_value: $ => choice(
       seq(

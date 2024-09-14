@@ -484,7 +484,7 @@
       "type": "TOKEN",
       "content": {
         "type": "PATTERN",
-        "value": "[^ ]+"
+        "value": "[^\"＂“”‟″‶〃״˝ʺ˶ˮײ\\[\\]\\{\\};%\\r\\n]+"
       }
     },
     "_tagpair_value": {
