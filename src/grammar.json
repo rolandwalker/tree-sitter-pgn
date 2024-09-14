@@ -3334,6 +3334,14 @@
           },
           {
             "type": "STRING",
+            "value": "⊙"
+          },
+          {
+            "type": "PATTERN",
+            "value": "&odot;|&#8857;|&#[Xx]2299;"
+          },
+          {
+            "type": "STRING",
             "value": "⨀"
           },
           {
@@ -3379,6 +3387,14 @@
           {
             "type": "PATTERN",
             "value": "&lrarr;|&leftarrow;|&LeftArrow;|&slarr;|&ShortLeftArrow;|&#8646;|&#[Xx]21[Cc]6;"
+          },
+          {
+            "type": "STRING",
+            "value": "⊕"
+          },
+          {
+            "type": "PATTERN",
+            "value": "&oplus;|&#8853;|&#[Xx]2295;"
           },
           {
             "type": "STRING",
