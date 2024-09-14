@@ -143,6 +143,7 @@ module.exports = grammar({
         field('header', $.header),
         optional($._empty_line),
         field('movetext', $.movetext),
+        optional($.trailing_garbage),
         field('result_code', $.result_code),
       ),
       seq(
@@ -157,6 +158,7 @@ module.exports = grammar({
       ),
       seq(
         field('movetext', $.movetext),
+        optional($.trailing_garbage),
         field('result_code', $.result_code),
       )),
 
@@ -270,6 +272,12 @@ module.exports = grammar({
     _recursive_inline_comment_delimiter_open: $ => '{',
 
     _recursive_inline_comment_delimiter_close: $ => '}',
+
+    trailing_garbage: $ => repeat1(
+      choice(
+        ')',
+        '}',
+      )),
 
     // TODO: Consider enforcing <move_number> <white_move> <black_move> so
     // that <move_number> can appear only in one position.  Note: this would

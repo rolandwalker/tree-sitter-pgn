@@ -57,6 +57,16 @@
           }
         ]
       }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "trailing_garbage",
+          "named": true
+        }
+      ]
     }
   },
   {
@@ -378,6 +388,11 @@
     "fields": {}
   },
   {
+    "type": "trailing_garbage",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "variation",
     "named": true,
     "fields": {
@@ -406,6 +421,11 @@
         ]
       }
     }
+  },
+  {
+    "type": "variation_delimiter_close",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "variation_movetext",
@@ -486,6 +506,10 @@
     "named": false
   },
   {
+    "type": ")",
+    "named": false
+  },
+  {
     "type": "*",
     "named": false
   },
@@ -559,10 +583,6 @@
   },
   {
     "type": "tagpair_key",
-    "named": true
-  },
-  {
-    "type": "variation_delimiter_close",
     "named": true
   },
   {
