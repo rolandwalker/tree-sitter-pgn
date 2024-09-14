@@ -416,7 +416,7 @@ module.exports = grammar({
         'x', 'X', ':',
       )),
 
-    _san_promotion_symbol: $ => token.immediate('='),
+    _san_promotion_symbol: $ => token.immediate(confusables.equals),
 
     _san_square: $ => seq(
       $._san_file,
