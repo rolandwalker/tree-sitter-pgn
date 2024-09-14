@@ -575,6 +575,30 @@
     "named": false
   },
   {
+    "type": "ʺ",
+    "named": false
+  },
+  {
+    "type": "˝",
+    "named": false
+  },
+  {
+    "type": "ˮ",
+    "named": false
+  },
+  {
+    "type": "˶",
+    "named": false
+  },
+  {
+    "type": "ײ",
+    "named": false
+  },
+  {
+    "type": "״",
+    "named": false
+  },
+  {
     "type": "٭",
     "named": false
   },
@@ -596,6 +620,26 @@
   },
   {
     "type": "—",
+    "named": false
+  },
+  {
+    "type": "“",
+    "named": false
+  },
+  {
+    "type": "”",
+    "named": false
+  },
+  {
+    "type": "‟",
+    "named": false
+  },
+  {
+    "type": "″",
+    "named": false
+  },
+  {
+    "type": "‶",
     "named": false
   },
   {
@@ -640,6 +684,14 @@
   },
   {
     "type": "⧸",
+    "named": false
+  },
+  {
+    "type": "〃",
+    "named": false
+  },
+  {
+    "type": "＂",
     "named": false
   }
 ]

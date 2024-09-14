@@ -331,8 +331,121 @@
       "value": "]"
     },
     "double_quote": {
-      "type": "STRING",
-      "value": "\""
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "\""
+        },
+        {
+          "type": "PATTERN",
+          "value": "&#34;|&#[Xx]22;"
+        },
+        {
+          "type": "STRING",
+          "value": "＂"
+        },
+        {
+          "type": "PATTERN",
+          "value": "&#65282;|&#[Xx][Ff][Ff]02;"
+        },
+        {
+          "type": "STRING",
+          "value": "“"
+        },
+        {
+          "type": "PATTERN",
+          "value": "&#8220;|&#[Xx]201[Cc];"
+        },
+        {
+          "type": "STRING",
+          "value": "”"
+        },
+        {
+          "type": "PATTERN",
+          "value": "&#8221;|&#[Xx]201[Dd];"
+        },
+        {
+          "type": "STRING",
+          "value": "‟"
+        },
+        {
+          "type": "PATTERN",
+          "value": "&#8223;|&#[Xx]201[Ff];"
+        },
+        {
+          "type": "STRING",
+          "value": "″"
+        },
+        {
+          "type": "PATTERN",
+          "value": "&#8243;|&#[Xx]2033;"
+        },
+        {
+          "type": "STRING",
+          "value": "‶"
+        },
+        {
+          "type": "PATTERN",
+          "value": "&#8246;|&#[Xx]2036;"
+        },
+        {
+          "type": "STRING",
+          "value": "〃"
+        },
+        {
+          "type": "PATTERN",
+          "value": "&#12291;|&#[Xx]3003;"
+        },
+        {
+          "type": "STRING",
+          "value": "״"
+        },
+        {
+          "type": "PATTERN",
+          "value": "&#1524;|&#[Xx]5[Ff]4;"
+        },
+        {
+          "type": "STRING",
+          "value": "˝"
+        },
+        {
+          "type": "PATTERN",
+          "value": "&#733;|&#[Xx]2[Dd][Dd];"
+        },
+        {
+          "type": "STRING",
+          "value": "ʺ"
+        },
+        {
+          "type": "PATTERN",
+          "value": "&#698;|&#[Xx]2[Bb][Aa];"
+        },
+        {
+          "type": "STRING",
+          "value": "˶"
+        },
+        {
+          "type": "PATTERN",
+          "value": "&#758;|&#[Xx]2[Ff]6;"
+        },
+        {
+          "type": "STRING",
+          "value": "ˮ"
+        },
+        {
+          "type": "PATTERN",
+          "value": "&#750;|&#[Xx]2[Ee][Ee];"
+        },
+        {
+          "type": "STRING",
+          "value": "ײ"
+        },
+        {
+          "type": "PATTERN",
+          "value": "&#1522;|&#[Xx]5[Ff]2;"
+        }
+      ]
     },
     "tagpair": {
       "type": "SEQ",
@@ -438,12 +551,125 @@
             "type": "IMMEDIATE_TOKEN",
             "content": {
               "type": "PATTERN",
-              "value": "[^\"\\r\\n]+"
+              "value": "[^\"＂“”‟″‶〃״˝ʺ˶ˮײ\\r\\n]+"
             }
           },
           {
-            "type": "STRING",
-            "value": "\""
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "\""
+              },
+              {
+                "type": "PATTERN",
+                "value": "&#34;|&#[Xx]22;"
+              },
+              {
+                "type": "STRING",
+                "value": "＂"
+              },
+              {
+                "type": "PATTERN",
+                "value": "&#65282;|&#[Xx][Ff][Ff]02;"
+              },
+              {
+                "type": "STRING",
+                "value": "“"
+              },
+              {
+                "type": "PATTERN",
+                "value": "&#8220;|&#[Xx]201[Cc];"
+              },
+              {
+                "type": "STRING",
+                "value": "”"
+              },
+              {
+                "type": "PATTERN",
+                "value": "&#8221;|&#[Xx]201[Dd];"
+              },
+              {
+                "type": "STRING",
+                "value": "‟"
+              },
+              {
+                "type": "PATTERN",
+                "value": "&#8223;|&#[Xx]201[Ff];"
+              },
+              {
+                "type": "STRING",
+                "value": "″"
+              },
+              {
+                "type": "PATTERN",
+                "value": "&#8243;|&#[Xx]2033;"
+              },
+              {
+                "type": "STRING",
+                "value": "‶"
+              },
+              {
+                "type": "PATTERN",
+                "value": "&#8246;|&#[Xx]2036;"
+              },
+              {
+                "type": "STRING",
+                "value": "〃"
+              },
+              {
+                "type": "PATTERN",
+                "value": "&#12291;|&#[Xx]3003;"
+              },
+              {
+                "type": "STRING",
+                "value": "״"
+              },
+              {
+                "type": "PATTERN",
+                "value": "&#1524;|&#[Xx]5[Ff]4;"
+              },
+              {
+                "type": "STRING",
+                "value": "˝"
+              },
+              {
+                "type": "PATTERN",
+                "value": "&#733;|&#[Xx]2[Dd][Dd];"
+              },
+              {
+                "type": "STRING",
+                "value": "ʺ"
+              },
+              {
+                "type": "PATTERN",
+                "value": "&#698;|&#[Xx]2[Bb][Aa];"
+              },
+              {
+                "type": "STRING",
+                "value": "˶"
+              },
+              {
+                "type": "PATTERN",
+                "value": "&#758;|&#[Xx]2[Ff]6;"
+              },
+              {
+                "type": "STRING",
+                "value": "ˮ"
+              },
+              {
+                "type": "PATTERN",
+                "value": "&#750;|&#[Xx]2[Ee][Ee];"
+              },
+              {
+                "type": "STRING",
+                "value": "ײ"
+              },
+              {
+                "type": "PATTERN",
+                "value": "&#1522;|&#[Xx]5[Ff]2;"
+              }
+            ]
           }
         ]
       }
