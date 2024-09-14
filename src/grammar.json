@@ -1392,8 +1392,25 @@
     "_san_promotion_symbol": {
       "type": "IMMEDIATE_TOKEN",
       "content": {
-        "type": "STRING",
-        "value": "="
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "="
+          },
+          {
+            "type": "PATTERN",
+            "value": "&equals;|&#61;|&#[Xx]3[Dd];"
+          },
+          {
+            "type": "STRING",
+            "value": "⹀"
+          },
+          {
+            "type": "PATTERN",
+            "value": "&#11840;|&#[Xx]2[Ee]40;"
+          }
+        ]
       }
     },
     "_san_square": {
