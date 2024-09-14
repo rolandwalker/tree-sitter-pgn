@@ -3655,6 +3655,22 @@
           {
             "type": "PATTERN",
             "value": "&#9727;|&#[Xx]25[Ff][Ff];"
+          },
+          {
+            "type": "STRING",
+            "value": "Ø"
+          },
+          {
+            "type": "PATTERN",
+            "value": "&Oslash;|&#216;|&#[Xx][Dd]8;"
+          },
+          {
+            "type": "STRING",
+            "value": "ø"
+          },
+          {
+            "type": "PATTERN",
+            "value": "&oslash;|&#248;|&#[Xx][Ff]8;"
           }
         ]
       }
