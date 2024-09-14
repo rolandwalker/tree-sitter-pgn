@@ -73,6 +73,13 @@ const confusables = {
     'ˮ', html_entity('ˮ'),
     'ײ', html_entity('ײ'),
   ),
+  infinity: choice(
+    '∞', html_entity('∞', 'infin'),
+  ),
+  equals: choice(
+    '=', html_entity('=', 'equals'),
+    '⹀', html_entity('⹀'),
+  ),
 };
 
 ///
@@ -506,6 +513,8 @@ module.exports = grammar({
         seq(confusables.plus, token.immediate(confusables.slash), token.immediate(confusables.dash)),
         seq(confusables.dash, token.immediate(confusables.plus)),
         seq(confusables.dash, token.immediate(confusables.slash), token.immediate(confusables.plus)),
+        seq(confusables.equals, token.immediate(confusables.slash), token.immediate(confusables.infinity)),
+        seq(confusables.infinity, /\s*/, token(confusables.slash), /\s*/, token(confusables.equals)),
 
         /\sN\s/,
         'TN',
@@ -514,7 +523,7 @@ module.exports = grammar({
         'ep',
 
         '==', new RegExp('(' + html_entity('=', 'equals', true) + ')' + '(' + html_entity('=', 'equals', true) + ')'),
-        '=', html_entity('=', 'equals'),
+        confusables.equals,
         '<=', new RegExp('(' + html_entity('<', 'nvlt',   true) + ')' + '(' + html_entity('=', 'equals', true) + ')'),
         '≤', html_entity('≤', ['le', 'leq']),
         '!!', new RegExp('(' + html_entity('!', 'excl',  true) + ')' + '(' + html_entity('!', 'excl',  true) + ')'),
@@ -529,7 +538,8 @@ module.exports = grammar({
         '⁉', html_entity('⁉'),
         '⁈', html_entity('⁈'),
         '□', html_entity('□', ['squ', 'square', 'Square']),
-        '∞', html_entity('∞', 'infin'),
+        '☒', html_entity('☒'),
+        confusables.infinity,
         '⩲', html_entity('⩲', 'pluse'),
         '⩱', html_entity('⩱', 'eplus'),
         '±', html_entity('±', ['plusmn', 'pm', 'PlusMinus']),

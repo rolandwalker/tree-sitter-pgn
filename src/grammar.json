@@ -2865,6 +2865,194 @@
             ]
           },
           {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": "="
+                  },
+                  {
+                    "type": "PATTERN",
+                    "value": "&equals;|&#61;|&#[Xx]3[Dd];"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "⹀"
+                  },
+                  {
+                    "type": "PATTERN",
+                    "value": "&#11840;|&#[Xx]2[Ee]40;"
+                  }
+                ]
+              },
+              {
+                "type": "IMMEDIATE_TOKEN",
+                "content": {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "STRING",
+                      "value": "/"
+                    },
+                    {
+                      "type": "PATTERN",
+                      "value": "&sol;|&#47;|&#[Xx]2[Ff];"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "∕"
+                    },
+                    {
+                      "type": "PATTERN",
+                      "value": "&#8725;|&#[Xx]2215;"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "⁄"
+                    },
+                    {
+                      "type": "PATTERN",
+                      "value": "&#8260;|&#[Xx]2044;"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "⟋"
+                    },
+                    {
+                      "type": "PATTERN",
+                      "value": "&#10187;|&#[Xx]27[Cc][Bb];"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "⧸"
+                    },
+                    {
+                      "type": "PATTERN",
+                      "value": "&#10744;|&#[Xx]29[Ff]8;"
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "IMMEDIATE_TOKEN",
+                "content": {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "STRING",
+                      "value": "∞"
+                    },
+                    {
+                      "type": "PATTERN",
+                      "value": "&infin;|&#8734;|&#[Xx]221[Ee];"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": "∞"
+                  },
+                  {
+                    "type": "PATTERN",
+                    "value": "&infin;|&#8734;|&#[Xx]221[Ee];"
+                  }
+                ]
+              },
+              {
+                "type": "PATTERN",
+                "value": "\\s*"
+              },
+              {
+                "type": "TOKEN",
+                "content": {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "STRING",
+                      "value": "/"
+                    },
+                    {
+                      "type": "PATTERN",
+                      "value": "&sol;|&#47;|&#[Xx]2[Ff];"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "∕"
+                    },
+                    {
+                      "type": "PATTERN",
+                      "value": "&#8725;|&#[Xx]2215;"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "⁄"
+                    },
+                    {
+                      "type": "PATTERN",
+                      "value": "&#8260;|&#[Xx]2044;"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "⟋"
+                    },
+                    {
+                      "type": "PATTERN",
+                      "value": "&#10187;|&#[Xx]27[Cc][Bb];"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "⧸"
+                    },
+                    {
+                      "type": "PATTERN",
+                      "value": "&#10744;|&#[Xx]29[Ff]8;"
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "PATTERN",
+                "value": "\\s*"
+              },
+              {
+                "type": "TOKEN",
+                "content": {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "STRING",
+                      "value": "="
+                    },
+                    {
+                      "type": "PATTERN",
+                      "value": "&equals;|&#61;|&#[Xx]3[Dd];"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "⹀"
+                    },
+                    {
+                      "type": "PATTERN",
+                      "value": "&#11840;|&#[Xx]2[Ee]40;"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
             "type": "PATTERN",
             "value": "\\sN\\s"
           },
@@ -2893,12 +3081,25 @@
             "value": "(&equals;|&#61;|&#[Xx]3[Dd];)(&equals;|&#61;|&#[Xx]3[Dd];)"
           },
           {
-            "type": "STRING",
-            "value": "="
-          },
-          {
-            "type": "PATTERN",
-            "value": "&equals;|&#61;|&#[Xx]3[Dd];"
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "="
+              },
+              {
+                "type": "PATTERN",
+                "value": "&equals;|&#61;|&#[Xx]3[Dd];"
+              },
+              {
+                "type": "STRING",
+                "value": "⹀"
+              },
+              {
+                "type": "PATTERN",
+                "value": "&#11840;|&#[Xx]2[Ee]40;"
+              }
+            ]
           },
           {
             "type": "STRING",
@@ -3014,11 +3215,24 @@
           },
           {
             "type": "STRING",
-            "value": "∞"
+            "value": "☒"
           },
           {
             "type": "PATTERN",
-            "value": "&infin;|&#8734;|&#[Xx]221[Ee];"
+            "value": "&#9746;|&#[Xx]2612;"
+          },
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "∞"
+              },
+              {
+                "type": "PATTERN",
+                "value": "&infin;|&#8734;|&#[Xx]221[Ee];"
+              }
+            ]
           },
           {
             "type": "STRING",
