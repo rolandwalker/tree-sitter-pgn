@@ -89,6 +89,18 @@
               }
             },
             {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "trailing_garbage"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            },
+            {
               "type": "FIELD",
               "name": "result_code",
               "content": {
@@ -174,6 +186,18 @@
                 "type": "SYMBOL",
                 "name": "movetext"
               }
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "trailing_garbage"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
             },
             {
               "type": "FIELD",
@@ -715,6 +739,22 @@
     "_recursive_inline_comment_delimiter_close": {
       "type": "STRING",
       "value": "}"
+    },
+    "trailing_garbage": {
+      "type": "REPEAT1",
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "STRING",
+            "value": ")"
+          },
+          {
+            "type": "STRING",
+            "value": "}"
+          }
+        ]
+      }
     },
     "_movetext_element": {
       "type": "CHOICE",
