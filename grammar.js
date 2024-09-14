@@ -173,6 +173,7 @@ module.exports = grammar({
         choice(
           $.rest_of_line_comment,
           $.old_style_twic_section_comment,
+          $.inline_comment,
         ))),
 
     rest_of_line_comment_delimiter_open: $ => choice(
@@ -209,7 +210,10 @@ module.exports = grammar({
         repeat(
           choice(
             field('tagpair', $.tagpair),
-            field('comment', $.rest_of_line_comment),
+            field('comment', choice(
+              $.inline_comment,
+              $.rest_of_line_comment,
+            )),
             $._empty_line,
           )))),
 

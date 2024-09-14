@@ -127,6 +127,87 @@ Freestanding trailing percent comments
       (rest_of_line_comment_text))))
 
 ================================================================================
+Freestanding trailing inline-style comments
+================================================================================
+
+[Event "?"]
+
+0-1
+{postscript}
+
+--------------------------------------------------------------------------------
+
+(series_of_games
+  (game
+    (header
+      (tagpair
+        (tagpair_delimiter_open)
+        (tagpair_key)
+        (double_quote)
+        (tagpair_value_contents)
+        (double_quote)
+        (tagpair_delimiter_close)))
+    (result_code))
+  (freestanding_comment
+    (inline_comment
+      (inline_comment_delimiter_open)
+      (inline_comment_text)
+      (inline_comment_delimiter_close))))
+
+
+================================================================================
+Rest-of-line comments in header
+================================================================================
+
+[Event "?"] ; note to self
+
+0-1
+
+--------------------------------------------------------------------------------
+
+(series_of_games
+  (game
+    (header
+      (tagpair
+        (tagpair_delimiter_open)
+        (tagpair_key)
+        (double_quote)
+        (tagpair_value_contents)
+        (double_quote)
+        (tagpair_delimiter_close))
+      (rest_of_line_comment
+        (rest_of_line_comment_delimiter_open)
+        (rest_of_line_comment_text)))
+    (result_code)))
+
+
+================================================================================
+Inline comments in header
+================================================================================
+
+[Event "?"] {note to self}
+
+0-1
+
+--------------------------------------------------------------------------------
+
+(series_of_games
+  (game
+    (header
+      (tagpair
+        (tagpair_delimiter_open)
+        (tagpair_key)
+        (double_quote)
+        (tagpair_value_contents)
+        (double_quote)
+        (tagpair_delimiter_close))
+      (inline_comment
+        (inline_comment_delimiter_open)
+        (inline_comment_text)
+        (inline_comment_delimiter_close)))
+    (result_code)))
+
+================================================================================
 Percent comments in movetext
 ================================================================================
 

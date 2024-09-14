@@ -13,6 +13,10 @@
       "required": true,
       "types": [
         {
+          "type": "inline_comment",
+          "named": true
+        },
+        {
           "type": "old_style_twic_section_comment",
           "named": true
         },
@@ -77,6 +81,10 @@
         "multiple": true,
         "required": false,
         "types": [
+          {
+            "type": "inline_comment",
+            "named": true
+          },
           {
             "type": "rest_of_line_comment",
             "named": true
