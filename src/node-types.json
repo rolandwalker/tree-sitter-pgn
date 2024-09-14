@@ -91,7 +91,7 @@
     "fields": {
       "comment_content": {
         "multiple": false,
-        "required": true,
+        "required": false,
         "types": [
           {
             "type": "inline_comment_text",
@@ -114,6 +114,21 @@
         ]
       }
     }
+  },
+  {
+    "type": "inline_comment_delimiter_close",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "inline_comment_delimiter_open",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "inline_comment_text",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "lan_move",
@@ -523,18 +538,6 @@
     "named": true
   },
   {
-    "type": "inline_comment_delimiter_close",
-    "named": true
-  },
-  {
-    "type": "inline_comment_delimiter_open",
-    "named": true
-  },
-  {
-    "type": "inline_comment_text",
-    "named": true
-  },
-  {
     "type": "move_number",
     "named": true
   },
@@ -569,6 +572,14 @@
   {
     "type": "variation_delimiter_open",
     "named": true
+  },
+  {
+    "type": "{",
+    "named": false
+  },
+  {
+    "type": "}",
+    "named": false
   },
   {
     "type": "½",

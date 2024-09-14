@@ -267,6 +267,10 @@ module.exports = grammar({
 
     inline_comment_delimiter_close: $ => '}',
 
+    _recursive_inline_comment_delimiter_open: $ => '{',
+
+    _recursive_inline_comment_delimiter_close: $ => '}',
+
     // TODO: Consider enforcing <move_number> <white_move> <black_move> so
     // that <move_number> can appear only in one position.  Note: this would
     // be incompatible with handling crazyhouse and bughouse variants in the
@@ -306,14 +310,33 @@ module.exports = grammar({
 
     inline_comment: $ => seq(
       field('comment_delimiter', $.inline_comment_delimiter_open),
-      field('comment_content', $.inline_comment_text),
+      field('comment_content', optional($.inline_comment_text)),
       field('comment_delimiter', $.inline_comment_delimiter_close),
+    ),
+
+    _recursive_inline_comment: $ => seq(
+      $._recursive_inline_comment_delimiter_open,
+      optional($._recursive_inline_comment_text),
+      $._recursive_inline_comment_delimiter_close,
     ),
 
     // We could easily permit backslash-escaped close-curly-brackets within
     // inline commentary, but the spec does not allow it.  Most GUIs convert
-    // curly brackets within commentary to parentheses on save.
-    inline_comment_text: $ => token.immediate(/[^\}]*/),
+    // curly brackets within commentary to parentheses on save.  Instead we
+    // permit curly bracket within commentary so long as they are also
+    // balanced.  This deviates from the spec, because the left brace does
+    // not lose its special meaning within the comment.
+    inline_comment_text: $ => repeat1(
+      choice(
+        /[^\{\}]+/,
+        $._recursive_inline_comment,
+      )),
+
+    _recursive_inline_comment_text: $ => repeat1(
+      choice(
+        /[^\{\}]+/,
+        $._recursive_inline_comment,
+      )),
 
     // [AaBb] is for the bughouse variant
     // Move numbers with zero dots are rare but required by the spec.

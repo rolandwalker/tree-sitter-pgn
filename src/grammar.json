@@ -708,6 +708,14 @@
       "type": "STRING",
       "value": "}"
     },
+    "_recursive_inline_comment_delimiter_open": {
+      "type": "STRING",
+      "value": "{"
+    },
+    "_recursive_inline_comment_delimiter_close": {
+      "type": "STRING",
+      "value": "}"
+    },
     "_movetext_element": {
       "type": "CHOICE",
       "members": [
@@ -887,8 +895,16 @@
           "type": "FIELD",
           "name": "comment_content",
           "content": {
-            "type": "SYMBOL",
-            "name": "inline_comment_text"
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "inline_comment_text"
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
           }
         },
         {
@@ -901,11 +917,61 @@
         }
       ]
     },
+    "_recursive_inline_comment": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_recursive_inline_comment_delimiter_open"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_recursive_inline_comment_text"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_recursive_inline_comment_delimiter_close"
+        }
+      ]
+    },
     "inline_comment_text": {
-      "type": "IMMEDIATE_TOKEN",
+      "type": "REPEAT1",
       "content": {
-        "type": "PATTERN",
-        "value": "[^\\}]*"
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "PATTERN",
+            "value": "[^\\{\\}]+"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_recursive_inline_comment"
+          }
+        ]
+      }
+    },
+    "_recursive_inline_comment_text": {
+      "type": "REPEAT1",
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "PATTERN",
+            "value": "[^\\{\\}]+"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_recursive_inline_comment"
+          }
+        ]
       }
     },
     "move_number": {
