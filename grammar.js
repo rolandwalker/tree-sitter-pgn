@@ -540,6 +540,8 @@ module.exports = grammar({
         seq(confusables.dash, token.immediate(confusables.slash), token.immediate(confusables.plus)),
         seq(confusables.equals, token.immediate(confusables.slash), token.immediate(confusables.infinity)),
         seq(confusables.infinity, /\s*/, token(confusables.slash), /\s*/, token(confusables.equals)),
+        seq(confusables.equals, token.immediate(confusables.plus)),
+        seq(confusables.plus, token.immediate(confusables.equals)),
 
         /\sN\s/,
         'TN',
