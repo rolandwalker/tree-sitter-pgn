@@ -289,9 +289,9 @@ module.exports = grammar({
     // same grammar.
     _movetext_element: $ => choice(
       field('move_number', $.move_number),
-      $._san_move,
-      $._lan_move,
-      $._annotation,
+      field('san_move', $.san_move),
+      field('lan_move', $.lan_move),
+      field('annotation', $.annotation),
       field('comment', $.inline_comment),
       field('comment', $.rest_of_line_comment),
       $.variation,
@@ -300,9 +300,9 @@ module.exports = grammar({
     // Repeated code to give variation moves a distinct field name
     _variation_movetext_element: $ => choice(
       field('variation_move_number', $.move_number),
-      $._variation_san_move,
-      $._variation_lan_move,
-      $._variation_annotation,
+      field('variation_san_move', $.san_move),
+      field('variation_lan_move', $.lan_move),
+      field('variation_annotation', $.annotation),
       field('variation_comment', $.inline_comment),
       field('variation_comment', $.rest_of_line_comment),
       $.recursive_variation,
@@ -354,19 +354,6 @@ module.exports = grammar({
     // Move numbers with zero dots are rare but required by the spec.
     move_number: $ => /\d+[AaBb]?(\s+|\s*[\.𝅭․܁‎܂꘎‎٠۰ꓸ][\s\.𝅭․܁‎܂꘎‎٠۰ꓸ]*)/,
 
-    // not to spec: commas after SAN moves
-    _misc_punctuation: $ => /[,\.𝅭․܁‎܂꘎‎٠۰ꓸ]/,
-
-    _san_move: $ => seq(
-      field('san_move', $.san_move),
-      optional($._misc_punctuation),
-    ),
-
-    _variation_san_move: $ => seq(
-      field('variation_san_move', $.san_move),
-      optional($._misc_punctuation),
-    ),
-
     san_move: $ => seq(
       $._san_move_piece,
       optional($.check_or_mate_condition),
@@ -379,16 +366,6 @@ module.exports = grammar({
       $._san_drop_major_or_minor_piece,
       $._san_move_castle,
       $._san_null_move,
-    ),
-
-    _lan_move: $ => seq(
-      field('lan_move', $.lan_move),
-      optional($._misc_punctuation),
-    ),
-
-    _variation_lan_move: $ => seq(
-      field('variation_lan_move', $.lan_move),
-      optional($._misc_punctuation),
     ),
 
     lan_move: $ => seq(
@@ -518,17 +495,6 @@ module.exports = grammar({
         seq(confusables.plus, confusables.plus),
         '#',
       )),
-
-    // not to spec: punctuation trailing annotations
-    _annotation: $ => seq(
-      field('annotation', $.annotation),
-      optional($._misc_punctuation),
-    ),
-
-    _variation_annotation: $ => seq(
-      field('variation_annotation', $.annotation),
-      optional($._misc_punctuation),
-    ),
 
     // Limitation: whitespace is required around "N" annotations to disambiguate cases
     // such as "2. d4 N g6", where the "N" could be a Knight on "Ng6", or "40. g8N",

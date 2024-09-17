@@ -787,16 +787,28 @@
           }
         },
         {
-          "type": "SYMBOL",
-          "name": "_san_move"
+          "type": "FIELD",
+          "name": "san_move",
+          "content": {
+            "type": "SYMBOL",
+            "name": "san_move"
+          }
         },
         {
-          "type": "SYMBOL",
-          "name": "_lan_move"
+          "type": "FIELD",
+          "name": "lan_move",
+          "content": {
+            "type": "SYMBOL",
+            "name": "lan_move"
+          }
         },
         {
-          "type": "SYMBOL",
-          "name": "_annotation"
+          "type": "FIELD",
+          "name": "annotation",
+          "content": {
+            "type": "SYMBOL",
+            "name": "annotation"
+          }
         },
         {
           "type": "FIELD",
@@ -832,16 +844,28 @@
           }
         },
         {
-          "type": "SYMBOL",
-          "name": "_variation_san_move"
+          "type": "FIELD",
+          "name": "variation_san_move",
+          "content": {
+            "type": "SYMBOL",
+            "name": "san_move"
+          }
         },
         {
-          "type": "SYMBOL",
-          "name": "_variation_lan_move"
+          "type": "FIELD",
+          "name": "variation_lan_move",
+          "content": {
+            "type": "SYMBOL",
+            "name": "lan_move"
+          }
         },
         {
-          "type": "SYMBOL",
-          "name": "_variation_annotation"
+          "type": "FIELD",
+          "name": "variation_annotation",
+          "content": {
+            "type": "SYMBOL",
+            "name": "annotation"
+          }
         },
         {
           "type": "FIELD",
@@ -1037,60 +1061,6 @@
       "type": "PATTERN",
       "value": "\\d+[AaBb]?(\\s+|\\s*[\\.𝅭․܁‎܂꘎‎٠۰ꓸ][\\s\\.𝅭․܁‎܂꘎‎٠۰ꓸ]*)"
     },
-    "_misc_punctuation": {
-      "type": "PATTERN",
-      "value": "[,\\.𝅭․܁‎܂꘎‎٠۰ꓸ]"
-    },
-    "_san_move": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "FIELD",
-          "name": "san_move",
-          "content": {
-            "type": "SYMBOL",
-            "name": "san_move"
-          }
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "_misc_punctuation"
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        }
-      ]
-    },
-    "_variation_san_move": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "FIELD",
-          "name": "variation_san_move",
-          "content": {
-            "type": "SYMBOL",
-            "name": "san_move"
-          }
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "_misc_punctuation"
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        }
-      ]
-    },
     "san_move": {
       "type": "SEQ",
       "members": [
@@ -1138,56 +1108,6 @@
         {
           "type": "SYMBOL",
           "name": "_san_null_move"
-        }
-      ]
-    },
-    "_lan_move": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "FIELD",
-          "name": "lan_move",
-          "content": {
-            "type": "SYMBOL",
-            "name": "lan_move"
-          }
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "_misc_punctuation"
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        }
-      ]
-    },
-    "_variation_lan_move": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "FIELD",
-          "name": "variation_lan_move",
-          "content": {
-            "type": "SYMBOL",
-            "name": "lan_move"
-          }
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "_misc_punctuation"
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
         }
       ]
     },
@@ -2357,56 +2277,6 @@
           }
         ]
       }
-    },
-    "_annotation": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "FIELD",
-          "name": "annotation",
-          "content": {
-            "type": "SYMBOL",
-            "name": "annotation"
-          }
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "_misc_punctuation"
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        }
-      ]
-    },
-    "_variation_annotation": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "FIELD",
-          "name": "variation_annotation",
-          "content": {
-            "type": "SYMBOL",
-            "name": "annotation"
-          }
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "_misc_punctuation"
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        }
-      ]
     },
     "annotation": {
       "type": "TOKEN",
