@@ -527,7 +527,7 @@
       "type": "TOKEN",
       "content": {
         "type": "PATTERN",
-        "value": "[^\"＂“”‟″‶〃״˝ʺ˶ˮײ\\[\\]\\{\\};%\\r\\n]+"
+        "value": "[^ ]+"
       }
     },
     "_tagpair_value": {
