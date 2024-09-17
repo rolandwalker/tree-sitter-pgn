@@ -1,6 +1,6 @@
 {
   "name": "tree-sitter-pgn",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Chess PGN grammar for tree-sitter",
   "main": "bindings/node",
   "types": "bindings/node",
