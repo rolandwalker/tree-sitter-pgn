@@ -3198,6 +3198,83 @@
             "type": "SEQ",
             "members": [
               {
+                "type": "TOKEN",
+                "content": {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "STRING",
+                      "value": "/"
+                    },
+                    {
+                      "type": "PATTERN",
+                      "value": "&sol;|&#47;|&#[Xx]2[Ff];"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "∕"
+                    },
+                    {
+                      "type": "PATTERN",
+                      "value": "&#8725;|&#[Xx]2215;"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "⁄"
+                    },
+                    {
+                      "type": "PATTERN",
+                      "value": "&#8260;|&#[Xx]2044;"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "⟋"
+                    },
+                    {
+                      "type": "PATTERN",
+                      "value": "&#10187;|&#[Xx]27[Cc][Bb];"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "⧸"
+                    },
+                    {
+                      "type": "PATTERN",
+                      "value": "&#10744;|&#[Xx]29[Ff]8;"
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "TOKEN",
+                "content": {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "STRING",
+                      "value": "="
+                    },
+                    {
+                      "type": "PATTERN",
+                      "value": "&equals;|&#61;|&#[Xx]3[Dd];"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "⹀"
+                    },
+                    {
+                      "type": "PATTERN",
+                      "value": "&#11840;|&#[Xx]2[Ee]40;"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "type": "SEQ",
+            "members": [
+              {
                 "type": "CHOICE",
                 "members": [
                   {
