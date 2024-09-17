@@ -360,12 +360,18 @@
       }
     },
     "tagpair_delimiter_open": {
-      "type": "STRING",
-      "value": "["
+      "type": "REPEAT1",
+      "content": {
+        "type": "STRING",
+        "value": "["
+      }
     },
     "tagpair_delimiter_close": {
-      "type": "STRING",
-      "value": "]"
+      "type": "REPEAT1",
+      "content": {
+        "type": "STRING",
+        "value": "]"
+      }
     },
     "double_quote": {
       "type": "CHOICE",

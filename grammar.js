@@ -217,9 +217,9 @@ module.exports = grammar({
             $._empty_line,
           )))),
 
-    tagpair_delimiter_open: $ => '[',
+    tagpair_delimiter_open: $ => repeat1('['),
 
-    tagpair_delimiter_close: $ => ']',
+    tagpair_delimiter_close: $ => repeat1(']'),
 
     double_quote: $ => confusables.double_quote,
 

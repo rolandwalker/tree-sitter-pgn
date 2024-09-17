@@ -391,6 +391,16 @@
     }
   },
   {
+    "type": "tagpair_delimiter_close",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "tagpair_delimiter_open",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "tagpair_value_contents",
     "named": true,
     "fields": {}
@@ -558,6 +568,14 @@
     "named": false
   },
   {
+    "type": "[",
+    "named": false
+  },
+  {
+    "type": "]",
+    "named": false
+  },
+  {
     "type": "annotation",
     "named": true
   },
@@ -579,14 +597,6 @@
   },
   {
     "type": "rest_of_line_comment_text",
-    "named": true
-  },
-  {
-    "type": "tagpair_delimiter_close",
-    "named": true
-  },
-  {
-    "type": "tagpair_delimiter_open",
     "named": true
   },
   {
