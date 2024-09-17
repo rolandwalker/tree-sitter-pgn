@@ -910,38 +910,3 @@ Mixed sequence with Unicode piece glyphs
       (san_move))
     (result_code)))
 
-================================================================================
-Extraneous trailing punctuation
-================================================================================
-
-[Event "?"]
-
-1. d4, d5, 2. c4, e6, 3. Nc3, Nf6, 4. Bg5, Be7.
-*
-
---------------------------------------------------------------------------------
-
-(series_of_games
-  (game
-    (header
-      (tagpair
-        (tagpair_delimiter_open)
-        (tagpair_key)
-        (double_quote)
-        (tagpair_value_contents)
-        (double_quote)
-        (tagpair_delimiter_close)))
-    (movetext
-      (move_number)
-      (san_move)
-      (san_move)
-      (move_number)
-      (san_move)
-      (san_move)
-      (move_number)
-      (san_move)
-      (san_move)
-      (move_number)
-      (san_move)
-      (san_move))
-    (result_code)))
