@@ -82,10 +82,6 @@
         "required": false,
         "types": [
           {
-            "type": "inline_comment",
-            "named": true
-          },
-          {
             "type": "rest_of_line_comment",
             "named": true
           }
