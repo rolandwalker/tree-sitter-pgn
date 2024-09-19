@@ -336,17 +336,8 @@
                   "type": "FIELD",
                   "name": "comment",
                   "content": {
-                    "type": "CHOICE",
-                    "members": [
-                      {
-                        "type": "SYMBOL",
-                        "name": "inline_comment"
-                      },
-                      {
-                        "type": "SYMBOL",
-                        "name": "rest_of_line_comment"
-                      }
-                    ]
+                    "type": "SYMBOL",
+                    "name": "rest_of_line_comment"
                   }
                 },
                 {

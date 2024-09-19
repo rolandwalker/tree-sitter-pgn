@@ -210,10 +210,10 @@ module.exports = grammar({
         repeat(
           choice(
             field('tagpair', $.tagpair),
-            field('comment', choice(
-              $.inline_comment,
-              $.rest_of_line_comment,
-            )),
+            // TODO inline comments would also be desirable here, and are to
+            // spec, but more desirable if trailing inline comments appear
+            // under the movetext in the syntax tree.
+            field('comment', $.rest_of_line_comment),
             $._empty_line,
           )))),
 
