@@ -72,6 +72,8 @@ const confusables = {
     '˶', html_entity('˶'),
     'ˮ', html_entity('ˮ'),
     'ײ', html_entity('ײ'),
+    '«', html_entity('«'),
+    '»', html_entity('»'),
   ),
   infinity: choice(
     '∞', html_entity('∞', 'infin'),
@@ -246,7 +248,7 @@ module.exports = grammar({
     tagpair_value_contents: $ => repeat1(
       choice(
         // invert confusables.double_quote
-        token.immediate(/[^"＂“”‟″‶〃״˝ʺ˶ˮײ\r\n]+/),
+        token.immediate(/[^"＂“”‟″‶〃״˝ʺ˶ˮײ«»\r\n]+/),
         confusables.double_quote,
       )),
 

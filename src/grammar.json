@@ -478,6 +478,22 @@
         {
           "type": "PATTERN",
           "value": "&#1522;|&#[Xx]5[Ff]2;"
+        },
+        {
+          "type": "STRING",
+          "value": "«"
+        },
+        {
+          "type": "PATTERN",
+          "value": "&#171;|&#[Xx][Aa][Bb];"
+        },
+        {
+          "type": "STRING",
+          "value": "»"
+        },
+        {
+          "type": "PATTERN",
+          "value": "&#187;|&#[Xx][Bb][Bb];"
         }
       ]
     },
@@ -585,7 +601,7 @@
             "type": "IMMEDIATE_TOKEN",
             "content": {
               "type": "PATTERN",
-              "value": "[^\"＂“”‟″‶〃״˝ʺ˶ˮײ\\r\\n]+"
+              "value": "[^\"＂“”‟″‶〃״˝ʺ˶ˮײ«»\\r\\n]+"
             }
           },
           {
@@ -702,6 +718,22 @@
               {
                 "type": "PATTERN",
                 "value": "&#1522;|&#[Xx]5[Ff]2;"
+              },
+              {
+                "type": "STRING",
+                "value": "«"
+              },
+              {
+                "type": "PATTERN",
+                "value": "&#171;|&#[Xx][Aa][Bb];"
+              },
+              {
+                "type": "STRING",
+                "value": "»"
+              },
+              {
+                "type": "PATTERN",
+                "value": "&#187;|&#[Xx][Bb][Bb];"
               }
             ]
           }
