@@ -373,7 +373,7 @@
         },
         {
           "type": "PATTERN",
-          "value": "&#34;|&#[Xx]22;"
+          "value": "&quot;|&#34;|&#[Xx]22;"
         },
         {
           "type": "STRING",
@@ -389,7 +389,7 @@
         },
         {
           "type": "PATTERN",
-          "value": "&#8220;|&#[Xx]201[Cc];"
+          "value": "&ldquo;|&#8220;|&#[Xx]201[Cc];"
         },
         {
           "type": "STRING",
@@ -397,7 +397,7 @@
         },
         {
           "type": "PATTERN",
-          "value": "&#8221;|&#[Xx]201[Dd];"
+          "value": "&rdquo;|&#8221;|&#[Xx]201[Dd];"
         },
         {
           "type": "STRING",
@@ -485,7 +485,7 @@
         },
         {
           "type": "PATTERN",
-          "value": "&#171;|&#[Xx][Aa][Bb];"
+          "value": "&laquo;|&#171;|&#[Xx][Aa][Bb];"
         },
         {
           "type": "STRING",
@@ -493,7 +493,7 @@
         },
         {
           "type": "PATTERN",
-          "value": "&#187;|&#[Xx][Bb][Bb];"
+          "value": "&raquo;|&#187;|&#[Xx][Bb][Bb];"
         }
       ]
     },
@@ -613,7 +613,7 @@
               },
               {
                 "type": "PATTERN",
-                "value": "&#34;|&#[Xx]22;"
+                "value": "&quot;|&#34;|&#[Xx]22;"
               },
               {
                 "type": "STRING",
@@ -629,7 +629,7 @@
               },
               {
                 "type": "PATTERN",
-                "value": "&#8220;|&#[Xx]201[Cc];"
+                "value": "&ldquo;|&#8220;|&#[Xx]201[Cc];"
               },
               {
                 "type": "STRING",
@@ -637,7 +637,7 @@
               },
               {
                 "type": "PATTERN",
-                "value": "&#8221;|&#[Xx]201[Dd];"
+                "value": "&rdquo;|&#8221;|&#[Xx]201[Dd];"
               },
               {
                 "type": "STRING",
@@ -725,7 +725,7 @@
               },
               {
                 "type": "PATTERN",
-                "value": "&#171;|&#[Xx][Aa][Bb];"
+                "value": "&laquo;|&#171;|&#[Xx][Aa][Bb];"
               },
               {
                 "type": "STRING",
@@ -733,7 +733,7 @@
               },
               {
                 "type": "PATTERN",
-                "value": "&#187;|&#[Xx][Bb][Bb];"
+                "value": "&raquo;|&#187;|&#[Xx][Bb][Bb];"
               }
             ]
           }
