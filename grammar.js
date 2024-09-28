@@ -104,6 +104,24 @@ module.exports = grammar({
     $._full_line_comment_delimiter_bol_assertion,
   ],
 
+  extras: $ => [
+    /\s/,
+    ' ',
+    ' ',
+    ' ',
+    ' ',
+    ' ',
+    ' ',
+    ' ',
+    ' ',
+    ' ',
+    ' ',
+    ' ',
+    ' ',
+    ' ',
+    ' ',
+  ],
+
   rules: {
 
     ///
