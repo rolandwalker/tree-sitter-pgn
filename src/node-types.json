@@ -313,6 +313,7 @@
   {
     "type": "series_of_games",
     "named": true,
+    "root": true,
     "fields": {
       "freestanding_comment": {
         "multiple": true,

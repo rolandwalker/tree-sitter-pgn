@@ -1,0 +1,36 @@
+{
+  "grammars": [
+    {
+      "name": "pgn",
+      "camelcase": "Pgn",
+      "scope": "source.pgn",
+      "path": ".",
+      "file-types": [
+        "pgn"
+      ],
+      "highlights": "queries/highlights.scm",
+      "first-line-regex": "^\\[(Event|Site|Date|Round|White|Black|Result) "
+    }
+  ],
+  "metadata": {
+    "version": "1.1.4",
+    "license": "BSD-2-Clause",
+    "description": "Chess PGN grammar for tree-sitter",
+    "authors": [
+      {
+        "name": "D Roland Walker"
+      }
+    ],
+    "links": {
+      "repository": "https://github.com/rolandwalker/tree-sitter-pgn"
+    }
+  },
+  "bindings": {
+    "c": true,
+    "go": true,
+    "node": true,
+    "python": true,
+    "rust": true,
+    "swift": true
+  }
+}
