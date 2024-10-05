@@ -25,20 +25,10 @@
     }
   },
   "devDependencies": {
-    "tree-sitter-cli": "^0.23.0",
+    "tree-sitter-cli": "^0.24.1",
     "prebuildify": "^6.0.0"
   },
   "repository": "https://github.com/rolandwalker/tree-sitter-pgn",
-  "tree-sitter": [
-    {
-      "scope": "source.pgn",
-      "highlights": "queries/highlights.scm",
-      "file-types": [
-        "pgn"
-      ],
-      "first-line-regex": "^\\[(Event|Site|Date|Round|White|Black|Result) "
-    }
-  ],
   "files": [
     "grammar.js",
     "binding.gyp",

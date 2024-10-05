@@ -1,4 +1,5 @@
 {
+  "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/grammar.schema.json",
   "name": "pgn",
   "rules": {
     "series_of_games": {
@@ -3717,6 +3718,14 @@
           {
             "type": "PATTERN",
             "value": "&oslash;|&#248;|&#[Xx][Ff]8;"
+          },
+          {
+            "type": "STRING",
+            "value": "⇈"
+          },
+          {
+            "type": "PATTERN",
+            "value": "&#8648;|&#[Xx]21[Cc]8;"
           }
         ]
       }
