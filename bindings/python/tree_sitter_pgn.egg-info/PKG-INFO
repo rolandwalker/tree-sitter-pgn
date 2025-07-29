@@ -12,7 +12,7 @@ Classifier: Typing :: Typed
 Requires-Python: >=3.9
 Description-Content-Type: text/markdown
 Provides-Extra: core
-Requires-Dist: tree-sitter~=0.23.0; extra == "core"
+Requires-Dist: tree-sitter~=0.25.0; extra == "core"
 
 # tree-sitter-pgn
 
