@@ -13,7 +13,7 @@ classifiers = [
   "Topic :: Text Processing :: Linguistic",
   "Typing :: Typed"
 ]
-requires-python = ">=3.8"
+requires-python = ">=3.9"
 license.text = "BSD-2-Clause"
 readme = "README.md"
 
@@ -24,5 +24,16 @@ Homepage = "https://github.com/rolandwalker/tree-sitter-pgn"
 core = ["tree-sitter~=0.23.0"]
 
 [tool.cibuildwheel]
-build = "cp38-*"
+skip = [
+   "cp38-*",
+   "cp314t-*",
+   "*-android*",
+   "*-ios*",
+   "*_ppc64le",
+   "*_s390x",
+   "*_riscv64",
+   "*_ppc64le",
+   "*_s390x",
+   "*_riscv64",
+]
 build-frontend = "build"
