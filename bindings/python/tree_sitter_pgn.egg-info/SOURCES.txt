@@ -2,6 +2,7 @@ LICENSE
 README.md
 pyproject.toml
 setup.py
+tree-sitter.json
 bindings/python/tree_sitter_pgn/__init__.py
 bindings/python/tree_sitter_pgn/__init__.pyi
 bindings/python/tree_sitter_pgn/binding.c
