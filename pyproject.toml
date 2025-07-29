@@ -14,7 +14,7 @@ classifiers = [
   "Typing :: Typed"
 ]
 requires-python = ">=3.8"
-license = "BSD-2-Clause"
+license.text = "BSD-2-Clause"
 readme = "README.md"
 
 [project.urls]
