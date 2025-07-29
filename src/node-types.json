@@ -1,5 +1,50 @@
 [
   {
+    "type": "command",
+    "named": true,
+    "fields": {
+      "command_delimiter": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "command_delimiter_close",
+            "named": true
+          },
+          {
+            "type": "command_delimiter_open",
+            "named": true
+          }
+        ]
+      },
+      "command_name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "command_name",
+            "named": true
+          }
+        ]
+      },
+      "command_parameters": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "command_parameters",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "command_delimiter_close",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "double_quote",
     "named": true,
     "fields": {}
@@ -142,7 +187,17 @@
   {
     "type": "inline_comment_text",
     "named": true,
-    "fields": {}
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "command",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "lan_move",
@@ -578,6 +633,18 @@
   },
   {
     "type": "check_or_mate_condition",
+    "named": true
+  },
+  {
+    "type": "command_delimiter_open",
+    "named": true
+  },
+  {
+    "type": "command_name",
+    "named": true
+  },
+  {
+    "type": "command_parameters",
     "named": true
   },
   {
