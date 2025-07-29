@@ -2,7 +2,7 @@ Metadata-Version: 2.4
 Name: tree-sitter-pgn
 Version: 1.2.0
 Summary: PGN grammar for tree-sitter
-License-Expression: BSD-2-Clause
+License: BSD-2-Clause
 Project-URL: Homepage, https://github.com/rolandwalker/tree-sitter-pgn
 Keywords: incremental,parsing,tree-sitter,PGN,chess
 Classifier: Intended Audience :: Developers
