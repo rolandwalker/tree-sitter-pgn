@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "tree-sitter-pgn"
 description = "PGN grammar for tree-sitter"
-version = "1.2.10"
+version = "1.2.11"
 keywords = ["incremental", "parsing", "tree-sitter", "PGN", "chess"]
 classifiers = [
   "Intended Audience :: Developers",
@@ -24,6 +24,14 @@ Homepage = "https://github.com/rolandwalker/tree-sitter-pgn"
 core = ["tree-sitter~=0.23.0"]
 
 [tool.cibuildwheel]
+build = [
+   "cp39-*",
+   "cp310-*",
+   "cp311-*",
+   "cp312-*",
+   "cp313-*",
+   "cp314-*",
+]
 skip = [
    "cp38-*",
    "cp314t-*",
