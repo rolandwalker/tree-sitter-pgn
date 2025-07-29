@@ -11,10 +11,8 @@ Classifier: Topic :: Text Processing :: Linguistic
 Classifier: Typing :: Typed
 Requires-Python: >=3.8
 Description-Content-Type: text/markdown
-License-File: LICENSE
 Provides-Extra: core
 Requires-Dist: tree-sitter~=0.23.0; extra == "core"
-Dynamic: license-file
 
 # tree-sitter-pgn
 
