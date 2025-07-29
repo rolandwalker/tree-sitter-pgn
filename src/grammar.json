@@ -783,6 +783,14 @@
       "type": "STRING",
       "value": "}"
     },
+    "command_delimiter_open": {
+      "type": "STRING",
+      "value": "[%"
+    },
+    "command_delimiter_close": {
+      "type": "STRING",
+      "value": "]"
+    },
     "trailing_garbage": {
       "type": "REPEAT1",
       "content": {
@@ -1024,6 +1032,31 @@
         }
       ]
     },
+    "command": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "FIELD",
+          "name": "command_delimiter",
+          "content": {
+            "type": "SYMBOL",
+            "name": "command_delimiter_open"
+          }
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_command_text"
+        },
+        {
+          "type": "FIELD",
+          "name": "command_delimiter",
+          "content": {
+            "type": "SYMBOL",
+            "name": "command_delimiter_close"
+          }
+        }
+      ]
+    },
     "_recursive_inline_comment": {
       "type": "SEQ",
       "members": [
@@ -1056,7 +1089,11 @@
         "members": [
           {
             "type": "PATTERN",
-            "value": "[^\\{\\}]+"
+            "value": "[^\\{\\}]"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "command"
           },
           {
             "type": "SYMBOL",
@@ -1072,7 +1109,11 @@
         "members": [
           {
             "type": "PATTERN",
-            "value": "[^\\{\\}]+"
+            "value": "[^\\{\\}]"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "command"
           },
           {
             "type": "SYMBOL",
@@ -1080,6 +1121,35 @@
           }
         ]
       }
+    },
+    "command_name": {
+      "type": "PATTERN",
+      "value": "[a-zA-Z0-9]+"
+    },
+    "command_parameters": {
+      "type": "PATTERN",
+      "value": "[^\\{\\}\\]]*"
+    },
+    "_command_text": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "FIELD",
+          "name": "command_name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "command_name"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "command_parameters",
+          "content": {
+            "type": "SYMBOL",
+            "name": "command_parameters"
+          }
+        }
+      ]
     },
     "move_number": {
       "type": "PATTERN",
@@ -4828,5 +4898,6 @@
     }
   ],
   "inline": [],
-  "supertypes": []
+  "supertypes": [],
+  "reserved": {}
 }

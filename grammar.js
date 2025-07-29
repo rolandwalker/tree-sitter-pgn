@@ -295,6 +295,10 @@ module.exports = grammar({
 
     _recursive_inline_comment_delimiter_close: $ => '}',
 
+    command_delimiter_open: $ => '[%',
+
+    command_delimiter_close: $ => ']',
+
     trailing_garbage: $ => repeat1(
       choice(
         ')',
@@ -344,6 +348,12 @@ module.exports = grammar({
       field('comment_delimiter', $.inline_comment_delimiter_close),
     ),
 
+    command: $ => seq(
+      field('command_delimiter', $.command_delimiter_open),
+      $._command_text,
+      field('command_delimiter', $.command_delimiter_close),
+    ),
+
     _recursive_inline_comment: $ => seq(
       $._recursive_inline_comment_delimiter_open,
       optional($._recursive_inline_comment_text),
@@ -358,15 +368,27 @@ module.exports = grammar({
     // not lose its special meaning within the comment.
     inline_comment_text: $ => repeat1(
       choice(
-        /[^\{\}]+/,
+        /[^\{\}]/,
+        $.command,
         $._recursive_inline_comment,
       )),
 
     _recursive_inline_comment_text: $ => repeat1(
       choice(
-        /[^\{\}]+/,
+        /[^\{\}]/,
+        $.command,
         $._recursive_inline_comment,
       )),
+
+    command_name: $ => /[a-zA-Z0-9]+/,
+
+    // TODO: ideally parameters would allow brackets within quotes
+    command_parameters: $ => /[^\{\}\]]*/,
+
+    _command_text: $ => seq(
+      field('command_name', $.command_name),
+      field('command_parameters', $.command_parameters),
+    ),
 
     // [AaBb] is for the bughouse variant
     // Move numbers with zero dots are rare but required by the spec.
