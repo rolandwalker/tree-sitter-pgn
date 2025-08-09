@@ -3406,7 +3406,7 @@
           },
           {
             "type": "PATTERN",
-            "value": "(&nvlt;|&#60;|&#[Xx]3[Cc];)(&equals;|&#61;|&#[Xx]3[Dd];)"
+            "value": "(&lt;|&#60;|&#[Xx]3[Cc];)(&equals;|&#61;|&#[Xx]3[Dd];)"
           },
           {
             "type": "STRING",

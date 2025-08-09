@@ -570,7 +570,7 @@ module.exports = grammar({
 
         '==', new RegExp('(' + html_entity('=', 'equals', true) + ')' + '(' + html_entity('=', 'equals', true) + ')'),
         confusables.equals,
-        '<=', new RegExp('(' + html_entity('<', 'nvlt',   true) + ')' + '(' + html_entity('=', 'equals', true) + ')'),
+        '<=', new RegExp('(' + html_entity('<', 'lt',   true) + ')' + '(' + html_entity('=', 'equals', true) + ')'),
         '≤', html_entity('≤', ['le', 'leq']),
         '!!', new RegExp('(' + html_entity('!', 'excl',  true) + ')' + '(' + html_entity('!', 'excl',  true) + ')'),
         '??', new RegExp('(' + html_entity('?', 'quest', true) + ')' + '(' + html_entity('?', 'quest', true) + ')'),
