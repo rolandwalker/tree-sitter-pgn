@@ -251,7 +251,7 @@ module.exports = grammar({
       field('tagpair_delimiter', $.tagpair_delimiter_close),
     ),
 
-    tagpair_key: $ => token(/[^ ]+/),
+    tagpair_key: $ => token(/[^%][^ ]*/),
 
     _tagpair_value: $ => choice(
       seq(
