@@ -81,6 +81,7 @@ const confusables = {
   equals: choice(
     '=', html_entity('=', 'equals'),
     '⹀', html_entity('⹀'),
+    '＝', html_entity('＝'),
   ),
 };
 
