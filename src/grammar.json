@@ -1482,6 +1482,14 @@
           {
             "type": "PATTERN",
             "value": "&#11840;|&#[Xx]2[Ee]40;"
+          },
+          {
+            "type": "STRING",
+            "value": "＝"
+          },
+          {
+            "type": "PATTERN",
+            "value": "&#65309;|&#[Xx][Ff][Ff]1[Dd];"
           }
         ]
       }
@@ -2991,6 +2999,14 @@
                   {
                     "type": "PATTERN",
                     "value": "&#11840;|&#[Xx]2[Ee]40;"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "＝"
+                  },
+                  {
+                    "type": "PATTERN",
+                    "value": "&#65309;|&#[Xx][Ff][Ff]1[Dd];"
                   }
                 ]
               },
@@ -3152,6 +3168,14 @@
                     {
                       "type": "PATTERN",
                       "value": "&#11840;|&#[Xx]2[Ee]40;"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "＝"
+                    },
+                    {
+                      "type": "PATTERN",
+                      "value": "&#65309;|&#[Xx][Ff][Ff]1[Dd];"
                     }
                   ]
                 }
@@ -3229,6 +3253,14 @@
                     {
                       "type": "PATTERN",
                       "value": "&#11840;|&#[Xx]2[Ee]40;"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "＝"
+                    },
+                    {
+                      "type": "PATTERN",
+                      "value": "&#65309;|&#[Xx][Ff][Ff]1[Dd];"
                     }
                   ]
                 }
@@ -3256,6 +3288,14 @@
                   {
                     "type": "PATTERN",
                     "value": "&#11840;|&#[Xx]2[Ee]40;"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "＝"
+                  },
+                  {
+                    "type": "PATTERN",
+                    "value": "&#65309;|&#[Xx][Ff][Ff]1[Dd];"
                   }
                 ]
               },
@@ -3345,6 +3385,14 @@
                     {
                       "type": "PATTERN",
                       "value": "&#11840;|&#[Xx]2[Ee]40;"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "＝"
+                    },
+                    {
+                      "type": "PATTERN",
+                      "value": "&#65309;|&#[Xx][Ff][Ff]1[Dd];"
                     }
                   ]
                 }
@@ -3397,6 +3445,14 @@
               {
                 "type": "PATTERN",
                 "value": "&#11840;|&#[Xx]2[Ee]40;"
+              },
+              {
+                "type": "STRING",
+                "value": "＝"
+              },
+              {
+                "type": "PATTERN",
+                "value": "&#65309;|&#[Xx][Ff][Ff]1[Dd];"
               }
             ]
           },

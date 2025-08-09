@@ -59,13 +59,13 @@ const confusables = {
   ),
   double_quote: choice(
     '"', html_entity('"', 'quot'),
-    '＂',html_entity('＂'),
+    '＂', html_entity('＂'),
     '“', html_entity('“', 'ldquo'),
     '”', html_entity('”', 'rdquo'),
     '‟', html_entity('‟'),
     '″', html_entity('″'),
     '‶', html_entity('‶'),
-    '〃',html_entity('〃'),
+    '〃', html_entity('〃'),
     '״', html_entity('״'),
     '˝', html_entity('˝'),
     'ʺ', html_entity('ʺ'),
@@ -81,6 +81,7 @@ const confusables = {
   equals: choice(
     '=', html_entity('=', 'equals'),
     '⹀', html_entity('⹀'),
+    '＝', html_entity('＝'),
   ),
 };
 
