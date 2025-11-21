@@ -18,14 +18,15 @@ Chess Portable Game Notation (PGN) grammar for [tree-sitter](https://github.com/
 
 ```python
 import more_itertools
-from tree_sitter import Language, Parser
+from tree_sitter import Language, Parser, Query, QueryCursor
 import tree_sitter_pgn as ts_pgn
 
 PGN_LANGUAGE = Language(ts_pgn.language())
 parser = Parser(PGN_LANGUAGE)
 
-query = PGN_LANGUAGE.query(
-    '''
+query = Query(
+    PGN_LANGUAGE,
+    """
     (series_of_games
       game: (game) @game)
 
@@ -34,17 +35,19 @@ query = PGN_LANGUAGE.query(
 
     (movetext
       lan_move: (lan_move) @lan_move)
-    ''')
+    """,
+)
 
 with open('input_file.pgn', 'rb') as file:
     tree = parser.parse(file.read())
 
-matches = query.captures(tree.root_node)
+query_cursor = QueryCursor(query)
+captures = query_cursor.captures(tree.root_node)
 
 merged_nodes = [
-    *matches.get('game', []),
-    *matches.get('san_move', []),
-    *matches.get('lan_move', []),
+    *captures.get('game', []),
+    *captures.get('san_move', []),
+    *captures.get('lan_move', []),
 ]
 merged_nodes = sorted(merged_nodes, key=lambda elt: elt.start_byte)
 
