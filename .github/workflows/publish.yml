@@ -45,7 +45,6 @@ jobs:
         include:
           - { os: ubuntu-latest, cibw_arch: x86_64 }
           - { os: ubuntu-latest, cibw_arch: aarch64 }
-          - { os: ubuntu-latest, cibw_arch: arm64 }
           - { os: macos-latest,  cibw_arch: arm64 }
     steps:
       - name: Checkout repository
