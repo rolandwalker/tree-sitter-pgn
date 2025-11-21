@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "tree-sitter-pgn"
 description = "PGN grammar for tree-sitter"
-version = "1.2.13"
+version = "1.2.14"
 keywords = ["incremental", "parsing", "tree-sitter", "PGN", "chess"]
 classifiers = [
   "Intended Audience :: Developers",
@@ -30,18 +30,14 @@ build = [
    "cp312-*",
    "cp313-*",
    "cp314-*",
-   "cp314t-*",
 ]
 skip = [
    "cp38-*",
    "cp39-*",
+   "cp314t-*",
    "*-android*",
    "*-ios*",
    "*_ppc64le",
    "*_s390x",
-   "*_riscv64",
-   "*_ppc64le",
-   "*_s390x",
-   "*_riscv64",
 ]
 build-frontend = "build"

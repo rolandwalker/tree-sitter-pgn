@@ -43,32 +43,24 @@ jobs:
     strategy:
       matrix:
         include:
-          - { os: ubuntu-latest,  cibw_arch: x86_64 }
-          - { os: ubuntu-latest,  cibw_arch: aarch64, qemu_arch: arm64 }
-          - { os: macos-latest,   cibw_arch: arm64 }
-          - { os: macos-latest,   cibw_arch: x86_64 }
+          - { os: ubuntu-latest, cibw_arch: x86_64 }
+          - { os: ubuntu-latest, cibw_arch: aarch64 }
+          - { os: ubuntu-latest, cibw_arch: arm64 }
+          - { os: macos-latest,  cibw_arch: arm64 }
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
-      - uses: tree-sitter/setup-action@v1
+        uses: actions/checkout@v6
+      - uses: tree-sitter/setup-action@v2
         if: false
         with:
           install-lib: false
-      - name: Regenerate Parser
-        if: ${{ inputs.generate }}
-        run: tree-sitter generate --no-bindings
-      - name: Set up QEMU
-        if: matrix.qemu_arch != ''
-        uses: docker/setup-qemu-action@v3
-        with:
-          platforms: ${{matrix.qemu_arch}}
       - name: Build wheels
-        uses: pypa/cibuildwheel@v3.1.1
+        uses: pypa/cibuildwheel@v3.3.0
         with:
           output-dir: dist
         env:
           CIBW_ARCHS: ${{matrix.cibw_arch}}
-          CIBW_TEST_SKIP: "*-*linux_aarch64 *-macosx_x86_64"
+          CIBW_TEST_SKIP: "*-*linux_aarch64"
       - name: Upload wheel artifacts
         uses: actions/upload-artifact@v4
         with:
