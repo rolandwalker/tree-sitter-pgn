@@ -13,8 +13,8 @@ jobs:
       matrix:
         os: [macos-latest, ubuntu-latest]
     steps:
-      - uses: actions/checkout@v4
-      - uses: tree-sitter/setup-action@v1
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+      - uses: tree-sitter/setup-action@82b255ba7408ae2a2ec3f3a697ec211bff912f2a # v1
       - name: Run test commands
         shell: bash
         run: |
