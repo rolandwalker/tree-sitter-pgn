@@ -14,7 +14,7 @@ jobs:
         os: [macos-latest, ubuntu-latest]
     steps:
       - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6.0.0
-      - uses: tree-sitter/setup-action@82b255ba7408ae2a2ec3f3a697ec211bff912f2a # v1
+      - uses: tree-sitter/setup-action@c4c258862a6a7e43a7aef152256bbf659972c408 # v2
       - name: Run test commands
         shell: bash
         run: |
