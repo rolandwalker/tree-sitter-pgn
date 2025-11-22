@@ -17,47 +17,65 @@ Chess Portable Game Notation (PGN) grammar for [tree-sitter](https://github.com/
 ## Python Example
 
 ```python
-import more_itertools
 from tree_sitter import Language, Parser, Query, QueryCursor
 import tree_sitter_pgn as ts_pgn
 
 PGN_LANGUAGE = Language(ts_pgn.language())
-parser = Parser(PGN_LANGUAGE)
 
-query = Query(
+PARSER = Parser(PGN_LANGUAGE)
+
+# Query for game boundaries and main-line moves.
+# Ignore all headers, comments, variations, and result codes.
+QUERY = Query(
     PGN_LANGUAGE,
     """
     (series_of_games
       game: (game) @game)
 
-    (movetext
-      san_move: (san_move) @san_move)
+    (game
+      (movetext
+        san_move: (san_move) @san_move))
 
-    (movetext
-      lan_move: (lan_move) @lan_move)
+    (game
+      (movetext
+        lan_move: (lan_move) @lan_move))
     """,
 )
 
-with open('input_file.pgn', 'rb') as file:
-    tree = parser.parse(file.read())
 
-query_cursor = QueryCursor(query)
-captures = query_cursor.captures(tree.root_node)
+def emit_output(main_line: list[bytes | None]) -> None:
+    if not main_line:
+        return
+    # eg: d4 d5 c4 c6 Nc3 Nf6 Nf3 e6 e3 Nbd7 Bd3 dc4
+    print(' '.join(x.decode().strip() for x in main_line if x is not None))
 
-merged_nodes = [
-    *captures.get('game', []),
-    *captures.get('san_move', []),
-    *captures.get('lan_move', []),
-]
-merged_nodes = sorted(merged_nodes, key=lambda elt: elt.start_byte)
 
-for game in more_itertools.split_before(merged_nodes, lambda node: node.type == 'game'):
-    main_line = []
-    for node in game:
-        if node.type in ['san_move', 'lan_move'] and node.text is not None:
-            main_line.append(node.text.decode().strip())
+def main() -> None:
+    with open('multi_game.pgn', 'rb') as file:
+        tree = PARSER.parse(file.read())
+
+    query_cursor = QueryCursor(QUERY)
+    matches = query_cursor.matches(tree.root_node)
+
+    main_line: list[bytes | None] = []
+    for item in matches:
+        if item[1].get('game'):
+            emit_output(main_line)
+            main_line = []
             continue
-    print(' '.join(main_line))
+        if nodes := item[1].get('san_move'):
+            main_line.append(nodes[0].text)
+            continue
+        # some move notation is eagerly classified as LAN, an oddity to keep in mind
+        if nodes := item[1].get('lan_move'):
+            main_line.append(nodes[0].text)
+            continue
+
+    emit_output(main_line)
+
+
+if __name__ == '__main__':
+    main()
 ```
 
 ## References
