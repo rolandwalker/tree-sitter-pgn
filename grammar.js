@@ -97,6 +97,8 @@ module.exports = grammar({
   ///
 
   conflicts: $ => [
+    // LAN support is best-effort; prefer capturing as san_move when ambiguous
+    [$._san_move_pawn, $._lan_move_by_coordinates],
     [$.freestanding_comment, $._movetext_element],
     [$.tagpair_value_contents],
   ],
@@ -409,10 +411,11 @@ module.exports = grammar({
       $._san_null_move,
     ),
 
-    lan_move: $ => seq(
+    // LAN support is best-effort; prefer capturing as san_move when ambiguous
+    lan_move: $ => prec.dynamic(-1, seq(
       $._lan_move_by_coordinates,
       optional($.check_or_mate_condition),
-    ),
+    )),
 
     _san_file: $ => token(
       choice(
@@ -460,10 +463,15 @@ module.exports = grammar({
 
     _san_move_pawn: $ => seq(
       optional(
-        seq(
-          $._san_file,
-          optional($._san_capture_symbol),
-        )),
+        choice(
+          seq(
+            $._san_square,
+            $._san_capture_symbol,
+          ),
+          seq(
+            $._san_file,
+            optional($._san_capture_symbol),
+          ))),
       $._san_square,
       optional($._san_promotion),
     ),
