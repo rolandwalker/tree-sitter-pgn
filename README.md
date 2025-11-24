@@ -35,10 +35,6 @@ QUERY = Query(
     (game
       (movetext
         san_move: (san_move) @san_move))
-
-    (game
-      (movetext
-        lan_move: (lan_move) @lan_move))
     """,
 )
 
@@ -64,10 +60,6 @@ def main() -> None:
             main_line = []
             continue
         if nodes := item[1].get('san_move'):
-            main_line.append(nodes[0].text)
-            continue
-        # some move notation is eagerly classified as LAN, an oddity to keep in mind
-        if nodes := item[1].get('lan_move'):
             main_line.append(nodes[0].text)
             continue
 
