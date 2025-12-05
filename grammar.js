@@ -422,6 +422,11 @@ module.exports = grammar({
         'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
       )),
 
+    _san_file_immediate: $ => token.immediate(
+      choice(
+        'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
+      )),
+
     _san_rank: $ => token.immediate(
       choice(
         '1', '2', '3', '4', '5', '6', '7', '8',
@@ -456,6 +461,11 @@ module.exports = grammar({
       $._san_rank,
     ),
 
+    _san_square_immediate: $ => seq(
+      $._san_file_immediate,
+      $._san_rank,
+    ),
+
     _san_promotion: $ => seq(
       optional($._san_promotion_symbol),
       $._san_promotable_piece,
@@ -487,10 +497,10 @@ module.exports = grammar({
     _san_move_major_or_minor_piece: $ => prec.right(-1,
       seq(
         $._san_major_or_minor_piece,
-        optional($._san_file),
-        optional($._san_rank),
-        optional($._san_capture_symbol),
-        $._san_square,
+        optional($._san_file_immediate),
+        optional($._san_rank),             // always immediate
+        optional($._san_capture_symbol),   // always immediate
+        $._san_square_immediate,
       )),
 
     // Limitation: King drops are illegal, but accepted here
