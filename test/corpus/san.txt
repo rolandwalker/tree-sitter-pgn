@@ -699,7 +699,6 @@ Disambiguation by file and rank
     (movetext
       (move_number)
       (san_move)
-      (san_move)
       (san_move))
     (result_code)))
 
@@ -753,7 +752,6 @@ Disambiguation by file and rank with check
         (tagpair_delimiter_close)))
     (movetext
       (move_number)
-      (san_move)
       (san_move
         (check_or_mate_condition))
       (san_move))
@@ -786,6 +784,38 @@ Disambiguation by file and rank with capture and check
         (check_or_mate_condition))
       (san_move))
     (result_code)))
+
+================================================================================
+Disambiguation read as a single move
+================================================================================
+
+[Event "?"]
+
+65. Kg4 Ng1e2 66. Kh3 Nf2+
+*
+
+--------------------------------------------------------------------------------
+
+(series_of_games
+  (game
+    (header
+      (tagpair
+        (tagpair_delimiter_open)
+        (tagpair_key)
+        (double_quote)
+        (tagpair_value_contents)
+        (double_quote)
+        (tagpair_delimiter_close)))
+    (movetext
+      (move_number)
+      (san_move)
+      (san_move)
+      (move_number)
+      (san_move)
+      (san_move
+        (check_or_mate_condition)))
+    (result_code)))
+
 
 ================================================================================
 Null move Z0

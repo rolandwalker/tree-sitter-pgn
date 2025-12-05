@@ -1270,6 +1270,46 @@
         ]
       }
     },
+    "_san_file_immediate": {
+      "type": "IMMEDIATE_TOKEN",
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "a"
+          },
+          {
+            "type": "STRING",
+            "value": "b"
+          },
+          {
+            "type": "STRING",
+            "value": "c"
+          },
+          {
+            "type": "STRING",
+            "value": "d"
+          },
+          {
+            "type": "STRING",
+            "value": "e"
+          },
+          {
+            "type": "STRING",
+            "value": "f"
+          },
+          {
+            "type": "STRING",
+            "value": "g"
+          },
+          {
+            "type": "STRING",
+            "value": "h"
+          }
+        ]
+      }
+    },
     "_san_rank": {
       "type": "IMMEDIATE_TOKEN",
       "content": {
@@ -1511,6 +1551,19 @@
         }
       ]
     },
+    "_san_square_immediate": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_san_file_immediate"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_san_rank"
+        }
+      ]
+    },
     "_san_promotion": {
       "type": "SEQ",
       "members": [
@@ -1653,7 +1706,7 @@
             "members": [
               {
                 "type": "SYMBOL",
-                "name": "_san_file"
+                "name": "_san_file_immediate"
               },
               {
                 "type": "BLANK"
@@ -1686,7 +1739,7 @@
           },
           {
             "type": "SYMBOL",
-            "name": "_san_square"
+            "name": "_san_square_immediate"
           }
         ]
       }
