@@ -4,7 +4,7 @@ endif
 
 LANGUAGE_NAME := tree-sitter-pgn
 HOMEPAGE_URL := https://github.com/rolandwalker/tree-sitter-pgn
-VERSION := 1.3.1
+VERSION := 1.3.2
 
 # repository
 SRC_DIR := src
