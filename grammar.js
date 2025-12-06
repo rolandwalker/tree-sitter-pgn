@@ -489,9 +489,14 @@ module.exports = grammar({
     // Limitation: Pawn drops are illegal in the players' respective
     // promotion ranks, but accepted here
     _san_drop_pawn: $ => seq(
-      optional(choice('P','♙','♟︎')),
-      '@',
-      $._san_square,
+      choice(
+        seq(
+          choice('P','♙','♟︎'),
+          token.immediate('@'),
+        ),
+        '@',
+      ),
+      $._san_square_immediate,
     ),
 
     _san_move_major_or_minor_piece: $ => prec.right(-1,
@@ -507,8 +512,8 @@ module.exports = grammar({
     _san_drop_major_or_minor_piece: $ => prec.right(-1,
       seq(
         $._san_major_or_minor_piece,
-        '@',
-        $._san_square,
+        token.immediate('@'),
+        $._san_square_immediate,
       )),
 
     _lan_move_by_coordinates: $ => seq(
@@ -518,6 +523,8 @@ module.exports = grammar({
         token.immediate(confusables.dash),
         $._san_capture_symbol,
       ),
+      // resolved by a dynamic conflict in favor of SAN, instead of using
+      // $._san_square_immediate here, which might be worth figuring out.
       $._san_square,
       optional($._san_promotion),
     ),
@@ -551,7 +558,7 @@ module.exports = grammar({
     check_or_mate_condition: $ => token.immediate(
       choice(
         confusables.plus,
-        seq(confusables.plus, confusables.plus),
+        seq(confusables.plus, token.immediate(confusables.plus)),
         '#',
       )),
 

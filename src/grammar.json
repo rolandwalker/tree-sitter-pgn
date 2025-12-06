@@ -1660,34 +1660,43 @@
           "type": "CHOICE",
           "members": [
             {
-              "type": "CHOICE",
+              "type": "SEQ",
               "members": [
                 {
-                  "type": "STRING",
-                  "value": "P"
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "STRING",
+                      "value": "P"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "♙"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "♟︎"
+                    }
+                  ]
                 },
                 {
-                  "type": "STRING",
-                  "value": "♙"
-                },
-                {
-                  "type": "STRING",
-                  "value": "♟︎"
+                  "type": "IMMEDIATE_TOKEN",
+                  "content": {
+                    "type": "STRING",
+                    "value": "@"
+                  }
                 }
               ]
             },
             {
-              "type": "BLANK"
+              "type": "STRING",
+              "value": "@"
             }
           ]
         },
         {
-          "type": "STRING",
-          "value": "@"
-        },
-        {
           "type": "SYMBOL",
-          "name": "_san_square"
+          "name": "_san_square_immediate"
         }
       ]
     },
@@ -1755,12 +1764,15 @@
             "name": "_san_major_or_minor_piece"
           },
           {
-            "type": "STRING",
-            "value": "@"
+            "type": "IMMEDIATE_TOKEN",
+            "content": {
+              "type": "STRING",
+              "value": "@"
+            }
           },
           {
             "type": "SYMBOL",
-            "name": "_san_square"
+            "name": "_san_square_immediate"
           }
         ]
       }
@@ -2418,33 +2430,36 @@
                 ]
               },
               {
-                "type": "CHOICE",
-                "members": [
-                  {
-                    "type": "STRING",
-                    "value": "+"
-                  },
-                  {
-                    "type": "PATTERN",
-                    "value": "&plus;|&#43;|&#[Xx]2[Bb];"
-                  },
-                  {
-                    "type": "STRING",
-                    "value": "➕"
-                  },
-                  {
-                    "type": "PATTERN",
-                    "value": "&#10133;|&#[Xx]2795;"
-                  },
-                  {
-                    "type": "STRING",
-                    "value": "᛭"
-                  },
-                  {
-                    "type": "PATTERN",
-                    "value": "&#5869;|&#[Xx]16[Ee][Dd];"
-                  }
-                ]
+                "type": "IMMEDIATE_TOKEN",
+                "content": {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "STRING",
+                      "value": "+"
+                    },
+                    {
+                      "type": "PATTERN",
+                      "value": "&plus;|&#43;|&#[Xx]2[Bb];"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "➕"
+                    },
+                    {
+                      "type": "PATTERN",
+                      "value": "&#10133;|&#[Xx]2795;"
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "᛭"
+                    },
+                    {
+                      "type": "PATTERN",
+                      "value": "&#5869;|&#[Xx]16[Ee][Dd];"
+                    }
+                  ]
+                }
               }
             ]
           },
