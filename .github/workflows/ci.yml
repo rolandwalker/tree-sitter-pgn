@@ -15,6 +15,8 @@ jobs:
     steps:
       - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
       - uses: tree-sitter/setup-action@82b255ba7408ae2a2ec3f3a697ec211bff912f2a # v1
+        with:
+          tree-sitter-ref: v0.25.8
       - name: Run test commands
         shell: bash
         run: |
