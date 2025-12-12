@@ -563,10 +563,20 @@ module.exports = grammar({
       )),
 
     // Limitation: whitespace is required around "N" annotations to disambiguate cases
-    // such as "2. d4 N h6", where the "N" could be a Knight to "Nh6", or "40. g8N",
-    // where the N could be Knight promotion using irregular notation.  But the form
-    // "2. d4N h6" does occur in the wild!  Maybe this could be addressed with the
-    // external scanner.c.
+    // such as "2. d4 N h6", where, to a parser which is ignorant of the rules of chess,
+    // the "N" could as easily be a Knight in "Nh6".  Or "40. g8N", where the N could
+    // be a Knight promotion using irregular notation.
+    //
+    // But the form "2. d4N h6" does occur in the wild!  In general, this is why the
+    // grammar contains so many "token.immediate()" forms, to compensate for free
+    // whitespace as defined in "extras", by defining which semantic elements must bind
+    // tightly (without whitespace).
+    //
+    // Maybe the specific N-for-Novelty ambiguity could be addressed with the external
+    // scanner.c.
+    //
+    // Maybe 1 and 8 could be treated differently than other ranks, to identify when
+    // a promotion character must follow.
     //
     // For syntax highlighting, it should not matter that the annotation span includes
     // whitespace.
