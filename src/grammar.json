@@ -535,7 +535,7 @@
       "type": "TOKEN",
       "content": {
         "type": "PATTERN",
-        "value": "[^%]\\P{White_Space}*"
+        "value": "[^%\\p{White_Space}\\[]\\P{White_Space}*"
       }
     },
     "_tagpair_value": {
