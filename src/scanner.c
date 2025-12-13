@@ -2,6 +2,7 @@
 
 enum TokenType {
     FULL_LINE_COMMENT_DELIMITER_BOL_ASSERTION,
+    NOVELTY_GLYPH_BEFORE_PUNCTUATION,
 };
 
 void *tree_sitter_pgn_external_scanner_create(void) {
@@ -36,6 +37,27 @@ bool tree_sitter_pgn_external_scanner_scan(
         if (lexer->lookahead == '%' && lexer->get_column(lexer) == 0) {
             lexer->result_symbol = FULL_LINE_COMMENT_DELIMITER_BOL_ASSERTION;
             return true;
+        }
+    }
+    if (valid_symbols[NOVELTY_GLYPH_BEFORE_PUNCTUATION]) {
+        // It's not really clear from the doc why we have to advance over whitespace, but we do.
+        // eof is not really needed in this form, but does no harm.
+        while (!lexer->eof(lexer) &&
+               (lexer->lookahead == '\n' ||
+                lexer->lookahead == '\r' ||
+                lexer->lookahead == '\t' ||
+                lexer->lookahead == ' ')) {
+            lexer->advance(lexer, true);
+        }
+        if (lexer->lookahead == 'N') {
+            lexer->advance(lexer, false);
+            // The close parenthesis lookahead is strictly needed; the others are for lenience.
+            if (lexer->lookahead == ')' ||
+                lexer->lookahead == '(' ||
+                lexer->lookahead == '{') {
+                lexer->result_symbol = NOVELTY_GLYPH_BEFORE_PUNCTUATION;
+                return true;
+            }
         }
     }
     return false;
