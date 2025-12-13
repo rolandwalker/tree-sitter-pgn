@@ -27,7 +27,7 @@ The parser does not know the rules of chess, only the notation.  Therefore it is
 to represent illegal moves and missing moves.
 
 Much more information about support for various corner cases can be found in the commentary
-in [grammar.js](https://github.com/tree-sitter/tree-sitter/grammar.js).
+in [grammar.js](https://github.com/rolandwalker/tree-sitter-pgn/blob/master/grammar.js).
 
 
 ## Used in
