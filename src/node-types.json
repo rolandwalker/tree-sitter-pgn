@@ -1,5 +1,10 @@
 [
   {
+    "type": "annotation",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "command",
     "named": true,
     "fields": {
@@ -626,10 +631,6 @@
   {
     "type": "]",
     "named": false
-  },
-  {
-    "type": "annotation",
-    "named": true
   },
   {
     "type": "check_or_mate_condition",
