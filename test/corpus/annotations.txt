@@ -406,7 +406,7 @@ Dash-slash-plus parses as single annotation
     (result_code)))
 
 ================================================================================
-Novelty annotation, move 5b
+Novelty annotation, with whitespace, move 5b
 ================================================================================
 
 [Event "?"]
@@ -471,7 +471,72 @@ Novelty annotation, move 5b
     (result_code)))
 
 ================================================================================
-Novelty annotation, ambiguous without whitespace, move 13w
+Novelty annotation, without whitespace, move 5b
+================================================================================
+
+[Event "?"]
+
+1. e4 d6 2. d4 g6 3. Nf3 Bg7 4. Bc4 Nf6 5. Qe2 O-ON 6. O-O Bg4 7. c3 Nc6
+8. h3 Bxf3 9. Qxf3 e5 10. d5 Ne7 11. Bd3 Nd7 12. c4 f5 13. Qd1 c6
+0-1
+
+--------------------------------------------------------------------------------
+
+(series_of_games
+  (game
+    (header
+      (tagpair
+        (tagpair_delimiter_open)
+        (tagpair_key)
+        (double_quote)
+        (tagpair_value_contents)
+        (double_quote)
+        (tagpair_delimiter_close)))
+    (movetext
+      (move_number)
+      (san_move)
+      (san_move)
+      (move_number)
+      (san_move)
+      (san_move)
+      (move_number)
+      (san_move)
+      (san_move)
+      (move_number)
+      (san_move)
+      (san_move)
+      (move_number)
+      (san_move)
+      (san_move)
+      (annotation)
+      (move_number)
+      (san_move)
+      (san_move)
+      (move_number)
+      (san_move)
+      (san_move)
+      (move_number)
+      (san_move)
+      (san_move)
+      (move_number)
+      (san_move)
+      (san_move)
+      (move_number)
+      (san_move)
+      (san_move)
+      (move_number)
+      (san_move)
+      (san_move)
+      (move_number)
+      (san_move)
+      (san_move)
+      (move_number)
+      (san_move)
+      (san_move))
+    (result_code)))
+
+================================================================================
+Novelty annotation, with whitespace, move 13w
 ================================================================================
 
 [Event "?"]
@@ -536,12 +601,142 @@ Novelty annotation, ambiguous without whitespace, move 13w
     (result_code)))
 
 ================================================================================
-Novelty annotation, end of line, move 7b
+Novelty annotation, without whitespace, move 13w
+================================================================================
+
+[Event "?"]
+
+1. e4 d6 2. d4 g6 3. Nf3 Bg7 4. Bc4 Nf6 5. Qe2 O-O 6. O-O Bg4 7. c3 Nc6
+8. h3 Bxf3 9. Qxf3 e5 10. d5 Ne7 11. Bd3 Nd7 12. c4 f5 13. Qd1N c6
+0-1
+
+--------------------------------------------------------------------------------
+
+(series_of_games
+  (game
+    (header
+      (tagpair
+        (tagpair_delimiter_open)
+        (tagpair_key)
+        (double_quote)
+        (tagpair_value_contents)
+        (double_quote)
+        (tagpair_delimiter_close)))
+    (movetext
+      (move_number)
+      (san_move)
+      (san_move)
+      (move_number)
+      (san_move)
+      (san_move)
+      (move_number)
+      (san_move)
+      (san_move)
+      (move_number)
+      (san_move)
+      (san_move)
+      (move_number)
+      (san_move)
+      (san_move)
+      (move_number)
+      (san_move)
+      (san_move)
+      (move_number)
+      (san_move)
+      (san_move)
+      (move_number)
+      (san_move)
+      (san_move)
+      (move_number)
+      (san_move)
+      (san_move)
+      (move_number)
+      (san_move)
+      (san_move)
+      (move_number)
+      (san_move)
+      (san_move)
+      (move_number)
+      (san_move)
+      (san_move)
+      (move_number)
+      (san_move)
+      (annotation)
+      (san_move))
+    (result_code)))
+
+================================================================================
+Novelty annotation, end of line, with whitespace, move 7b
 ================================================================================
 
 [Event "?"]
 
 1. e4 d6 2. d4 g6 3. Nf3 Bg7 4. Bc4 Nf6 5. Qe2 O-O 6. O-O Bg4 7. c3 Nc6 N
+8. h3 Bxf3 9. Qxf3 e5 10. d5 Ne7 11. Bd3 Nd7 12. c4 f5 13. Qd1 c6
+0-1
+
+--------------------------------------------------------------------------------
+
+(series_of_games
+  (game
+    (header
+      (tagpair
+        (tagpair_delimiter_open)
+        (tagpair_key)
+        (double_quote)
+        (tagpair_value_contents)
+        (double_quote)
+        (tagpair_delimiter_close)))
+    (movetext
+      (move_number)
+      (san_move)
+      (san_move)
+      (move_number)
+      (san_move)
+      (san_move)
+      (move_number)
+      (san_move)
+      (san_move)
+      (move_number)
+      (san_move)
+      (san_move)
+      (move_number)
+      (san_move)
+      (san_move)
+      (move_number)
+      (san_move)
+      (san_move)
+      (move_number)
+      (san_move)
+      (san_move)
+      (annotation)
+      (move_number)
+      (san_move)
+      (san_move)
+      (move_number)
+      (san_move)
+      (san_move)
+      (move_number)
+      (san_move)
+      (san_move)
+      (move_number)
+      (san_move)
+      (san_move)
+      (move_number)
+      (san_move)
+      (san_move)
+      (move_number)
+      (san_move)
+      (san_move))
+    (result_code)))
+
+================================================================================
+Novelty annotation, end of line, without whitespace, move 7b
+================================================================================
+
+[Event "?"]
+
+1. e4 d6 2. d4 g6 3. Nf3 Bg7 4. Bc4 Nf6 5. Qe2 O-O 6. O-O Bg4 7. c3 Nc6N
 8. h3 Bxf3 9. Qxf3 e5 10. d5 Ne7 11. Bd3 Nd7 12. c4 f5 13. Qd1 c6
 0-1
 
@@ -666,7 +861,7 @@ N 8. h3 Bxf3 9. Qxf3 e5 10. d5 Ne7 11. Bd3 Nd7 12. c4 f5 13. Qd1 c6
     (result_code)))
 
 ================================================================================
-Novelty annotation, end of movetext, move 13b
+Novelty annotation, end of movetext, with whitespace, move 13b
 ================================================================================
 
 [Event "?"]
@@ -728,6 +923,181 @@ Novelty annotation, end of movetext, move 13b
       (san_move)
       (san_move)
       (annotation))
+    (result_code)))
+
+================================================================================
+Novelty annotation, end of movetext, without whitespace, move 13b
+================================================================================
+
+[Event "?"]
+
+1. e4 d6 2. d4 g6 3. Nf3 Bg7 4. Bc4 Nf6 5. Qe2 O-O 6. O-O Bg4 7. c3 Nc6
+8. h3 Bxf3 9. Qxf3 e5 10. d5 Ne7 11. Bd3 Nd7 12. c4 f5 13. Qd1 c6N
+0-1
+
+--------------------------------------------------------------------------------
+
+(series_of_games
+  (game
+    (header
+      (tagpair
+        (tagpair_delimiter_open)
+        (tagpair_key)
+        (double_quote)
+        (tagpair_value_contents)
+        (double_quote)
+        (tagpair_delimiter_close)))
+    (movetext
+      (move_number)
+      (san_move)
+      (san_move)
+      (move_number)
+      (san_move)
+      (san_move)
+      (move_number)
+      (san_move)
+      (san_move)
+      (move_number)
+      (san_move)
+      (san_move)
+      (move_number)
+      (san_move)
+      (san_move)
+      (move_number)
+      (san_move)
+      (san_move)
+      (move_number)
+      (san_move)
+      (san_move)
+      (move_number)
+      (san_move)
+      (san_move)
+      (move_number)
+      (san_move)
+      (san_move)
+      (move_number)
+      (san_move)
+      (san_move)
+      (move_number)
+      (san_move)
+      (san_move)
+      (move_number)
+      (san_move)
+      (san_move)
+      (move_number)
+      (san_move)
+      (san_move)
+      (annotation))
+    (result_code)))
+
+================================================================================
+Novelty annotation, disambiguated from irregular promotion by rank, with whitespace
+================================================================================
+
+[Event "?"]
+
+2. d4 N h6
+*
+
+--------------------------------------------------------------------------------
+
+(series_of_games
+  (game
+    (header
+      (tagpair
+        (tagpair_delimiter_open)
+        (tagpair_key)
+        (double_quote)
+        (tagpair_value_contents)
+        (double_quote)
+        (tagpair_delimiter_close)))
+    (movetext
+      (move_number)
+      (san_move)
+      (annotation)
+      (san_move))
+    (result_code)))
+
+================================================================================
+Novelty annotation, disambiguated from irregular promotion by rank, without whitespace
+================================================================================
+
+[Event "?"]
+
+2. d4N h6
+*
+
+--------------------------------------------------------------------------------
+
+(series_of_games
+  (game
+    (header
+      (tagpair
+        (tagpair_delimiter_open)
+        (tagpair_key)
+        (double_quote)
+        (tagpair_value_contents)
+        (double_quote)
+        (tagpair_delimiter_close)))
+    (movetext
+      (move_number)
+      (san_move)
+      (annotation)
+      (san_move))
+    (result_code)))
+
+================================================================================
+Novelty annotation, following irregular promotion, with whitespace
+================================================================================
+
+[Event "?"]
+
+40. g8N N O-O
+*
+--------------------------------------------------------------------------------
+
+(series_of_games
+  (game
+    (header
+      (tagpair
+        (tagpair_delimiter_open)
+        (tagpair_key)
+        (double_quote)
+        (tagpair_value_contents)
+        (double_quote)
+        (tagpair_delimiter_close)))
+    (movetext
+      (move_number)
+      (san_move)
+      (annotation)
+      (san_move))
+    (result_code)))
+
+================================================================================
+Novelty annotation, following irregular promotion, without whitespace
+================================================================================
+
+[Event "?"]
+
+40. g8NN O-O
+*
+--------------------------------------------------------------------------------
+
+(series_of_games
+  (game
+    (header
+      (tagpair
+        (tagpair_delimiter_open)
+        (tagpair_key)
+        (double_quote)
+        (tagpair_value_contents)
+        (double_quote)
+        (tagpair_delimiter_close)))
+    (movetext
+      (move_number)
+      (san_move)
+      (annotation)
+      (san_move))
     (result_code)))
 
 ================================================================================

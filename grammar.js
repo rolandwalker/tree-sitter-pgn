@@ -427,10 +427,20 @@ module.exports = grammar({
         'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
       )),
 
-    _san_rank: $ => token.immediate(
+    _san_rank_promoting: $ => token.immediate(
       choice(
-        '1', '2', '3', '4', '5', '6', '7', '8',
+        '1', '8',
       )),
+
+    _san_rank_nonpromoting: $ => token.immediate(
+      choice(
+        '2', '3', '4', '5', '6', '7'
+      )),
+
+    _san_rank_any: $ => choice(
+      $._san_rank_promoting,
+      $._san_rank_nonpromoting,
+    ),
 
     // Antichess allows promotion to King
     _san_promotable_piece: $ => token.immediate(
@@ -456,14 +466,34 @@ module.exports = grammar({
 
     _san_promotion_symbol: $ => token.immediate(confusables.equals),
 
-    _san_square: $ => seq(
+    _san_square_any: $ => seq(
       $._san_file,
-      $._san_rank,
+      $._san_rank_any,
     ),
 
-    _san_square_immediate: $ => seq(
+    _san_square_promoting: $ => seq(
+      $._san_file,
+      $._san_rank_promoting,
+    ),
+
+    _san_square_nonpromoting: $ => seq(
+      $._san_file,
+      $._san_rank_nonpromoting,
+    ),
+
+    _san_square_any_immediate: $ => seq(
       $._san_file_immediate,
-      $._san_rank,
+      $._san_rank_any,
+    ),
+
+    _san_square_promoting_immediate: $ => seq(
+      $._san_file_immediate,
+      $._san_rank_promoting,
+    ),
+
+    _san_square_nonpromoting_immediate: $ => seq(
+      $._san_file_immediate,
+      $._san_rank_nonpromoting,
     ),
 
     _san_promotion: $ => seq(
@@ -471,23 +501,35 @@ module.exports = grammar({
       $._san_promotable_piece,
     ),
 
-    _san_move_pawn: $ => seq(
-      optional(
+    _san_move_pawn: $ => choice(
+      $._san_square_nonpromoting,
+      seq(
         choice(
-          seq(
-            $._san_square,
-            $._san_capture_symbol,
-          ),
-          seq(
-            $._san_file,
-            optional($._san_capture_symbol),
-          ))),
-      $._san_square,
-      optional($._san_promotion),
-    ),
+          $._san_file,
+          $._san_square_any,
+        ),
+        optional($._san_capture_symbol),
+        $._san_square_nonpromoting_immediate,
+      ),
+      seq(
+        $._san_square_promoting,
+        $._san_promotion,
+      ),
+      seq(
+        choice(
+          $._san_file,
+          $._san_square_any,
+        ),
+        optional($._san_capture_symbol),
+        $._san_square_promoting_immediate,
+        $._san_promotion,
+      )),
 
     // Limitation: Pawn drops are illegal in the players' respective
-    // promotion ranks, but accepted here
+    // promotion ranks, but accepted here.  It would be possible to
+    // plug in $._san_square_promoting_immediate in the final place
+    // of the sequence, but the parser would not know the side of the
+    // player to distinguish the semantics of 1 vs 8.
     _san_drop_pawn: $ => seq(
       choice(
         seq(
@@ -496,16 +538,16 @@ module.exports = grammar({
         ),
         '@',
       ),
-      $._san_square_immediate,
+      $._san_square_any_immediate,
     ),
 
     _san_move_major_or_minor_piece: $ => prec.right(-1,
       seq(
         $._san_major_or_minor_piece,
         optional($._san_file_immediate),
-        optional($._san_rank),             // always immediate
+        optional($._san_rank_any),         // always immediate
         optional($._san_capture_symbol),   // always immediate
-        $._san_square_immediate,
+        $._san_square_any_immediate,
       )),
 
     // Limitation: King drops are illegal, but accepted here
@@ -513,21 +555,23 @@ module.exports = grammar({
       seq(
         $._san_major_or_minor_piece,
         token.immediate('@'),
-        $._san_square_immediate,
+        $._san_square_any_immediate,
       )),
 
     _lan_move_by_coordinates: $ => seq(
-      $._san_square,
+      $._san_square_any,
       // Note: UCI-LAN format elides the next character, but we don't expect UCI-LAN in PGNs
       choice(
         token.immediate(confusables.dash),
         $._san_capture_symbol,
       ),
-      // resolved by a dynamic conflict in favor of SAN, instead of using
-      // $._san_square_immediate here, which might be worth figuring out.
-      $._san_square,
-      optional($._san_promotion),
-    ),
+      choice(
+        $._san_square_nonpromoting_immediate,
+        seq(
+          $._san_square_promoting_immediate,
+          // only allow implicit promotion for LAN moves
+          optional($._san_promotion),
+        ))),
 
     _san_move_castle: $ => token(
       seq(
@@ -562,27 +606,12 @@ module.exports = grammar({
         '#',
       )),
 
-    // Limitation: whitespace is required around "N" annotations to disambiguate cases
-    // such as "2. d4 N h6", where, to a parser which is ignorant of the rules of chess,
-    // the "N" could as easily be a Knight in "Nh6".  Or "40. g8N", where the N could
-    // be a Knight promotion using irregular notation.
-    //
-    // But the form "2. d4N h6" does occur in the wild!  In general, this is why the
-    // grammar contains so many "token.immediate()" forms, to compensate for free
-    // whitespace as defined in "extras", by defining which semantic elements must bind
-    // tightly (without whitespace).
-    //
-    // Maybe the specific N-for-Novelty ambiguity could be addressed with the external
-    // scanner.c.
-    //
-    // Maybe 1 and 8 could be treated differently than other ranks, to identify when
-    // a promotion character must follow.
+    // Whitespace is mandatory after "N" annotations to disambiguate cases such as
+    // "2. d4 N h6" vs "2. d4 Nh6".  The parser can figure out all other cases, even
+    // when spacing is poor.
     //
     // For syntax highlighting, it should not matter that the annotation span includes
     // whitespace.
-    //
-    // TODO: Consider differentiating the subset of annotations which can occur without
-    // intervening whitespace, such as "!".
     annotation: $ => token(
       choice(
         /\$\d+/,
@@ -598,7 +627,7 @@ module.exports = grammar({
         seq(confusables.equals, token.immediate(confusables.plus)),
         seq(confusables.plus, token.immediate(confusables.equals)),
 
-        /\sN\s/,
+        /N\s/,
         'TN',
         'RR',
         'e.p.',
