@@ -4,6 +4,32 @@
 
 Chess Portable Game Notation (PGN) grammar for [tree-sitter](https://github.com/tree-sitter/tree-sitter).
 
+The tree-sitter-pgn grammar is _extremely_ lenient, deviating from the PGN specification,
+where possible, to support common alternate forms, such as
+
+ * promotions without the `=` symbol
+ * castling written with zeros
+ * null moves
+ * nonstandard annotation glyphs
+
+and so on.
+
+Another important deviation from the specification is that input is expected as UTF-8
+rather than ISO 8859/1 (Latin1) encoded text.
+
+"Command" sequences such as `[%clk 1:55:21]` embedded into comments are also recognized
+per https://www.enpassant.dk/chess/palview/enhancedpgn.htm .
+
+Moves written in Long Algebraic Notation are supported, on a best-effort basis.  Where
+a move may be either LAN or SAN it is denoted as a `san_move` in the parse tree.
+
+The parser does not know the rules of chess, only the notation.  Therefore it is possible
+to represent illegal moves and missing moves.
+
+Much more information about support for various corner cases can be found in the commentary
+in [grammar.js](https://github.com/tree-sitter/tree-sitter/grammar.js).
+
+
 ## Used in
 
  * [Emacs pygn-mode](https://github.com/dwcoates/pygn-mode)
@@ -72,6 +98,7 @@ if __name__ == '__main__':
 
 ## References
 
+ * [Tree-sitter](https://tree-sitter.github.io/tree-sitter/)
  * [PGN specification](http://www.saremba.de/chessgml/standards/pgn/pgn-complete.htm)
  * [Commonly-used extensions](https://www.enpassant.dk/chess/palview/enhancedpgn.htm)
  * [Commonly-used annotation glyphs](https://en.wikipedia.org/wiki/Numeric_Annotation_Glyphs)
