@@ -240,7 +240,9 @@ module.exports = grammar({
       field('tagpair_delimiter', $.tagpair_delimiter_close),
     ),
 
-    tagpair_key: $ => token(/[^%]\P{White_Space}*/),
+    // percent is avoided in the first position because of the similarity
+    // to embedded commands, though that is not strictly required to parse.
+    tagpair_key: $ => token(/[^%\p{White_Space}\[]\P{White_Space}*/),
 
     _tagpair_value: $ => choice(
       seq(
