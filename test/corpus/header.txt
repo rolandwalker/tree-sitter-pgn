@@ -93,6 +93,100 @@ Typical full selection of header tagpairs
     result_code: (result_code)))
 
 ================================================================================
+Typical full selection of header tagpairs with Unicode spaces
+================================================================================
+
+[Event "Tata Steel Masters"]
+[Site "?"]
+[Date "2020.01.24"]
+[Round "11.3"]
+[White "Firouzja, Alireza"]
+[Black "Anand, Viswanathan"]
+[Result "0-1"]
+[ECO "E20"]
+[WhiteElo "2723"]
+[BlackElo "2758"]
+
+0-1
+
+--------------------------------------------------------------------------------
+
+(series_of_games
+  game: (game
+    header: (header
+      tagpair: (tagpair
+        tagpair_delimiter: (tagpair_delimiter_open)
+        tagpair_key: (tagpair_key)
+        tagpair_value_delimiter: (double_quote)
+        tagpair_value_contents: (tagpair_value_contents)
+        tagpair_value_delimiter: (double_quote)
+        tagpair_delimiter: (tagpair_delimiter_close))
+      tagpair: (tagpair
+        tagpair_delimiter: (tagpair_delimiter_open)
+        tagpair_key: (tagpair_key)
+        tagpair_value_delimiter: (double_quote)
+        tagpair_value_contents: (tagpair_value_contents)
+        tagpair_value_delimiter: (double_quote)
+        tagpair_delimiter: (tagpair_delimiter_close))
+      tagpair: (tagpair
+        tagpair_delimiter: (tagpair_delimiter_open)
+        tagpair_key: (tagpair_key)
+        tagpair_value_delimiter: (double_quote)
+        tagpair_value_contents: (tagpair_value_contents)
+        tagpair_value_delimiter: (double_quote)
+        tagpair_delimiter: (tagpair_delimiter_close))
+      tagpair: (tagpair
+        tagpair_delimiter: (tagpair_delimiter_open)
+        tagpair_key: (tagpair_key)
+        tagpair_value_delimiter: (double_quote)
+        tagpair_value_contents: (tagpair_value_contents)
+        tagpair_value_delimiter: (double_quote)
+        tagpair_delimiter: (tagpair_delimiter_close))
+      tagpair: (tagpair
+        tagpair_delimiter: (tagpair_delimiter_open)
+        tagpair_key: (tagpair_key)
+        tagpair_value_delimiter: (double_quote)
+        tagpair_value_contents: (tagpair_value_contents)
+        tagpair_value_delimiter: (double_quote)
+        tagpair_delimiter: (tagpair_delimiter_close))
+      tagpair: (tagpair
+        tagpair_delimiter: (tagpair_delimiter_open)
+        tagpair_key: (tagpair_key)
+        tagpair_value_delimiter: (double_quote)
+        tagpair_value_contents: (tagpair_value_contents)
+        tagpair_value_delimiter: (double_quote)
+        tagpair_delimiter: (tagpair_delimiter_close))
+      tagpair: (tagpair
+        tagpair_delimiter: (tagpair_delimiter_open)
+        tagpair_key: (tagpair_key)
+        tagpair_value_delimiter: (double_quote)
+        tagpair_value_contents: (tagpair_value_contents)
+        tagpair_value_delimiter: (double_quote)
+        tagpair_delimiter: (tagpair_delimiter_close))
+      tagpair: (tagpair
+        tagpair_delimiter: (tagpair_delimiter_open)
+        tagpair_key: (tagpair_key)
+        tagpair_value_delimiter: (double_quote)
+        tagpair_value_contents: (tagpair_value_contents)
+        tagpair_value_delimiter: (double_quote)
+        tagpair_delimiter: (tagpair_delimiter_close))
+      tagpair: (tagpair
+        tagpair_delimiter: (tagpair_delimiter_open)
+        tagpair_key: (tagpair_key)
+        tagpair_value_delimiter: (double_quote)
+        tagpair_value_contents: (tagpair_value_contents)
+        tagpair_value_delimiter: (double_quote)
+        tagpair_delimiter: (tagpair_delimiter_close))
+      tagpair: (tagpair
+        tagpair_delimiter: (tagpair_delimiter_open)
+        tagpair_key: (tagpair_key)
+        tagpair_value_delimiter: (double_quote)
+        tagpair_value_contents: (tagpair_value_contents)
+        tagpair_value_delimiter: (double_quote)
+        tagpair_delimiter: (tagpair_delimiter_close)))
+    result_code: (result_code)))
+
+================================================================================
 Irregular whitespace in header tagpairs
 ================================================================================
 
