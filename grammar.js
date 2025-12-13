@@ -138,7 +138,7 @@ module.exports = grammar({
 
     // http://www.saremba.de/chessgml/standards/pgn/pgn-complete.htm#c8.1
     // "The tag pair section is composed of a series of zero or more tag pairs."
-    // which must be supported as it occurs in the wild as well
+    // which must be supported as it occurs in the wild as well.
     //
     // http://www.saremba.de/chessgml/standards/pgn/pgn-complete.htm#c8.2.6
     // "Each movetext section has exactly one game termination marker"
