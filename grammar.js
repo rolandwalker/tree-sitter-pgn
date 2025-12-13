@@ -109,21 +109,7 @@ module.exports = grammar({
   ],
 
   extras: $ => [
-    /\s/,
-    ' ',
-    ' ',
-    ' ',
-    ' ',
-    ' ',
-    ' ',
-    ' ',
-    ' ',
-    ' ',
-    ' ',
-    ' ',
-    ' ',
-    ' ',
-    ' ',
+    /\p{White_Space}/,
   ],
 
   rules: {
@@ -254,7 +240,7 @@ module.exports = grammar({
       field('tagpair_delimiter', $.tagpair_delimiter_close),
     ),
 
-    tagpair_key: $ => token(/[^%][^ ]*/),
+    tagpair_key: $ => token(/[^%]\P{White_Space}*/),
 
     _tagpair_value: $ => choice(
       seq(
@@ -396,7 +382,7 @@ module.exports = grammar({
 
     // [AaBb] is for the bughouse variant
     // Move numbers with zero dots are rare but required by the spec.
-    move_number: $ => /\d+[AaBb]?(\s+|\s*[\.𝅭․܁‎܂꘎‎٠۰ꓸ][\s\.𝅭․܁‎܂꘎‎٠۰ꓸ]*)/,
+    move_number: $ => /\d+[AaBb]?(\p{White_Space}+|\p{White_Space}*[\.𝅭․܁‎܂꘎‎٠۰ꓸ][\p{White_Space}\.𝅭․܁‎܂꘎‎٠۰ꓸ]*)/,
 
     san_move: $ => seq(
       $._san_move_piece,
@@ -630,12 +616,18 @@ module.exports = grammar({
           seq(confusables.dash, token.immediate(confusables.plus)),
           seq(confusables.dash, token.immediate(confusables.slash), token.immediate(confusables.plus)),
           seq(confusables.equals, token.immediate(confusables.slash), token.immediate(confusables.infinity)),
-          seq(confusables.infinity, /\s*/, token(confusables.slash), /\s*/, token(confusables.equals)),
+          seq(
+            confusables.infinity,
+            /\p{White_Space}*/,
+            token(confusables.slash),
+            /\p{White_Space}*/,
+            token(confusables.equals),
+          ),
           seq(token(confusables.slash), token(confusables.equals)),
           seq(confusables.equals, token.immediate(confusables.plus)),
           seq(confusables.plus, token.immediate(confusables.equals)),
 
-          /N\s/,
+          /N\p{White_Space}/,
           'TN',
           'RR',
           'e.p.',
@@ -705,10 +697,20 @@ module.exports = grammar({
       seq(confusables.half, confusables.dash, confusables.half),
       confusables.asterisk,
       // these would get confused with dotless move numbers unless wrapped in token()
-      token(seq('1 ', confusables.dash, ' ', confusables.o)),
-      token(seq(confusables.o, ' ', confusables.dash, ' 1')),
-      token(seq('1 ', confusables.slash, ' 2 ', confusables.dash, ' 1 ', confusables.slash, ' 2')),
-      token(seq(confusables.half, ' ', confusables.dash, ' ', confusables.half)),
+      // only up to a single stray space is tolerated in each spot, in the name of sanity
+      token(seq(/1\p{White_Space}{0,1}/, confusables.dash, /\p{White_Space}{0,1}/, confusables.o)),
+      token(seq(confusables.o, /\p{White_Space}{0,1}/, confusables.dash, /\p{White_Space}{0,1}1/)),
+      token(
+        seq(
+          /1\p{White_Space}{0,1}/,
+          confusables.slash,
+          /\p{White_Space}{0,1}2\p{White_Space}{0,1}/,
+          confusables.dash,
+          /\p{White_Space}{0,1}1\p{White_Space}{0,1}/,
+          confusables.slash,
+          /\p{White_Space}{0,1}2/,
+        )),
+      token(seq(confusables.half, /\p{White_Space}{0,1}/, confusables.dash, /\p{White_Space}{0,1}/, confusables.half)),
     ),
   }
 });

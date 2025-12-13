@@ -181,6 +181,32 @@ Irregular draw result code
     (result_code)))
 
 ================================================================================
+Irregular draw result code with Unicode spaces
+================================================================================
+
+[Event "?"]
+
+1. d4
+1 / 2- 1 ∕　2
+
+--------------------------------------------------------------------------------
+
+(series_of_games
+  (game
+    (header
+      (tagpair
+        (tagpair_delimiter_open)
+        (tagpair_key)
+        (double_quote)
+        (tagpair_value_contents)
+        (double_quote)
+        (tagpair_delimiter_close)))
+    (movetext
+      (move_number)
+      (san_move))
+    (result_code)))
+
+================================================================================
 Result code without newline
 ================================================================================
 
