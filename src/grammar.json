@@ -1310,7 +1310,7 @@
         ]
       }
     },
-    "_san_rank": {
+    "_san_rank_promoting": {
       "type": "IMMEDIATE_TOKEN",
       "content": {
         "type": "CHOICE",
@@ -1319,6 +1319,18 @@
             "type": "STRING",
             "value": "1"
           },
+          {
+            "type": "STRING",
+            "value": "8"
+          }
+        ]
+      }
+    },
+    "_san_rank_nonpromoting": {
+      "type": "IMMEDIATE_TOKEN",
+      "content": {
+        "type": "CHOICE",
+        "members": [
           {
             "type": "STRING",
             "value": "2"
@@ -1342,13 +1354,22 @@
           {
             "type": "STRING",
             "value": "7"
-          },
-          {
-            "type": "STRING",
-            "value": "8"
           }
         ]
       }
+    },
+    "_san_rank_any": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_san_rank_promoting"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_san_rank_nonpromoting"
+        }
+      ]
     },
     "_san_promotable_piece": {
       "type": "IMMEDIATE_TOKEN",
@@ -1538,7 +1559,7 @@
         ]
       }
     },
-    "_san_square": {
+    "_san_square_any": {
       "type": "SEQ",
       "members": [
         {
@@ -1547,11 +1568,37 @@
         },
         {
           "type": "SYMBOL",
-          "name": "_san_rank"
+          "name": "_san_rank_any"
         }
       ]
     },
-    "_san_square_immediate": {
+    "_san_square_promoting": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_san_file"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_san_rank_promoting"
+        }
+      ]
+    },
+    "_san_square_nonpromoting": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_san_file"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_san_rank_nonpromoting"
+        }
+      ]
+    },
+    "_san_square_any_immediate": {
       "type": "SEQ",
       "members": [
         {
@@ -1560,7 +1607,33 @@
         },
         {
           "type": "SYMBOL",
-          "name": "_san_rank"
+          "name": "_san_rank_any"
+        }
+      ]
+    },
+    "_san_square_promoting_immediate": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_san_file_immediate"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_san_rank_promoting"
+        }
+      ]
+    },
+    "_san_square_nonpromoting_immediate": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_san_file_immediate"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_san_rank_nonpromoting"
         }
       ]
     },
@@ -1586,68 +1659,94 @@
       ]
     },
     "_san_move_pawn": {
-      "type": "SEQ",
+      "type": "CHOICE",
       "members": [
         {
-          "type": "CHOICE",
+          "type": "SYMBOL",
+          "name": "_san_square_nonpromoting"
+        },
+        {
+          "type": "SEQ",
           "members": [
             {
               "type": "CHOICE",
               "members": [
                 {
-                  "type": "SEQ",
-                  "members": [
-                    {
-                      "type": "SYMBOL",
-                      "name": "_san_square"
-                    },
-                    {
-                      "type": "SYMBOL",
-                      "name": "_san_capture_symbol"
-                    }
-                  ]
+                  "type": "SYMBOL",
+                  "name": "_san_file"
                 },
                 {
-                  "type": "SEQ",
-                  "members": [
-                    {
-                      "type": "SYMBOL",
-                      "name": "_san_file"
-                    },
-                    {
-                      "type": "CHOICE",
-                      "members": [
-                        {
-                          "type": "SYMBOL",
-                          "name": "_san_capture_symbol"
-                        },
-                        {
-                          "type": "BLANK"
-                        }
-                      ]
-                    }
-                  ]
+                  "type": "SYMBOL",
+                  "name": "_san_square_any"
                 }
               ]
             },
             {
-              "type": "BLANK"
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "_san_capture_symbol"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_san_square_nonpromoting_immediate"
             }
           ]
         },
         {
-          "type": "SYMBOL",
-          "name": "_san_square"
-        },
-        {
-          "type": "CHOICE",
+          "type": "SEQ",
           "members": [
             {
               "type": "SYMBOL",
-              "name": "_san_promotion"
+              "name": "_san_square_promoting"
             },
             {
-              "type": "BLANK"
+              "type": "SYMBOL",
+              "name": "_san_promotion"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "_san_file"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_san_square_any"
+                }
+              ]
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "_san_capture_symbol"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_san_square_promoting_immediate"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_san_promotion"
             }
           ]
         }
@@ -1696,7 +1795,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "_san_square_immediate"
+          "name": "_san_square_any_immediate"
         }
       ]
     },
@@ -1727,7 +1826,7 @@
             "members": [
               {
                 "type": "SYMBOL",
-                "name": "_san_rank"
+                "name": "_san_rank_any"
               },
               {
                 "type": "BLANK"
@@ -1748,7 +1847,7 @@
           },
           {
             "type": "SYMBOL",
-            "name": "_san_square_immediate"
+            "name": "_san_square_any_immediate"
           }
         ]
       }
@@ -1772,7 +1871,7 @@
           },
           {
             "type": "SYMBOL",
-            "name": "_san_square_immediate"
+            "name": "_san_square_any_immediate"
           }
         ]
       }
@@ -1782,7 +1881,7 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "_san_square"
+          "name": "_san_square_any"
         },
         {
           "type": "CHOICE",
@@ -1866,18 +1965,32 @@
           ]
         },
         {
-          "type": "SYMBOL",
-          "name": "_san_square"
-        },
-        {
           "type": "CHOICE",
           "members": [
             {
               "type": "SYMBOL",
-              "name": "_san_promotion"
+              "name": "_san_square_nonpromoting_immediate"
             },
             {
-              "type": "BLANK"
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "_san_square_promoting_immediate"
+                },
+                {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "_san_promotion"
+                    },
+                    {
+                      "type": "BLANK"
+                    }
+                  ]
+                }
+              ]
             }
           ]
         }
@@ -3491,7 +3604,7 @@
           },
           {
             "type": "PATTERN",
-            "value": "\\sN\\s"
+            "value": "N\\s"
           },
           {
             "type": "STRING",
