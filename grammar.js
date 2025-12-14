@@ -1,3 +1,12 @@
+/**
+ * @file PGN grammar for tree-sitter
+ * @author D Roland Walker <walker@pobox.com>
+ * @license BSD-2-Clause
+ */
+
+/// <reference types="tree-sitter-cli/dsl" />
+// @ts-check
+
 //
 // The PGN (Portable Game Notation) specification for chess games:
 //
