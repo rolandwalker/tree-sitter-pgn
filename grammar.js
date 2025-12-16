@@ -27,9 +27,9 @@
 /// constants
 ///
 
-// Canonical character first
+// Confusables, with canonical character first
 //
-// We take the effort to rescue numerous HTML entities because the semicolon
+// We take the effort to rescue numerous HTML entities, because the semicolon
 // which closes the entity would otherwise introduce a rest-of-line PGN comment,
 // throwing off the parse.
 const confusables = {
@@ -106,9 +106,16 @@ module.exports = grammar({
   ///
 
   conflicts: $ => [
-    // LAN support is best-effort; prefer capturing as san_move when ambiguous
+    // LAN support is best-effort; prefer identifying moves as san_move when
+    // ambiguous.
     [$._san_move_pawn, $._lan_move_by_coordinates],
+
+    // TODO document why this conflict is needed, or redo it using precedence.
     [$.freestanding_comment, $._movetext_element],
+
+    // A solo conflict reads strangely, but this is correct for allowing the
+    // contents of a tagpair value to contain unescaped double quotes, while
+    // double quotes are also the value delimiter.
     [$.tagpair_value_contents],
   ],
 
@@ -131,6 +138,10 @@ module.exports = grammar({
     // a series_of_games, not just a freestanding comment.  But a repeat1() is
     // not used, to avoid returning an ERROR on an empty file.  TODO: is there
     // a reasonable way to use repeat1() here?
+    //
+    // The preferred style for grammars is apparently to have "document" or
+    // "source_file" at the toplevel, but "series_of_games" was intentionally
+    // chosen over "document".
 
     series_of_games: $ => seq(
       repeat(
@@ -154,8 +165,12 @@ module.exports = grammar({
     // which cannot be enforced as games without termination markers are
     // frequent in the wild.
     //
-    // Therefore the below requires _either_ a header or a termination
+    // Therefore the below requires _either_ a header _or_ a termination
     // marker/result_code.
+    //
+    // It is helpful for the grammar to consider the result_code as being
+    // distinct from the movetext, though that is technically a deviation
+    // from the spec per 8.2.6 above.
 
     game: $ => choice(
       seq(
@@ -201,7 +216,10 @@ module.exports = grammar({
       // line, which is handled by this assertion via a scanner.c.  These
       // rarely-seen comments are called "escapes" in the spec, and we could
       // consider giving them a distinct field name.  However, the consumer
-      // could also simply consult the delimiter character.
+      // could also simply consult the delimiter character to distinguish
+      // them.
+      //
+      // Note that the assertion in the seq() has no width.
       seq($._full_line_comment_delimiter_bol_assertion, '%'),
     ),
 
@@ -249,8 +267,9 @@ module.exports = grammar({
       field('tagpair_delimiter', $.tagpair_delimiter_close),
     ),
 
-    // percent is avoided in the first position because of the similarity
+    // Percent is avoided in the first position because of the similarity
     // to embedded commands, though that is not strictly required to parse.
+    // TODO: consider relaxing the percent requirement.
     tagpair_key: $ => token(/[^%\p{White_Space}\[]\P{White_Space}*/),
 
     _tagpair_value: $ => choice(
@@ -266,7 +285,8 @@ module.exports = grammar({
 
     tagpair_value_contents: $ => repeat1(
       choice(
-        // invert confusables.double_quote
+        // Invert confusables.double_quote by hand (excepting HTML entities).
+        // There isn't an invertible Unicode property limited only to double quotes.
         token.immediate(/[^"＂“”‟″‶〃״˝ʺ˶ˮײ«»\r\n]+/),
         confusables.double_quote,
       )),
@@ -300,6 +320,10 @@ module.exports = grammar({
 
     command_delimiter_close: $ => ']',
 
+    // This is debatable.  It helps consume some mangled PGNs, but it also
+    // seems to be that it makes the parser less helpful at identifying
+    // precise ERROR spans.  Precise ERROR spans are helpful for the end
+    // user to understand what to fix to make a bad PGN readable.
     trailing_garbage: $ => repeat1(
       choice(
         ')',
@@ -409,7 +433,7 @@ module.exports = grammar({
       $._san_null_move,
     ),
 
-    // LAN support is best-effort; prefer capturing as san_move when ambiguous
+    // LAN support is best-effort; prefer identifying as san_move when ambiguous
     lan_move: $ => prec.dynamic(-1, seq(
       $._lan_move_by_coordinates,
       optional($.check_or_mate_condition),
@@ -425,6 +449,11 @@ module.exports = grammar({
         'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
       )),
 
+    // Distinguishing ranks might be considered an exception to the general rule
+    // that the parser reads the notation without knowing the rules of chess.  The
+    // distinction is needed to disambiguate N-for-Novelty annotation glyphs from
+    // N-for-Knight in pawn underpromotions.  This only works because promotions
+    // are obligatory in SAN notation.
     _san_rank_promoting: $ => token.immediate(
       choice(
         '1', '8',
@@ -464,6 +493,7 @@ module.exports = grammar({
 
     _san_promotion_symbol: $ => token.immediate(confusables.equals),
 
+    // Surprisingly, every possible flavor of _san_square is used in the grammar.
     _san_square_any: $ => seq(
       $._san_file,
       $._san_rank_any,
@@ -558,7 +588,8 @@ module.exports = grammar({
 
     _lan_move_by_coordinates: $ => seq(
       $._san_square_any,
-      // Note: UCI-LAN format elides the next character, but we don't expect UCI-LAN in PGNs
+      // Note: the UCI-LAN format used by engines elides the next character, but
+      // we don't expect UCI-LAN in PGNs.
       choice(
         token.immediate(confusables.dash),
         $._san_capture_symbol,
@@ -567,7 +598,8 @@ module.exports = grammar({
         $._san_square_nonpromoting_immediate,
         seq(
           $._san_square_promoting_immediate,
-          // only allow implicit promotion for LAN moves
+          // Only allow implicit promotion for LAN moves, not for SAN moves.  Needed
+          // because it is a common convention in LAN.
           optional($._san_promotion),
         ))),
 
@@ -604,17 +636,21 @@ module.exports = grammar({
         '#',
       )),
 
-    // Whitespace is generally mandatory after "N" annotations to disambiguate cases
-    // such as "2. d4 N h6" vs "2. d4 Nh6".  As a special case, when non-move _punctuation_
-    // follows immediately, as in variations such as "(2. d4 N)" the "N" is accepted
-    // without the trailing space.  This depends on the external scanner.c, which provides
-    // the token $._novelty_glyph_before_punctuation via lookahead.  It could be possible
-    // to also make a $._novelty_glyph_before_whitespace in scanner.c.
+    // Whitespace is generally mandatory after "N" (Novelty) annotations to disambiguate
+    // cases such as "2. d4 N h6" vs "2. d4 Nh6".  As a special case, when non-move
+    // _punctuation_ follows immediately, as in variations such as "(2. d4 N)" the "N" is
+    // accepted without the trailing space.  This depends on the external scanner.c, which
+    // provides the token $._novelty_glyph_before_punctuation via lookahead.
+    //
+    // It could be possible to also make a $._novelty_glyph_before_whitespace in scanner.c,
+    // and remove the whitespace from the "/N\p{White_Space}/" pattern below.
     //
     // For syntax highlighting, it should not matter that the "N" annotation span may
-    // include the trailing whitespace.
+    // include the trailing whitespace.  Other consumers of the syntax tree may need to
+    // strip whitespace from spans routinely.
     //
-    // The parser can figure out all other annotation glyphs, even when spacing is poor.
+    // The parser can figure out all other annotation glyphs, even when spacing is
+    // irregular.
     annotation: $ => choice(
       $._novelty_glyph_before_punctuation,
       token(
@@ -701,14 +737,20 @@ module.exports = grammar({
     /// grammar: result code
     ///
 
+    // As mentioned above, result_code is presented in the syntax tree as distinct
+    // from the movetext, which is technically a deviation from the specification
+    // http://www.saremba.de/chessgml/standards/pgn/pgn-complete.htm#c8.2.6 .
+
     result_code: $ => choice(
       seq('1', confusables.dash, confusables.o),
       seq(confusables.o, confusables.dash, '1'),
       seq('1', confusables.slash, '2', confusables.dash, '1', confusables.slash, '2'),
       seq(confusables.half, confusables.dash, confusables.half),
       confusables.asterisk,
-      // these would get confused with dotless move numbers unless wrapped in token()
-      // only up to a single stray space is tolerated in each spot, in the name of sanity
+      // These would get confused with dotless move numbers unless wrapped in token().
+      // Only up to a single stray space is tolerated in each spot, in the name of sanity,
+      // though two might be reasonable.
+      // TODO: since zero space is allowed, are these duplicative with the above?
       token(seq(/1\p{White_Space}{0,1}/, confusables.dash, /\p{White_Space}{0,1}/, confusables.o)),
       token(seq(confusables.o, /\p{White_Space}{0,1}/, confusables.dash, /\p{White_Space}{0,1}1/)),
       token(
@@ -730,6 +772,8 @@ module.exports = grammar({
 /// utility functions
 ///
 
+// Ugly but easier than regex flags, since different regexes are built up
+// from fragments, combining with HTML entity names which are case-sensitive.
 function case_insensitive_regex(string, as_fragment=false) {
   let expression = '';
 
