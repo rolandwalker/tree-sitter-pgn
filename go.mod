@@ -1,4 +1,4 @@
-module github.com/tree-sitter/tree-sitter-pgn
+module github.com/rolandwalker/tree-sitter-pgn
 
 go 1.23
 
