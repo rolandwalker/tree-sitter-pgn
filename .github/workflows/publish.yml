@@ -31,7 +31,7 @@ jobs:
       - name: Build sources
         run: python -mbuild -n -s
       - name: Upload sources
-        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
+        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
         with:
           name: dist-sources
           path: dist/*.tar.gz
@@ -62,7 +62,7 @@ jobs:
           CIBW_ARCHS: ${{matrix.cibw_arch}}
           CIBW_TEST_SKIP: "*-*linux_aarch64"
       - name: Upload wheel artifacts
-        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
+        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
         with:
           path: dist/*.whl
           name: dist-wheels-${{matrix.os}}-${{matrix.cibw_arch}}
