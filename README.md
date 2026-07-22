@@ -36,8 +36,8 @@ in [grammar.js](https://github.com/rolandwalker/tree-sitter-pgn/blob/master/gram
 
 ## Highlighting Example
 
-<a href="/doc/images/pgn_syntax_highlight.png">
-    <img src="/doc/images/pgn_syntax_highlight.png" width=500/>
+<a href="https://raw.githubusercontent.com/rolandwalker/tree-sitter-pgn/master/doc/images/pgn_syntax_highlight.png">
+    <img src="https://raw.githubusercontent.com/rolandwalker/tree-sitter-pgn/master/doc/images/pgn_syntax_highlight.png" width=500/>
 </a>
 
 ## Python Example
